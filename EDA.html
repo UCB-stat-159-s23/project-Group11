@@ -351,6 +351,12 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-control-of-the-school-affect-retention-rates">How does the control of the school affect retention rates?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -600,13 +606,91 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/719cb50b412bbbdc3ca398d8c3bad08be36fd3435a3e76dab0c69d53d512edbc.png" src="_images/719cb50b412bbbdc3ca398d8c3bad08be36fd3435a3e76dab0c69d53d512edbc.png" />
+<img alt="_images/2ccb4cb91b6b2dbc51ca73dd263376c6d86e6f328976d59e4a17e2df8a585a54.png" src="_images/2ccb4cb91b6b2dbc51ca73dd263376c6d86e6f328976d59e4a17e2df8a585a54.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>Based on the histograms, we notice that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
+</section>
+<section id="how-does-the-control-of-the-school-affect-retention-rates">
+<h2>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this heading">#</a></h2>
+<section id="public-schools">
+<h3>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Public Institution Retention Rates&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e3f041e446b870ba501179c32c2f71a7547e2c21eece3096635f05984fdb1a4a.png" src="_images/e3f041e446b870ba501179c32c2f71a7547e2c21eece3096635f05984fdb1a4a.png" />
+</div>
+</div>
+<p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
+</section>
+<section id="private-non-profit">
+<h3>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_non_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Private (Non-profit) Institution Retention Rates&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_non_profit</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_non_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2e1c34705c4418d66c0e1581529f4c3a98a9f433722f017f441932e9de3f881d.png" src="_images/2e1c34705c4418d66c0e1581529f4c3a98a9f433722f017f441932e9de3f881d.png" />
+</div>
+</div>
+<p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
+</section>
+<section id="private-for-profit">
+<h3>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Private (For Profit) Institution Retention Rates&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_profit</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06101dfe2c39e13d17b4184de952f2a6f2cc9b1c02ad10ffdf569227ab09aafe.png" src="_images/06101dfe2c39e13d17b4184de952f2a6f2cc9b1c02ad10ffdf569227ab09aafe.png" />
+</div>
+</div>
+<p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
+</section>
 </section>
 </section>
 
@@ -661,6 +745,12 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-control-of-the-school-affect-retention-rates">How does the control of the school affect retention rates?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
