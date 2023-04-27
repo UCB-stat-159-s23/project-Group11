@@ -355,6 +355,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-admission-rates-affect-retention-rates">Does Admission Rates affect Retention Rates?</a></li>
 </ul>
 </li>
 </ul>
@@ -691,6 +692,54 @@ document.write(`
 </div>
 <p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
 </section>
+<section id="does-admission-rates-affect-retention-rates">
+<h3>Does Admission Rates affect Retention Rates?<a class="headerlink" href="#does-admission-rates-affect-retention-rates" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Admission Rates vs. Retention Rates&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ADM_RATE</span><span class="p">,</span> <span class="n">four_yr_retention</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ADM_RATE</span><span class="p">,</span> <span class="n">less_four_yr_retention</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/85e69a1d2da062201003f00f2169659e43b78229d84970afd2443a98e17be0a8.png" src="_images/85e69a1d2da062201003f00f2169659e43b78229d84970afd2443a98e17be0a8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pearson&#39;s correlation coefficient</span>
+<span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ADM_RATE</span><span class="p">,</span> <span class="n">four_yr_retention</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ADM_RATE</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">four_yr_retention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[nan, nan],
+       [nan, nan]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">ADM_RATE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21226646428590057
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -749,6 +798,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-admission-rates-affect-retention-rates">Does Admission Rates affect Retention Rates?</a></li>
 </ul>
 </li>
 </ul>
