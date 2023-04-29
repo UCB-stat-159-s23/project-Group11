@@ -355,7 +355,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-admission-rates-affect-retention-rates">Does Admission Rates affect Retention Rates?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-numerical-features-affect-retention-rates">Which numerical features affect Retention Rates?</a></li>
 </ul>
 </li>
 </ul>
@@ -377,6 +377,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesRegressor</span>
 
 <span class="c1"># Prep plotting aesthetics</span>
 <span class="c1"># Set font size names</span>
@@ -692,125 +693,464 @@ document.write(`
 </div>
 <p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
 </section>
-<section id="does-admission-rates-affect-retention-rates">
-<h3>Does Admission Rates affect Retention Rates?<a class="headerlink" href="#does-admission-rates-affect-retention-rates" title="Permalink to this heading">#</a></h3>
+<section id="which-numerical-features-affect-retention-rates">
+<h3>Which numerical features affect Retention Rates?<a class="headerlink" href="#which-numerical-features-affect-retention-rates" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesRegressor</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="k">def</span> <span class="nf">compute_feature_importance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_column</span><span class="p">,</span> <span class="n">feature_columns</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combine_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">combined_col</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes the feature importances of multiple variables using scikit-learn&#39;s ExtraTreesRegressor</span>
+<span class="sd">    Returns dataframe with the new column of the combined variables</span>
 
-<span class="sd">    Input:</span>
-<span class="sd">    df (pandas.DataFrame): The data containing the target and feature columns.</span>
-<span class="sd">    target_column (str): The name of the target column.</span>
-<span class="sd">    feature_columns (list): A list of names of the feature columns whose importances are to be computed.</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (pandas.DataFrame): The data containing the features.</span>
+<span class="sd">    col1 and col2: Two columns you want to combine</span>
+<span class="sd">    combined_col: New column name</span>
 
-<span class="sd">    Output:</span>
-<span class="sd">    pandas.Series: The feature importances of the variables.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    pandas.DataFrame with new column</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Split the data into target and feature columns</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">target_column</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
-
-    <span class="c1"># Fit the ExtraTreesRegressor model</span>
-    <span class="n">etr</span> <span class="o">=</span> <span class="n">ExtraTreesRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">etr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Compute the feature importances</span>
-    <span class="n">feature_importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">etr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="n">variable_importances</span> <span class="o">=</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">variable_importances</span>
+    <span class="n">new_col</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">])</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col2</span><span class="p">]):</span>
+            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">]):</span>
+            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col2</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">combined_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_col</span>
+    <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_feature_importance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_column</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes feature importance using the Extra Trees Regressor algorithm.</span>
 
-<span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (pandas.DataFrame): The data containing the features.</span>
 
-<span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    pandas.DataFrame: The feature importance scores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Split the data into X (features) and y (target)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_column</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
+
+    <span class="c1"># Train an Extra Trees Regressor model to compute feature importance</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">ExtraTreesRegressor</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># Create a DataFrame with feature importance scores</span>
+    <span class="n">importance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;Importance&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">})</span>
+    <span class="n">importance_df</span> <span class="o">=</span> <span class="n">importance_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">importance_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
+            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
+            <span class="c1">## four year specific</span>
+            <span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span>
+
+<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>             <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>             <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>             <span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">Cell In[9], line 26,</span> in <span class="ni">compute_feature_importance</span><span class="nt">(df, target_column, feature_columns)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Compute the feature importances</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">feature_importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">etr</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="n">variable_importances</span> <span class="o">=</span> <span class="n">feature_importances</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="k">return</span> <span class="n">variable_importances</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/series.py:1007,</span> in <span class="ni">Series.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span>     <span class="n">key</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_values</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1007</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_with</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.239288</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.144273</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.071349</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.066445</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.050115</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.038339</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.036346</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.029296</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.027318</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.018416</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.018274</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.017689</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.017247</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.017173</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.016508</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.016397</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.015498</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.015252</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.013632</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013580</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.013515</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.013281</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.012979</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.012881</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.012481</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.012378</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.011661</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.009894</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.009652</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.008843</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
+            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
+            <span class="c1">## less than four year specific</span>
+            <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span>
 
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/series.py:1047,</span> in <span class="ni">Series._get_with</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1044</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="c1"># handle the dup indexing case GH#4246</span>
-<span class="ne">-&gt; </span><span class="mi">1047</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexing.py:1073,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">or</span> <span class="mi">0</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span> <span class="n">maybe_callable</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1073</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_axis</span><span class="p">(</span><span class="n">maybe_callable</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexing.py:1301,</span> in <span class="ni">_LocIndexer._getitem_axis</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1298</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">key</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1299</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot index with multidimensional key&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1301</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_iterable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1303</span> <span class="c1"># nested tuple slicing</span>
-<span class="g g-Whitespace">   </span><span class="mi">1304</span> <span class="k">if</span> <span class="n">is_nested_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexing.py:1239,</span> in <span class="ni">_LocIndexer._getitem_iterable</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1236</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span> <span class="c1"># A collection of keys</span>
-<span class="ne">-&gt; </span><span class="mi">1239</span> <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_listlike_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1240</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_reindex_with_indexers</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1241</span>     <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="p">[</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">]},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">allow_dups</span><span class="o">=</span><span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">1242</span> <span class="p">)</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexing.py:1432,</span> in <span class="ni">_LocIndexer._get_listlike_indexer</span><span class="nt">(self, key, axis)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1429</span> <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1430</span> <span class="n">axis_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_axis_name</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1432</span> <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">_get_indexer_strict</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis_name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1434</span> <span class="k">return</span> <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexes/base.py:6070,</span> in <span class="ni">Index._get_indexer_strict</span><span class="nt">(self, key, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6067</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">6068</span>     <span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">new_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_non_unique</span><span class="p">(</span><span class="n">keyarr</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">6070</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raise_if_missing</span><span class="p">(</span><span class="n">keyarr</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">axis_name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6072</span> <span class="n">keyarr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6073</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">Index</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">6074</span>     <span class="c1"># GH 42790 - Preserve name from an Index</span>
-
-<span class="nn">File /srv/conda/envs/notebook/lib/python3.10/site-packages/pandas/core/indexes/base.py:6133,</span> in <span class="ni">Index._raise_if_missing</span><span class="nt">(self, key, indexer, axis_name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6130</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;None of [</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] are in the [</span><span class="si">{</span><span class="n">axis_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6132</span> <span class="n">not_found</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ensure_index</span><span class="p">(</span><span class="n">key</span><span class="p">)[</span><span class="n">missing_mask</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-<span class="ne">-&gt; </span><span class="mi">6133</span> <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">not_found</span><span class="si">}</span><span class="s2"> not in index&quot;</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &quot;[&#39;RET_FT4&#39;] not in index&quot;
+<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">less_fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.225647</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.120496</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.076547</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.070903</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.062127</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.055913</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.055150</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.048827</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.046130</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.025456</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.020748</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.019901</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.018874</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.017798</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.017117</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.015890</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.015041</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.013411</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.013171</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.011690</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.010084</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.009926</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.008935</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.006520</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.005920</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.004669</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.001652</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.000813</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.000644</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -871,7 +1211,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-admission-rates-affect-retention-rates">Does Admission Rates affect Retention Rates?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-numerical-features-affect-retention-rates">Which numerical features affect Retention Rates?</a></li>
 </ul>
 </li>
 </ul>
