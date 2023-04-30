@@ -1,0 +1,2079 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Race/Ethnicity Diversity and Retention Rate Analysis &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EDA-Race-Diversity-Analysis';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEDA-Race-Diversity-Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/EDA-Race-Diversity-Analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Race/Ethnicity Diversity and Retention Rate Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Race/Ethnicity Diversity and Retention Rate Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">Load the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basci-information">Basci Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-the-missing-values">Investigating the missing values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-rows-with-missing-values-in-both-columns-ret-ft4-and-ret-ftl4">Removing rows with missing values in both columns <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-racial-and-ethnic-diversity">Measuring Racial and Ethnic Diversity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statisics-summary-for-four-year-and-less-than-four-year-institutions">Descriptive Statisics Summary for four-year and less-than-four-year institutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-retension-rate-and-diversity-index-at-four-year-institutions">Relationship between Retension Rate and Diversity Index at four-year institutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-retension-rate-and-diversity-index-at-less-than-four-year-institutions">Relationship between Retension Rate and Diversity Index at less-than-four-year institutions</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="race-ethnicity-diversity-and-retention-rate-analysis">
+<h1>Race/Ethnicity Diversity and Retention Rate Analysis<a class="headerlink" href="#race-ethnicity-diversity-and-retention-rate-analysis" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/Most-Recent-Cohorts-Institution-filtered.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNITID</th>
+      <th>INSTNM</th>
+      <th>CITY</th>
+      <th>HIGHDEG</th>
+      <th>CONTROL</th>
+      <th>ST_FIPS</th>
+      <th>REGION</th>
+      <th>LOCALE</th>
+      <th>LOCALE2</th>
+      <th>CCUGPROF</th>
+      <th>...</th>
+      <th>MD_FAMINC</th>
+      <th>FAMINC_IND</th>
+      <th>MN_EARN_WNE_P10</th>
+      <th>UGDS_MEN</th>
+      <th>UGDS_WOMEN</th>
+      <th>GRADS</th>
+      <th>RET_FT4_POOLED</th>
+      <th>RET_FTL4_POOLED</th>
+      <th>PRGMOFR</th>
+      <th>ADMCON7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100654</td>
+      <td>Alabama A &amp; M University</td>
+      <td>Normal</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>...</td>
+      <td>23553</td>
+      <td>10340.346032</td>
+      <td>35500</td>
+      <td>0.3978</td>
+      <td>0.6022</td>
+      <td>884.0</td>
+      <td>0.5533</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100663</td>
+      <td>University of Alabama at Birmingham</td>
+      <td>Birmingham</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>...</td>
+      <td>34489</td>
+      <td>30607.18029</td>
+      <td>48400</td>
+      <td>0.3816</td>
+      <td>0.6184</td>
+      <td>8685.0</td>
+      <td>0.8477</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100690</td>
+      <td>Amridge University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>15033.5</td>
+      <td>20596.158491</td>
+      <td>47600</td>
+      <td>0.2886</td>
+      <td>0.7114</td>
+      <td>477.0</td>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100706</td>
+      <td>University of Alabama in Huntsville</td>
+      <td>Huntsville</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>...</td>
+      <td>44787</td>
+      <td>27941.821963</td>
+      <td>52000</td>
+      <td>0.5891</td>
+      <td>0.4109</td>
+      <td>1972.0</td>
+      <td>0.8234</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100724</td>
+      <td>Alabama State University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>...</td>
+      <td>22080.5</td>
+      <td>8551.802974</td>
+      <td>30600</td>
+      <td>0.3605</td>
+      <td>0.6395</td>
+      <td>458.0</td>
+      <td>0.6164</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 76 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="basci-information">
+<h2>Basci Information<a class="headerlink" href="#basci-information" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6681 entries, 0 to 6680
+Data columns (total 76 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   UNITID             6681 non-null   int64  
+ 1   INSTNM             6681 non-null   object 
+ 2   CITY               6681 non-null   object 
+ 3   HIGHDEG            6681 non-null   int64  
+ 4   CONTROL            6681 non-null   int64  
+ 5   ST_FIPS            6681 non-null   int64  
+ 6   REGION             6681 non-null   int64  
+ 7   LOCALE             6127 non-null   float64
+ 8   LOCALE2            0 non-null      float64
+ 9   CCUGPROF           6127 non-null   float64
+ 10  CCSIZSET           6127 non-null   float64
+ 11  RELAFFIL           897 non-null    float64
+ 12  ADM_RATE           1962 non-null   float64
+ 13  SAT_AVG            1139 non-null   float64
+ 14  UG                 0 non-null      float64
+ 15  UGDS_WHITE         5840 non-null   float64
+ 16  UGDS_BLACK         5840 non-null   float64
+ 17  UGDS_HISP          5840 non-null   float64
+ 18  UGDS_ASIAN         5840 non-null   float64
+ 19  UGDS_AIAN          5840 non-null   float64
+ 20  UGDS_NHPI          5840 non-null   float64
+ 21  UGDS_2MOR          5840 non-null   float64
+ 22  UGDS_NRA           5840 non-null   float64
+ 23  UGDS_UNKN          5840 non-null   float64
+ 24  UGDS_WHITENH       0 non-null      float64
+ 25  UGDS_BLACKNH       0 non-null      float64
+ 26  UGDS_API           0 non-null      float64
+ 27  UGDS_AIANOLD       0 non-null      float64
+ 28  UGDS_HISPOLD       0 non-null      float64
+ 29  UG_NRA             0 non-null      float64
+ 30  UG_UNKN            0 non-null      float64
+ 31  UG_WHITENH         0 non-null      float64
+ 32  UG_BLACKNH         0 non-null      float64
+ 33  UG_API             0 non-null      float64
+ 34  UG_AIANOLD         0 non-null      float64
+ 35  UG_HISPOLD         0 non-null      float64
+ 36  NPT4_PUB           1828 non-null   float64
+ 37  NPT4_PRIV          3565 non-null   float64
+ 38  TUITIONFEE_IN      3835 non-null   float64
+ 39  TUITIONFEE_OUT     3835 non-null   float64
+ 40  INEXPFTE           6104 non-null   float64
+ 41  AVGFACSAL          3924 non-null   float64
+ 42  PFTFAC             3546 non-null   float64
+ 43  PCTPELL            5815 non-null   float64
+ 44  C150_4             2273 non-null   float64
+ 45  C150_L4            3182 non-null   float64
+ 46  RET_FT4            2080 non-null   float64
+ 47  RET_FTL4           3098 non-null   float64
+ 48  PCTFLOAN           5815 non-null   float64
+ 49  RPY_7YR_RT         4941 non-null   object 
+ 50  DEP_STAT_PCT_IND   5891 non-null   object 
+ 51  PAR_ED_PCT_1STGEN  5891 non-null   object 
+ 52  PAR_ED_PCT_MS      5891 non-null   object 
+ 53  PAR_ED_PCT_HS      5891 non-null   object 
+ 54  PAR_ED_PCT_PS      5891 non-null   object 
+ 55  DEP_INC_AVG        5891 non-null   object 
+ 56  IND_INC_AVG        5891 non-null   object 
+ 57  GRAD_DEBT_MDN      6358 non-null   object 
+ 58  WDRAW_DEBT_MDN     6358 non-null   object 
+ 59  AGE_ENTRY          5891 non-null   object 
+ 60  FEMALE             5891 non-null   object 
+ 61  MARRIED            5891 non-null   object 
+ 62  DEPENDENT          5891 non-null   object 
+ 63  VETERAN            5891 non-null   object 
+ 64  FIRST_GEN          5891 non-null   object 
+ 65  FAMINC             5891 non-null   object 
+ 66  MD_FAMINC          5891 non-null   object 
+ 67  FAMINC_IND         5891 non-null   object 
+ 68  MN_EARN_WNE_P10    5157 non-null   object 
+ 69  UGDS_MEN           5840 non-null   float64
+ 70  UGDS_WOMEN         5840 non-null   float64
+ 71  GRADS              2049 non-null   float64
+ 72  RET_FT4_POOLED     2156 non-null   float64
+ 73  RET_FTL4_POOLED    3125 non-null   float64
+ 74  PRGMOFR            2234 non-null   float64
+ 75  ADMCON7            1989 non-null   float64
+dtypes: float64(49), int64(5), object(22)
+memory usage: 3.9+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The columns related to race/ethnicity in the dataset are:</strong>*</p>
+<ul class="simple">
+<li><p>UGDS_WHITE</p></li>
+<li><p>UGDS_BLACK</p></li>
+<li><p>UGDS_HISP</p></li>
+<li><p>UGDS_ASIAN</p></li>
+<li><p>UGDS_AIAN</p></li>
+<li><p>UGDS_NHPI</p></li>
+<li><p>UGDS_2MOR</p></li>
+<li><p>UGDS_NRA</p></li>
+<li><p>UGDS_UNKN</p></li>
+<li><p>UGDS_WHITENH</p></li>
+<li><p>UGDS_BLACKNH</p></li>
+<li><p>UGDS_API</p></li>
+<li><p>UGDS_AIANOLD</p></li>
+<li><p>UGDS_HISPOLD</p></li>
+<li><p>UG_NRA</p></li>
+<li><p>UG_UNKN</p></li>
+<li><p>UG_WHITENH</p></li>
+<li><p>UG_BLACKNH</p></li>
+<li><p>UG_API</p></li>
+<li><p>UG_AIANOLD</p></li>
+<li><p>UG_HISPOLD</p></li>
+</ul>
+<p>From the dataset summary information above, we can see that the following columns have all nulll values: <strong>‘UGDS_WHITENH’, ‘UGDS_BLACKNH’, ‘UGDS_API’, ‘UGDS_AIANOLD’, ‘UGDS_HISPOLD’, ‘UG_NRA’, ‘UG_UNKN’, ‘UG_WHITENH’, ‘UG_BLACKNH’, ‘UG_API’, ‘UG_AIANOLD’, ‘UG_HISPOLD’</strong></p>
+<p>These columns with all null values are typically not useful for analysis and can be removed from the DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;UGDS_AIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">]]</span>
+<span class="n">race_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5403</td>
+      <td>NaN</td>
+      <td>0.0159</td>
+      <td>0.9022</td>
+      <td>0.0116</td>
+      <td>0.0012</td>
+      <td>0.0028</td>
+      <td>0.0008</td>
+      <td>0.0143</td>
+      <td>0.0073</td>
+      <td>0.0440</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8640</td>
+      <td>NaN</td>
+      <td>0.5496</td>
+      <td>0.2401</td>
+      <td>0.0610</td>
+      <td>0.0704</td>
+      <td>0.0024</td>
+      <td>0.0004</td>
+      <td>0.0469</td>
+      <td>0.0232</td>
+      <td>0.0059</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>0.2550</td>
+      <td>0.6913</td>
+      <td>0.0268</td>
+      <td>0.0034</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0235</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.8180</td>
+      <td>NaN</td>
+      <td>0.7173</td>
+      <td>0.0907</td>
+      <td>0.0599</td>
+      <td>0.0354</td>
+      <td>0.0083</td>
+      <td>0.0010</td>
+      <td>0.0431</td>
+      <td>0.0190</td>
+      <td>0.0252</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6202</td>
+      <td>NaN</td>
+      <td>0.0167</td>
+      <td>0.9265</td>
+      <td>0.0130</td>
+      <td>0.0019</td>
+      <td>0.0017</td>
+      <td>0.0017</td>
+      <td>0.0119</td>
+      <td>0.0155</td>
+      <td>0.0111</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These columns provide information on the racial and ethnic diversity of undergraduate, degree-seeking students in a particular institutions.</p>
+<ul class="simple">
+<li><p>white (UGDS_WHITE)</p></li>
+<li><p>black (UGDS_BLACK)</p></li>
+<li><p>Hispanic (UGDS_HISP)</p></li>
+<li><p>Asian (UGDS_ASIAN)</p></li>
+<li><p>American Indian/Alaska Native (UGDS_AIAN)</p></li>
+<li><p>Native Hawaiian/Pacific Islander (UGDS_NHPI)</p></li>
+<li><p>two or more races (UGDS_2MOR)</p></li>
+<li><p>non-resident aliens (UGDS_NRA)</p></li>
+<li><p>unknown (UGDS_UNKN)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6681 entries, 0 to 6680
+Data columns (total 11 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   RET_FT4     2080 non-null   float64
+ 1   RET_FTL4    3098 non-null   float64
+ 2   UGDS_WHITE  5840 non-null   float64
+ 3   UGDS_BLACK  5840 non-null   float64
+ 4   UGDS_HISP   5840 non-null   float64
+ 5   UGDS_ASIAN  5840 non-null   float64
+ 6   UGDS_AIAN   5840 non-null   float64
+ 7   UGDS_NHPI   5840 non-null   float64
+ 8   UGDS_2MOR   5840 non-null   float64
+ 9   UGDS_NRA    5840 non-null   float64
+ 10  UGDS_UNKN   5840 non-null   float64
+dtypes: float64(11)
+memory usage: 574.3 KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="investigating-the-missing-values">
+<h2>Investigating the missing values<a class="headerlink" href="#investigating-the-missing-values" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RET_FT4       4601
+RET_FTL4      3583
+UGDS_WHITE     841
+UGDS_BLACK     841
+UGDS_HISP      841
+UGDS_ASIAN     841
+UGDS_AIAN      841
+UGDS_NHPI      841
+UGDS_2MOR      841
+UGDS_NRA       841
+UGDS_UNKN      841
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_rows</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">missing_rows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>80</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6676</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6677</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6678</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6679</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6680</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>841 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">race_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">missing_rows</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">race_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 5840 entries, 0 to 6126
+Data columns (total 11 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   RET_FT4     2080 non-null   float64
+ 1   RET_FTL4    3098 non-null   float64
+ 2   UGDS_WHITE  5840 non-null   float64
+ 3   UGDS_BLACK  5840 non-null   float64
+ 4   UGDS_HISP   5840 non-null   float64
+ 5   UGDS_ASIAN  5840 non-null   float64
+ 6   UGDS_AIAN   5840 non-null   float64
+ 7   UGDS_NHPI   5840 non-null   float64
+ 8   UGDS_2MOR   5840 non-null   float64
+ 9   UGDS_NRA    5840 non-null   float64
+ 10  UGDS_UNKN   5840 non-null   float64
+dtypes: float64(11)
+memory usage: 547.5 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RET_FT4       3760
+RET_FTL4      2742
+UGDS_WHITE       0
+UGDS_BLACK       0
+UGDS_HISP        0
+UGDS_ASIAN       0
+UGDS_AIAN        0
+UGDS_NHPI        0
+UGDS_2MOR        0
+UGDS_NRA         0
+UGDS_UNKN        0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5403</td>
+      <td>NaN</td>
+      <td>0.0159</td>
+      <td>0.9022</td>
+      <td>0.0116</td>
+      <td>0.0012</td>
+      <td>0.0028</td>
+      <td>0.0008</td>
+      <td>0.0143</td>
+      <td>0.0073</td>
+      <td>0.0440</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8640</td>
+      <td>NaN</td>
+      <td>0.5496</td>
+      <td>0.2401</td>
+      <td>0.0610</td>
+      <td>0.0704</td>
+      <td>0.0024</td>
+      <td>0.0004</td>
+      <td>0.0469</td>
+      <td>0.0232</td>
+      <td>0.0059</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>0.2550</td>
+      <td>0.6913</td>
+      <td>0.0268</td>
+      <td>0.0034</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0235</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.8180</td>
+      <td>NaN</td>
+      <td>0.7173</td>
+      <td>0.0907</td>
+      <td>0.0599</td>
+      <td>0.0354</td>
+      <td>0.0083</td>
+      <td>0.0010</td>
+      <td>0.0431</td>
+      <td>0.0190</td>
+      <td>0.0252</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6202</td>
+      <td>NaN</td>
+      <td>0.0167</td>
+      <td>0.9265</td>
+      <td>0.0130</td>
+      <td>0.0019</td>
+      <td>0.0017</td>
+      <td>0.0017</td>
+      <td>0.0119</td>
+      <td>0.0155</td>
+      <td>0.0111</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6122</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.7500</td>
+      <td>0.0</td>
+      <td>0.1875</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0625</td>
+    </tr>
+    <tr>
+      <th>6123</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>6124</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.5882</td>
+      <td>0.0</td>
+      <td>0.0588</td>
+      <td>0.0588</td>
+      <td>0.0</td>
+      <td>0.1176</td>
+      <td>0.1176</td>
+      <td>0.0</td>
+      <td>0.0588</td>
+    </tr>
+    <tr>
+      <th>6125</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>6126</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.5714</td>
+      <td>0.0</td>
+      <td>0.2857</td>
+      <td>0.1429</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="removing-rows-with-missing-values-in-both-columns-ret-ft4-and-ret-ftl4">
+<h3>Removing rows with missing values in both columns <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code><a class="headerlink" href="#removing-rows-with-missing-values-in-both-columns-ret-ft4-and-ret-ftl4" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_rows</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">missing_rows</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.7596</td>
+      <td>0.1305</td>
+      <td>0.0369</td>
+      <td>0.0065</td>
+      <td>0.0126</td>
+      <td>0.0011</td>
+      <td>0.0247</td>
+      <td>0.0008</td>
+      <td>0.0274</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.5538</td>
+      <td>0.1846</td>
+      <td>0.1231</td>
+      <td>0.0077</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0846</td>
+      <td>0.0000</td>
+      <td>0.0462</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.3132</td>
+      <td>0.0415</td>
+      <td>0.1972</td>
+      <td>0.0189</td>
+      <td>0.0830</td>
+      <td>0.0486</td>
+      <td>0.1363</td>
+      <td>0.0005</td>
+      <td>0.1608</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.5013</td>
+      <td>0.0491</td>
+      <td>0.3488</td>
+      <td>0.0258</td>
+      <td>0.0181</td>
+      <td>0.0000</td>
+      <td>0.0052</td>
+      <td>0.0000</td>
+      <td>0.0517</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.3660</td>
+      <td>0.0685</td>
+      <td>0.4046</td>
+      <td>0.0452</td>
+      <td>0.0188</td>
+      <td>0.0046</td>
+      <td>0.0832</td>
+      <td>0.0010</td>
+      <td>0.0081</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6120</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1269</td>
+      <td>0.1866</td>
+      <td>0.1567</td>
+      <td>0.0821</td>
+      <td>0.0000</td>
+      <td>0.0149</td>
+      <td>0.4328</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>6122</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.7500</td>
+      <td>0.0000</td>
+      <td>0.1875</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0625</td>
+    </tr>
+    <tr>
+      <th>6123</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>6124</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.5882</td>
+      <td>0.0000</td>
+      <td>0.0588</td>
+      <td>0.0588</td>
+      <td>0.0000</td>
+      <td>0.1176</td>
+      <td>0.1176</td>
+      <td>0.0000</td>
+      <td>0.0588</td>
+    </tr>
+    <tr>
+      <th>6125</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+<p>662 rows × 11 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">race_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">missing_rows</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">race_data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 5178 entries, 0 to 6126
+Data columns (total 11 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   RET_FT4     2080 non-null   float64
+ 1   RET_FTL4    3098 non-null   float64
+ 2   UGDS_WHITE  5178 non-null   float64
+ 3   UGDS_BLACK  5178 non-null   float64
+ 4   UGDS_HISP   5178 non-null   float64
+ 5   UGDS_ASIAN  5178 non-null   float64
+ 6   UGDS_AIAN   5178 non-null   float64
+ 7   UGDS_NHPI   5178 non-null   float64
+ 8   UGDS_2MOR   5178 non-null   float64
+ 9   UGDS_NRA    5178 non-null   float64
+ 10  UGDS_UNKN   5178 non-null   float64
+dtypes: float64(11)
+memory usage: 485.4 KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="measuring-racial-and-ethnic-diversity">
+<h1>Measuring Racial and Ethnic Diversity<a class="headerlink" href="#measuring-racial-and-ethnic-diversity" title="Permalink to this heading">#</a></h1>
+<p>In this project we use the <strong>Simpson’s Diversity Index</strong> to describe the Racial and Ethnic diversity of professions schools in the United States.</p>
+<div class="math notranslate nohighlight">
+\[1 - \sum_{i=1}^{n} p_i^2\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">race_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">race_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>UGDS_WHITE</th>
+      <th>UGDS_BLACK</th>
+      <th>UGDS_HISP</th>
+      <th>UGDS_ASIAN</th>
+      <th>UGDS_AIAN</th>
+      <th>UGDS_NHPI</th>
+      <th>UGDS_2MOR</th>
+      <th>UGDS_NRA</th>
+      <th>UGDS_UNKN</th>
+      <th>diversity_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5403</td>
+      <td>NaN</td>
+      <td>0.0159</td>
+      <td>0.9022</td>
+      <td>0.0116</td>
+      <td>0.0012</td>
+      <td>0.0028</td>
+      <td>0.0008</td>
+      <td>0.0143</td>
+      <td>0.0073</td>
+      <td>0.0440</td>
+      <td>0.183444</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8640</td>
+      <td>NaN</td>
+      <td>0.5496</td>
+      <td>0.2401</td>
+      <td>0.0610</td>
+      <td>0.0704</td>
+      <td>0.0024</td>
+      <td>0.0004</td>
+      <td>0.0469</td>
+      <td>0.0232</td>
+      <td>0.0059</td>
+      <td>0.628836</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>0.2550</td>
+      <td>0.6913</td>
+      <td>0.0268</td>
+      <td>0.0034</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0000</td>
+      <td>0.0235</td>
+      <td>0.455797</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.8180</td>
+      <td>NaN</td>
+      <td>0.7173</td>
+      <td>0.0907</td>
+      <td>0.0599</td>
+      <td>0.0354</td>
+      <td>0.0083</td>
+      <td>0.0010</td>
+      <td>0.0431</td>
+      <td>0.0190</td>
+      <td>0.0252</td>
+      <td>0.469490</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6202</td>
+      <td>NaN</td>
+      <td>0.0167</td>
+      <td>0.9265</td>
+      <td>0.0130</td>
+      <td>0.0019</td>
+      <td>0.0017</td>
+      <td>0.0017</td>
+      <td>0.0119</td>
+      <td>0.0155</td>
+      <td>0.0111</td>
+      <td>0.140635</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
+<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>diversity_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5403</td>
+      <td>0.183444</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8640</td>
+      <td>0.628836</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5000</td>
+      <td>0.455797</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.8180</td>
+      <td>0.469490</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6202</td>
+      <td>0.140635</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FTL4</th>
+      <th>diversity_index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>0.5915</td>
+      <td>0.430426</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.5538</td>
+      <td>0.661073</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.5961</td>
+      <td>0.588972</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.5449</td>
+      <td>0.527717</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.5357</td>
+      <td>0.478832</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="descriptive-statisics-summary-for-four-year-and-less-than-four-year-institutions">
+<h2>Descriptive Statisics Summary for four-year and less-than-four-year institutions<a class="headerlink" href="#descriptive-statisics-summary-for-four-year-and-less-than-four-year-institutions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># four-year institutions</span>
+<span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.730971298076923
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5035307974807692
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># less-than-four-year institutions</span>
+<span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6909051969012266
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47995730161071665
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="relationship-between-retension-rate-and-diversity-index-at-four-year-institutions">
+<h2>Relationship between Retension Rate and Diversity Index at four-year institutions<a class="headerlink" href="#relationship-between-retension-rate-and-diversity-index-at-four-year-institutions" title="Permalink to this heading">#</a></h2>
+<p>When you have two massive continuous data and you want to visualize their relationship, you can use a scatter plot. Scatter plots are useful for visualizing the relationship between two continuous variables. Each data point is plotted as a point on the graph, with one variable on the x-axis and the other on the y-axis.</p>
+<p>However, if you have a large number of data points, a scatter plot can become overcrowded and difficult to interpret. In such cases, you can use a 2D density plot. These plots provide a way to visualize the distribution of the data while reducing the clutter caused by overlapping points in a scatter plot. A 2D density plot creates a smoothed representation of the data by estimating the density of points in different regions of the plot.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at four-year institutions.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at four-year institutions.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.012020871881703171 0.583742479083747
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;corr: </span><span class="si">{</span><span class="n">corr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" src="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" />
+</div>
+</div>
+<p><strong>The p-value is around 0.58, which is very large. This means that we can conclude that there is no relationship between retention rate and diversity index at four-year institutions.</strong></p>
+</section>
+<section id="relationship-between-retension-rate-and-diversity-index-at-less-than-four-year-institutions">
+<h2>Relationship between Retension Rate and Diversity Index at less-than-four-year institutions<a class="headerlink" href="#relationship-between-retension-rate-and-diversity-index-at-less-than-four-year-institutions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.08259689032835084 4.15791895176101e-06
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;corr: </span><span class="si">{</span><span class="n">corr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8642511676bc0b81ed1bda302c6b08ead72f5b6412cdc6ec3b9ee0015aa9627e.png" src="_images/8642511676bc0b81ed1bda302c6b08ead72f5b6412cdc6ec3b9ee0015aa9627e.png" />
+</div>
+</div>
+<p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions.</strong></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Race/Ethnicity Diversity and Retention Rate Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">Load the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basci-information">Basci Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-the-missing-values">Investigating the missing values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-rows-with-missing-values-in-both-columns-ret-ft4-and-ret-ftl4">Removing rows with missing values in both columns <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-racial-and-ethnic-diversity">Measuring Racial and Ethnic Diversity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statisics-summary-for-four-year-and-less-than-four-year-institutions">Descriptive Statisics Summary for four-year and less-than-four-year institutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-retension-rate-and-diversity-index-at-four-year-institutions">Relationship between Retension Rate and Diversity Index at four-year institutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-retension-rate-and-diversity-index-at-less-than-four-year-institutions">Relationship between Retension Rate and Diversity Index at less-than-four-year institutions</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
