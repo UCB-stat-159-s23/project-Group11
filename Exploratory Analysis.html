@@ -387,22 +387,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesRegressor</span>
 
-<span class="c1"># Prep plotting aesthetics</span>
-<span class="c1"># Set font size names</span>
-<span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
-<span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="c1"># Set font sizes</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>          <span class="c1"># controls default text sizes</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the axes title</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the x and y labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># legend fontsize</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
-<span class="c1"># Set figure size</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1"># size of the figure plotted</span>
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span>
 </pre></div>
 </div>
 </div>
@@ -713,7 +699,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2ccb4cb91b6b2dbc51ca73dd263376c6d86e6f328976d59e4a17e2df8a585a54.png" src="_images/2ccb4cb91b6b2dbc51ca73dd263376c6d86e6f328976d59e4a17e2df8a585a54.png" />
+<img alt="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" src="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -743,7 +729,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e3f041e446b870ba501179c32c2f71a7547e2c21eece3096635f05984fdb1a4a.png" src="_images/e3f041e446b870ba501179c32c2f71a7547e2c21eece3096635f05984fdb1a4a.png" />
+<img alt="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" src="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" />
 </div>
 </div>
 <p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
@@ -768,7 +754,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e1c34705c4418d66c0e1581529f4c3a98a9f433722f017f441932e9de3f881d.png" src="_images/2e1c34705c4418d66c0e1581529f4c3a98a9f433722f017f441932e9de3f881d.png" />
+<img alt="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" src="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" />
 </div>
 </div>
 <p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
@@ -793,7 +779,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/06101dfe2c39e13d17b4184de952f2a6f2cc9b1c02ad10ffdf569227ab09aafe.png" src="_images/06101dfe2c39e13d17b4184de952f2a6f2cc9b1c02ad10ffdf569227ab09aafe.png" />
+<img alt="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" src="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" />
 </div>
 </div>
 <p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
@@ -892,7 +878,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4c71e839e0757be90edd481a6f636cb003c92e01d9ef5dabe151fa690b55bc78.png" src="_images/4c71e839e0757be90edd481a6f636cb003c92e01d9ef5dabe151fa690b55bc78.png" />
+<img alt="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" src="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" />
 </div>
 </div>
 <p>From the Histogram above, in state more concentrated in the low cost segment. And more people are out of state than in state in every range except 0 to 5,000. It can be seen that students out of state need to pay more fees than those in state. The same conclusion can be found when we directly compare the mean and median of students in state and out state, that is, both the mean and median of students in out state are higher than those in state.</p>
@@ -941,7 +927,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e83fbf5a744e2139fc96b9db9ac622bb1c333215b055462d49a7b2b15aea3b9.png" src="_images/6e83fbf5a744e2139fc96b9db9ac622bb1c333215b055462d49a7b2b15aea3b9.png" />
+<img alt="_images/1894fa607efe41ba762842c10fb70182f2771e2c25dfd0a63978fcb30f7b1ba4.png" src="_images/1894fa607efe41ba762842c10fb70182f2771e2c25dfd0a63978fcb30f7b1ba4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -978,7 +964,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6e83fbf5a744e2139fc96b9db9ac622bb1c333215b055462d49a7b2b15aea3b9.png" src="_images/6e83fbf5a744e2139fc96b9db9ac622bb1c333215b055462d49a7b2b15aea3b9.png" />
+<img alt="_images/1894fa607efe41ba762842c10fb70182f2771e2c25dfd0a63978fcb30f7b1ba4.png" src="_images/1894fa607efe41ba762842c10fb70182f2771e2c25dfd0a63978fcb30f7b1ba4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1269,7 +1255,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fcdd4a1667f8f24f54fbe96c12b03041290c3ae910a70bd2fd02402c1f87efdc.png" src="_images/fcdd4a1667f8f24f54fbe96c12b03041290c3ae910a70bd2fd02402c1f87efdc.png" />
+<img alt="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" src="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1420,7 +1406,7 @@ memory usage: 3.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_335/1615568326.py:1: SettingWithCopyWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10401/1615568326.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
@@ -1676,7 +1662,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.730971298076923
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5035307974807692
 </pre></div>
 </div>
 </div>
@@ -1686,6 +1672,11 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># less-than-four-year institutions</span>
 <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47995730161071665
 </pre></div>
 </div>
 </div>
@@ -1720,7 +1711,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/667e80c37a580b832f60297141ba55cc83da9099ef3398734f6ebae2228ac46e.png" src="_images/667e80c37a580b832f60297141ba55cc83da9099ef3398734f6ebae2228ac46e.png" />
+<img alt="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" src="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" />
 </div>
 </div>
 <p><strong>The p-value is around 0.58, which is very large. This means that we can conclude that there is no relationship between retention rate and diversity index at four-year institutions.</strong></p>
@@ -1753,70 +1744,13 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/43b100037835d0fa36a3c883bcf7ec3afae46625a878c48d13fc547eacb5185a.png" src="_images/43b100037835d0fa36a3c883bcf7ec3afae46625a878c48d13fc547eacb5185a.png" />
+<img alt="_images/8642511676bc0b81ed1bda302c6b08ead72f5b6412cdc6ec3b9ee0015aa9627e.png" src="_images/8642511676bc0b81ed1bda302c6b08ead72f5b6412cdc6ec3b9ee0015aa9627e.png" />
 </div>
 </div>
 <p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions.</strong></p>
 </section>
 <section id="feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">
 <h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">combine_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">combined_col</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns dataframe with the new column of the combined variables</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">    df (pandas.DataFrame): The data containing the features.</span>
-<span class="sd">    col1 and col2: Two columns you want to combine</span>
-<span class="sd">    combined_col: New column name</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    pandas.DataFrame with new column</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">new_col</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">])</span> <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col2</span><span class="p">]):</span>
-            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">]):</span>
-            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col2</span><span class="p">])</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">new_col</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col1</span><span class="p">])</span>
-    <span class="n">df</span><span class="p">[</span><span class="n">combined_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_col</span>
-    <span class="k">return</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute_feature_importance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_column</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes feature importance using the Extra Trees Regressor algorithm.</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">    df (pandas.DataFrame): The data containing the features.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    pandas.DataFrame: The feature importance scores.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Split the data into X (features) and y (target)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_column</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
-
-    <span class="c1"># Train an Extra Trees Regressor model to compute feature importance</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">ExtraTreesRegressor</span><span class="p">()</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Create a DataFrame with feature importance scores</span>
-    <span class="n">importance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;Importance&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">})</span>
-    <span class="n">importance_df</span> <span class="o">=</span> <span class="n">importance_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">importance_df</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
@@ -1866,152 +1800,152 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.239288</td>
+      <td>0.225643</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.144273</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>CCUGPROF</td>
-      <td>0.071349</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.066445</td>
+      <td>0.133965</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.050115</td>
+      <td>0.062228</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.062037</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.060383</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.038339</td>
+      <td>0.049620</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.036346</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.029296</td>
+      <td>0.040125</td>
     </tr>
     <tr>
       <th>25</th>
       <td>MD_FAMINC</td>
-      <td>0.027318</td>
+      <td>0.029388</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.018416</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.018274</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.017689</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.017247</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.017173</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.016508</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.016397</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.015498</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.015252</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.013632</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.013580</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.013515</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.013281</td>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.025987</td>
     </tr>
     <tr>
       <th>17</th>
       <td>TUITIONFEE_OUT</td>
-      <td>0.012979</td>
+      <td>0.019062</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.018589</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.018518</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.018496</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.017805</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.017073</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.016026</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.015950</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.015931</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.015854</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.014453</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.012881</td>
+      <td>0.013849</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.013830</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.013818</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013419</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.012481</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.012378</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>HIGHDEG</td>
-      <td>0.011661</td>
+      <td>0.012828</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.009894</td>
+      <td>0.012763</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.012684</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.011446</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LOCALE</td>
-      <td>0.009652</td>
+      <td>0.009633</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.008843</td>
+      <td>0.008596</td>
     </tr>
   </tbody>
 </table>
@@ -2066,147 +2000,147 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.225647</td>
+      <td>0.128479</td>
     </tr>
     <tr>
       <th>11</th>
       <td>UGDS_AIAN</td>
-      <td>0.120496</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.076547</td>
+      <td>0.122401</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.070903</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.062127</td>
+      <td>0.119550</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.055913</td>
+      <td>0.079287</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.077447</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.075504</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.055150</td>
+      <td>0.062974</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.048827</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.046130</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.025456</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.020748</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>SAT_AVG</td>
-      <td>0.019901</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.018874</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.017798</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.017117</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.015890</td>
+      <td>0.041554</td>
     </tr>
     <tr>
       <th>13</th>
       <td>UGDS_2MOR</td>
-      <td>0.015041</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.013411</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.013171</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.011690</td>
+      <td>0.037260</td>
     </tr>
     <tr>
       <th>15</th>
       <td>UGDS_UNKN</td>
-      <td>0.010084</td>
+      <td>0.026139</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.022396</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.020889</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.019032</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.018385</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.018180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.015583</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.015238</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.015216</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.015094</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.009926</td>
+      <td>0.014889</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.011456</td>
     </tr>
     <tr>
       <th>23</th>
       <td>AGE_ENTRY</td>
-      <td>0.008935</td>
+      <td>0.011372</td>
     </tr>
     <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.006520</td>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.007998</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.005920</td>
+      <td>0.007418</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.005762</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.004669</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.001652</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>FAMINC</td>
-      <td>0.000813</td>
+      <td>0.004947</td>
     </tr>
     <tr>
       <th>7</th>
       <td>UGDS_WHITE</td>
-      <td>0.000644</td>
+      <td>0.003456</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.002026</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.000068</td>
     </tr>
     <tr>
       <th>0</th>
