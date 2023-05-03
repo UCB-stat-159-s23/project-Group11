@@ -12,13 +12,16 @@ parts:
       title: Variable Analysis
   - caption: Exploratory and Feature Importance Analysis
     chapters:
-    - file: Control_public_vs_private.ipynb
-      title: Control - public vs private
-    - file: Tuition_and_Loans.ipynb
-      title: Tuition and Loans
-    - file: Race_and_Diversity.ipynb
-      title: Race and Diversity
-    - file: Programs_Offered.ipynb
-      title: Programs Offered
-    - file: Parent_Education.ipynb
-      title: Parent Education
+    - file: Exploratory_Data_Analysis.ipynb
+      title: Goal - Understand Student Retention
+      sections:
+      - file: Control_public_vs_private.ipynb
+        title: Control - public vs private
+      - file: Tuition_and_Loans.ipynb
+        title: Tuition and Loans
+      - file: Race_and_Diversity.ipynb
+        title: Race and Diversity
+      - file: Programs_Offered.ipynb
+        title: Programs Offered
+      - file: Parent_Education.ipynb
+        title: Parent Education
