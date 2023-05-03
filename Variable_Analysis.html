@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Predicting Retention Rates &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -60,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Variable Analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Variable_Analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How does the control of the school affect retention rates?" href="Control_public_vs_private.html" />
+    <link rel="prev" title="Final Project: original data analysis" href="project-description.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -154,8 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variable Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">Control - public vs private</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race and Diversity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
 </ul>
 
     </div>
@@ -227,7 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FVariable Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FVariable_Analysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -257,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Variable Analysis.ipynb" target="_blank"
+      <li><a href="_sources/Variable_Analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -363,14 +376,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predicting-retention-rates">
-<h1>Predicting Retention Rates<a class="headerlink" href="#predicting-retention-rates" title="Permalink to this headline">#</a></h1>
+<h1>Predicting Retention Rates<a class="headerlink" href="#predicting-retention-rates" title="Permalink to this heading">#</a></h1>
 <p>Given the preliminary feature analysis conducted in the ‘Exploratory Analysis.ipynb’, we have found that the following variables affect retention rates.</p>
 <ul class="simple">
 <li><p>list features</p></li>
 </ul>
 <p>Now, we are going to conduct further analysis (linear regression) in order to explore the true relationship between these features and retention rates.</p>
 <section id="loading-in-packages-and-data">
-<h2>Loading in Packages and Data<a class="headerlink" href="#loading-in-packages-and-data" title="Permalink to this headline">#</a></h2>
+<h2>Loading in Packages and Data<a class="headerlink" href="#loading-in-packages-and-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -570,7 +583,7 @@ document.write(`
 </div>
 </section>
 <section id="linear-regression">
-<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h2>
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtered_df_two_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
@@ -797,6 +810,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="project-description.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Final Project: original data analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Control_public_vs_private.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How does the control of the school affect retention rates?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

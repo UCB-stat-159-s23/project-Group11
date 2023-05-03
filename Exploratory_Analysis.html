@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Performing Exploratory Data Analysis for Student Retention &#8212; My sample book</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -62,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Exploratory Analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Exploratory_Analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -157,7 +158,17 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Variable Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">Control - public vs private</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race and Diversity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
 </ul>
 
     </div>
@@ -229,7 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FExploratory Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FExploratory_Analysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -259,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Exploratory Analysis.ipynb" target="_blank"
+      <li><a href="_sources/Exploratory_Analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +390,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="performing-exploratory-data-analysis-for-student-retention">
-<h1>Performing Exploratory Data Analysis for Student Retention<a class="headerlink" href="#performing-exploratory-data-analysis-for-student-retention" title="Permalink to this headline">#</a></h1>
+<h1>Performing Exploratory Data Analysis for Student Retention<a class="headerlink" href="#performing-exploratory-data-analysis-for-student-retention" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -394,7 +405,7 @@ document.write(`
 </div>
 </div>
 <section id="loading-in-data">
-<h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this headline">#</a></h2>
+<h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in cleaned data</span>
@@ -681,7 +692,7 @@ memory usage: 3.9+ MB
 </div>
 </section>
 <section id="histograms-for-retention-rates">
-<h2>Histograms for Retention Rates<a class="headerlink" href="#histograms-for-retention-rates" title="Permalink to this headline">#</a></h2>
+<h2>Histograms for Retention Rates<a class="headerlink" href="#histograms-for-retention-rates" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -708,9 +719,9 @@ memory usage: 3.9+ MB
 <p>Based on the histograms, we notice that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
 </section>
 <section id="how-does-the-control-of-the-school-affect-retention-rates">
-<h2>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this headline">#</a></h2>
+<h2>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this heading">#</a></h2>
 <section id="public-schools">
-<h3>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this headline">#</a></h3>
+<h3>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
@@ -735,7 +746,7 @@ memory usage: 3.9+ MB
 <p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
 </section>
 <section id="private-non-profit">
-<h3>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this headline">#</a></h3>
+<h3>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_non_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
@@ -760,7 +771,7 @@ memory usage: 3.9+ MB
 <p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
 </section>
 <section id="private-for-profit">
-<h3>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this headline">#</a></h3>
+<h3>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
@@ -786,7 +797,7 @@ memory usage: 3.9+ MB
 </section>
 </section>
 <section id="in-state-and-out-state-tuition">
-<h2>In-state and Out-state tuition<a class="headerlink" href="#in-state-and-out-state-tuition" title="Permalink to this headline">#</a></h2>
+<h2>In-state and Out-state tuition<a class="headerlink" href="#in-state-and-out-state-tuition" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
@@ -1166,7 +1177,7 @@ memory usage: 3.9+ MB
 <p>Based on the correlation coefficient, in-state and out-state tuition does not have a relationship with retention rate at either four-year and less-than-four-year institutions.</p>
 </section>
 <section id="percentage-of-individuals-receiving-federal-loans">
-<h2>Percentage of individuals receiving federal loans<a class="headerlink" href="#percentage-of-individuals-receiving-federal-loans" title="Permalink to this headline">#</a></h2>
+<h2>Percentage of individuals receiving federal loans<a class="headerlink" href="#percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h2>
 <p>Now we will focus on if the percent of all undergraduate students receiving federal student loan affect the the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions”. We can filter out the related data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1267,7 +1278,7 @@ memory usage: 3.9+ MB
 </div>
 </section>
 <section id="race">
-<h2>Race<a class="headerlink" href="#race" title="Permalink to this headline">#</a></h2>
+<h2>Race<a class="headerlink" href="#race" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
@@ -1682,7 +1693,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="four-year-institutions">
-<h3>Four-year institutions<a class="headerlink" href="#four-year-institutions" title="Permalink to this headline">#</a></h3>
+<h3>Four-year institutions<a class="headerlink" href="#four-year-institutions" title="Permalink to this heading">#</a></h3>
 <p>When you have two massive continuous data and you want to visualize their relationship, you can use a scatter plot. Scatter plots are useful for visualizing the relationship between two continuous variables. Each data point is plotted as a point on the graph, with one variable on the x-axis and the other on the y-axis.</p>
 <p>However, if you have a large number of data points, a scatter plot can become overcrowded and difficult to interpret. In such cases, you can use a 2D density plot. These plots provide a way to visualize the distribution of the data while reducing the clutter caused by overlapping points in a scatter plot. A 2D density plot creates a smoothed representation of the data by estimating the density of points in different regions of the plot.</p>
 <ul class="simple">
@@ -1717,7 +1728,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p><strong>The p-value is around 0.58, which is very large. This means that we can conclude that there is no relationship between retention rate and diversity index at four-year institutions.</strong></p>
 </section>
 <section id="less-than-four-year-institutions">
-<h3>Less than four-year institutions<a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this headline">#</a></h3>
+<h3>Less than four-year institutions<a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
 <li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
@@ -1750,7 +1761,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions.</strong></p>
 </section>
 <section id="feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">
-<h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this headline">#</a></h3>
+<h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
