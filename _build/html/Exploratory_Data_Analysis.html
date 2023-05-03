@@ -1,0 +1,1156 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Performing Exploratory Data Analysis for Student Retention &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Exploratory_Data_Analysis';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Predicting Retention Rates</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">How does the control of the school affect retention rates?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Analyze how parent education affects retention of students</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FExploratory_Data_Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Exploratory_Data_Analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Performing Exploratory Data Analysis for Student Retention</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-null-values">Many Null Values</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="performing-exploratory-data-analysis-for-student-retention">
+<h1>Performing Exploratory Data Analysis for Student Retention<a class="headerlink" href="#performing-exploratory-data-analysis-for-student-retention" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in cleaned data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNITID</th>
+      <th>INSTNM</th>
+      <th>CITY</th>
+      <th>HIGHDEG</th>
+      <th>CONTROL</th>
+      <th>ST_FIPS</th>
+      <th>REGION</th>
+      <th>LOCALE</th>
+      <th>LOCALE2</th>
+      <th>CCUGPROF</th>
+      <th>...</th>
+      <th>MD_FAMINC</th>
+      <th>FAMINC_IND</th>
+      <th>MN_EARN_WNE_P10</th>
+      <th>UGDS_MEN</th>
+      <th>UGDS_WOMEN</th>
+      <th>GRADS</th>
+      <th>RET_FT4_POOLED</th>
+      <th>RET_FTL4_POOLED</th>
+      <th>PRGMOFR</th>
+      <th>ADMCON7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100654</td>
+      <td>Alabama A &amp; M University</td>
+      <td>Normal</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>...</td>
+      <td>23553</td>
+      <td>10340.346032</td>
+      <td>35500</td>
+      <td>0.3978</td>
+      <td>0.6022</td>
+      <td>884.0</td>
+      <td>0.5533</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100663</td>
+      <td>University of Alabama at Birmingham</td>
+      <td>Birmingham</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>...</td>
+      <td>34489</td>
+      <td>30607.18029</td>
+      <td>48400</td>
+      <td>0.3816</td>
+      <td>0.6184</td>
+      <td>8685.0</td>
+      <td>0.8477</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100690</td>
+      <td>Amridge University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>...</td>
+      <td>15033.5</td>
+      <td>20596.158491</td>
+      <td>47600</td>
+      <td>0.2886</td>
+      <td>0.7114</td>
+      <td>477.0</td>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100706</td>
+      <td>University of Alabama in Huntsville</td>
+      <td>Huntsville</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>...</td>
+      <td>44787</td>
+      <td>27941.821963</td>
+      <td>52000</td>
+      <td>0.5891</td>
+      <td>0.4109</td>
+      <td>1972.0</td>
+      <td>0.8234</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100724</td>
+      <td>Alabama State University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>...</td>
+      <td>22080.5</td>
+      <td>8551.802974</td>
+      <td>30600</td>
+      <td>0.3605</td>
+      <td>0.6395</td>
+      <td>458.0</td>
+      <td>0.6164</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 76 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FT4</span>
+<span class="n">less_four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FTL4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="histograms-for-retention-rates">
+<h2>Histograms for Retention Rates<a class="headerlink" href="#histograms-for-retention-rates" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Retention Rates&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">four_yr_retention</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">less_four_yr_retention</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/figure_1.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" src="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on the histograms, we notice that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
+<p>We will now explore sets of relevant variables and their relation to the retention rates.</p>
+<section id="feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">
+<h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
+            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
+            <span class="c1">## four year specific</span>
+            <span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span>
+
+<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.225643</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.133965</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.062228</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.062037</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.060383</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.049620</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.040125</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.029388</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.025987</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.019062</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.018589</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.018518</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.018496</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.017805</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.017073</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.016026</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.015950</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.015931</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.015854</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.014453</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.013849</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.013830</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.013818</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013419</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.012828</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.012763</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.012684</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.011446</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.009633</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.008596</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
+            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
+            <span class="c1">## less than four year specific</span>
+            <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span>
+
+<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">less_fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Feature</th>
+      <th>Importance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.128479</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.122401</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.119550</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.079287</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.077447</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.075504</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.062974</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.041554</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.037260</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.026139</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.022396</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.020889</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.019032</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.018385</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.018180</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.015583</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.015238</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.015216</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.015094</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.014889</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.011456</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.011372</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.007998</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.007418</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.005762</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.004947</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.003456</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.002026</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.000068</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="many-null-values">
+<h2>Many Null Values<a class="headerlink" href="#many-null-values" title="Permalink to this headline">#</a></h2>
+<p>Pre-emptively lets look at the null values for each of the variables we will be focusing on.</p>
+<p>Student retention, the dependent variables in our analaysis, are red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nulls_by_column</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">))</span>
+
+<span class="n">retention</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]</span>
+<span class="n">retention_vars_mask</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">retention</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">colors</span><span class="p">[</span><span class="n">retention_vars_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">retention</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">nulls_by_column</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">nulls_by_column</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Null Values&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Null Values by Feature&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c1a5bc23d3c4747017311642ff58f7c20b645022911a4197cf25add026bceca9.png" src="_images/c1a5bc23d3c4747017311642ff58f7c20b645022911a4197cf25add026bceca9.png" />
+</div>
+</div>
+<p>We will be dealing with a high amount of null values, especially when looking at the number of programs. In fact, the last several columns listed are entirely null.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#many-null-values">Many Null Values</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
