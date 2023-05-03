@@ -4,15 +4,21 @@
 format: jb-book
 root: README.md
 parts:
-- caption: Main Narrative
-  chapters: 
-  - file: project-description.md
-  - file: Variable Analysis.ipynb
-- caption: Exploratory and Feature Importance Analysis
-  - file: Control - public vs private.ipnb
-  - file: Tuition and Loans.ipynb
-  - file: Race and Diversity.ipynb
-  - file: Programs Offered.ipynb
-  - file: Parent Education.ipynb
-
-
+  - caption: Main Narrative
+    chapters:
+    - file: project-description.md
+      title: Project Description
+    - file: Variable_Analysis.ipynb
+      title: Variable Analysis
+  - caption: Exploratory and Feature Importance Analysis
+    chapters:
+    - file: Control_public_vs_private.ipynb
+      title: Control - public vs private
+    - file: Tuition_and_Loans.ipynb
+      title: Tuition and Loans
+    - file: Race_and_Diversity.ipynb
+      title: Race and Diversity
+    - file: Programs_Offered.ipynb
+      title: Programs Offered
+    - file: Parent_Education.ipynb
+      title: Parent Education
