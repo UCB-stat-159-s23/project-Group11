@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: Final Project
+author: Janet Choe, Kanglin He, Daniel Richards,Henry Lam
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -34,4 +34,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-#  use_binderhub_button: true
+  use_binderhub_button: true
