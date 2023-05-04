@@ -527,9 +527,49 @@ document.write(`
 </section>
 <section id="sat-scores-vs-retention-rate-in-four-year-institution">
 <h2>SAT Scores vs. Retention Rate in four year institution<a class="headerlink" href="#sat-scores-vs-retention-rate-in-four-year-institution" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
+<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Average SAT Scores&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average SAT Scores vs. Retention Rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FT4.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" src="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" />
+</div>
+</div>
+<p>The average SAT score for four year institutions is around 1100. There is a positive relationship between average SAT score and retention rate. As the average SAT scores increase, the retention rate also increases.</p>
 </section>
 <section id="sat-scores-vs-retention-rate-in-less-than-four-year-institution">
 <h2>SAT Scores vs. Retention Rate in less than four year institution<a class="headerlink" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Average SAT Scores&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average SAT Scores vs. Retention Rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FTL4.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e957ef752cd30cc682e4f1a939f8bf2d63ef9076d3f4bd70ba6c97a62f667fcb.png" src="_images/e957ef752cd30cc682e4f1a939f8bf2d63ef9076d3f4bd70ba6c97a62f667fcb.png" />
+</div>
+</div>
+<p>Less than four year institutions do not require the SAT score, therefore there is not too much SAT scores data collected. However, there is also a positive relationship between average SAT score and retention rate. As the average SAT scores increase, the retention rate also increases.</p>
 </section>
 </section>
 
