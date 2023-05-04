@@ -20,8 +20,8 @@ bibtex_bibfiles:
   - references.bib
 
 # The URL for BinderHub 
-#launch_buttons:
-#  binderhub_url: "https://mybinder.org/v2/gh/UCB-stat-159-s23/hw04-Group11.git/HEAD?labpath=LOSC_Event_tutorial.ipynb"
+launch_buttons:
+  binderhub_url: "https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD"
   
 # Information about where the book exists on the web
 repository:
