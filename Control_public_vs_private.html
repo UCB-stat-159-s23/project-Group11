@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>How does the control of the school affect retention rates? &#8212; My sample book</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,9 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="In-state and Out-state tuition" href="Tuition_and_Loans.html" />
-    <link rel="prev" title="Performing Exploratory Data Analysis for Student Retention" href="Exploratory_Data_Analysis.html" />
+    <link rel="prev" title="Predicting Retention Rates" href="Variable_Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -158,20 +157,17 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Variable Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Predicting Retention Rates</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Exploratory_Data_Analysis.html">Goal - Understand Student Retention</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Control - public vs private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">How does the control of the school affect retention rates?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="Race_and_Diversity.html">Race and Diversity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Analyze how parent education affects retention of students</a></li>
 </ul>
 
     </div>
@@ -380,9 +376,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="how-does-the-control-of-the-school-affect-retention-rates">
-<h1>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this heading">#</a></h1>
+<h1>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this headline">#</a></h1>
 <section id="public-schools">
-<h2>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this heading">#</a></h2>
+<h2>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
@@ -407,7 +403,7 @@ document.write(`
 <p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
 </section>
 <section id="private-non-profit">
-<h2>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this heading">#</a></h2>
+<h2>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">private_non_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
@@ -432,7 +428,7 @@ document.write(`
 <p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
 </section>
 <section id="private-for-profit">
-<h2>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this heading">#</a></h2>
+<h2>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">private_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
@@ -490,12 +486,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Exploratory_Data_Analysis.html"
+       href="Variable_Analysis.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Performing Exploratory Data Analysis for Student Retention</p>
+        <p class="prev-next-title">Predicting Retention Rates</p>
       </div>
     </a>
     <a class="right-next"

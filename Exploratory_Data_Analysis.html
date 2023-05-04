@@ -64,7 +64,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Exploratory_Data_Analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="How does the control of the school affect retention rates?" href="Control_public_vs_private.html" />
     <link rel="prev" title="Predicting Retention Rates" href="Variable_Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,13 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Goal - Understand Student Retention</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Control_public_vs_private.html">Control - public vs private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="Race_and_Diversity.html">Race and Diversity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Goal - Understand Student Retention</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -385,7 +378,7 @@ document.write(`
 <h1>Performing Exploratory Data Analysis for Student Retention<a class="headerlink" href="#performing-exploratory-data-analysis-for-student-retention" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -398,7 +391,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in cleaned data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in cleaned data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -574,7 +567,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FT4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FT4</span>
 <span class="n">less_four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FTL4</span>
 </pre></div>
 </div>
@@ -584,7 +577,7 @@ document.write(`
 <h2>Histograms for Retention Rates<a class="headerlink" href="#histograms-for-retention-rates" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Retention Rates&#39;</span><span class="p">)</span>
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
@@ -611,7 +604,7 @@ document.write(`
 <h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
             <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
             <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
@@ -627,7 +620,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +804,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
             <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
             <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
@@ -827,7 +820,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1017,14 +1010,14 @@ document.write(`
 <p>Student retention, the dependent variables in our analaysis, are red.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nulls_by_column</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nulls_by_column</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">))</span>
 
 <span class="n">retention</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]</span>
 <span class="n">retention_vars_mask</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">retention</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -1035,7 +1028,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">nulls_by_column</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nulls_by_column</span><span class="p">)</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">nulls_by_column</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Null Values&quot;</span><span class="p">)</span>
@@ -1093,15 +1086,6 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Predicting Retention Rates</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="Control_public_vs_private.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How does the control of the school affect retention rates?</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   

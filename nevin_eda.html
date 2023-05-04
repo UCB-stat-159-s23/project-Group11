@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Many Null Values &#8212; My sample book</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -65,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -156,20 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Variable Analysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Exploratory_Data_Analysis.html">Goal - Understand Student Retention</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Control_public_vs_private.html">Control - public vs private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
-
-<li class="toctree-l2"><a class="reference internal" href="Race_and_Diversity.html">Race and Diversity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
 </ul>
 
     </div>
@@ -379,7 +365,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="many-null-values">
-<h1>Many Null Values<a class="headerlink" href="#many-null-values" title="Permalink to this heading">#</a></h1>
+<h1>Many Null Values<a class="headerlink" href="#many-null-values" title="Permalink to this headline">#</a></h1>
 <p>Pre-emptively lets look at the null values for each of the variables we will be focusing on.</p>
 <p>Student retention, the dependent variables in our analaysis, are red.</p>
 <div class="cell docutils container">
@@ -418,7 +404,7 @@ document.write(`
 <p>We will be dealing with a high amount of null values, especially when looking at the number of programs. In fact, the last several columns listed are entirely null.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="does-number-of-programs-offered-prgmofr-affect-retention">
-<h1>Does number of programs offered (PRGMOFR) affect retention?<a class="headerlink" href="#does-number-of-programs-offered-prgmofr-affect-retention" title="Permalink to this heading">#</a></h1>
+<h1>Does number of programs offered (PRGMOFR) affect retention?<a class="headerlink" href="#does-number-of-programs-offered-prgmofr-affect-retention" title="Permalink to this headline">#</a></h1>
 <p>Notice that of the institutions with data, a large proportion offer only a few programs. Upon close inspection, these appear to be highly specialized trade schools</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,7 +631,7 @@ INSTNM is the primary key:  False
 <p>Therefore, <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> cannot be proven to be significantly associated with student retention features <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="analyze-how-parent-education-affects-retention-of-students">
-<h1>Analyze how parent education affects retention of students<a class="headerlink" href="#analyze-how-parent-education-affects-retention-of-students" title="Permalink to this heading">#</a></h1>
+<h1>Analyze how parent education affects retention of students<a class="headerlink" href="#analyze-how-parent-education-affects-retention-of-students" title="Permalink to this headline">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code> is the percentage of parents who have a middle school education</p>
 <p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> is the percentage of parents who have a high school education</p>
 <p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> is the percentage of parents who have some college school education</p>

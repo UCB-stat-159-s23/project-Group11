@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Race &#8212; My sample book</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -69,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Does number of programs offered (PRGMOFR) affect retention?" href="Programs_Offered.html" />
     <link rel="prev" title="In-state and Out-state tuition" href="Tuition_and_Loans.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -160,20 +159,17 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Variable Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Predicting Retention Rates</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Exploratory_Data_Analysis.html">Goal - Understand Student Retention</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Control_public_vs_private.html">Control - public vs private</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">How does the control of the school affect retention rates?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Race and Diversity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Programs_Offered.html">Programs Offered</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Parent_Education.html">Parent Education</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Race</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Analyze how parent education affects retention of students</a></li>
 </ul>
 
     </div>
@@ -381,10 +377,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="race">
-<h1>Race<a class="headerlink" href="#race" title="Permalink to this heading">#</a></h1>
+<h1>Race<a class="headerlink" href="#race" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
                    <span class="s1">&#39;UGDS_AIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">]]</span>
 <span class="n">race_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -514,7 +510,7 @@ document.write(`
 \[1 - \sum_{i=1}^{n} p_i^2\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">race_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">race_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">race_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -642,7 +638,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
 <span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">race_data</span><span class="p">[</span><span class="n">race_data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -650,7 +646,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -709,7 +705,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +765,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>Descriptive Summary Statistics</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># four-year institutions</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># four-year institutions</span>
 <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -783,7 +779,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># less-than-four-year institutions</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># less-than-four-year institutions</span>
 <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -796,7 +792,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="four-year-institutions">
-<h2>Four-year institutions<a class="headerlink" href="#four-year-institutions" title="Permalink to this heading">#</a></h2>
+<h2>Four-year institutions<a class="headerlink" href="#four-year-institutions" title="Permalink to this headline">#</a></h2>
 <p>When you have two massive continuous data and you want to visualize their relationship, you can use a scatter plot. Scatter plots are useful for visualizing the relationship between two continuous variables. Each data point is plotted as a point on the graph, with one variable on the x-axis and the other on the y-axis.</p>
 <p>However, if you have a large number of data points, a scatter plot can become overcrowded and difficult to interpret. In such cases, you can use a 2D density plot. These plots provide a way to visualize the distribution of the data while reducing the clutter caused by overlapping points in a scatter plot. A 2D density plot creates a smoothed representation of the data by estimating the density of points in different regions of the plot.</p>
 <ul class="simple">
@@ -805,7 +801,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -818,7 +814,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;corr: </span><span class="si">{</span><span class="n">corr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/RET_FT4_diversity.png&#39;</span><span class="p">);</span>
 </pre></div>
@@ -831,14 +827,14 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p><strong>The p-value is around 0.58, which is very large. This means that we can conclude that there is no relationship between retention rate and diversity index at four-year institutions.</strong></p>
 </section>
 <section id="less-than-four-year-institutions">
-<h2>Less than four-year institutions<a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this heading">#</a></h2>
+<h2>Less than four-year institutions<a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
 <li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FTL4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -851,7 +847,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;corr: </span><span class="si">{</span><span class="n">corr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/RET_FTL4_diversity.png&#39;</span><span class="p">);</span>
 </pre></div>
