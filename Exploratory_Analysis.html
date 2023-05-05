@@ -530,11 +530,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" src="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
@@ -555,11 +559,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_non_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_non_profit.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" src="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
@@ -580,11 +588,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_profit.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" src="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
@@ -679,11 +691,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition&#39;</span><span class="p">);</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/in_out_tuition.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" src="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>From the Histogram above, in state more concentrated in the low cost segment. And more people are out of state than in state in every range except 0 to 5,000. It can be seen that students out of state need to pay more fees than those in state. The same conclusion can be found when we directly compare the mean and median of students in state and out state, that is, both the mean and median of students in out state are higher than those in state.</p>
@@ -728,11 +744,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">ax4</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">out_FTL4</span><span class="o">.</span><span class="n">TUITIONFEE_OUT</span><span class="p">,</span> <span class="n">out_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_in_out_tuition.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/36ddbb833b33ee57c65c949346f7a2b7f09d832bd3a49e5d555b35ac99367dae.png" src="_images/36ddbb833b33ee57c65c949346f7a2b7f09d832bd3a49e5d555b35ac99367dae.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1019,11 +1039,15 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">,</span> <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_percentage_federal_loan.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" src="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>By the scatter above we think the percentage of receiving federal student loan at 4-year Institutions looks like have a negative relationship with the retention rate. In other words, if one student has higher percentage of receiving federal student loan then he/she will have lower retention rate. We can think that if one student owe more loan will make them want to leave since the high financial pressure. But the percentage of receiving federal student loan at less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year Institutions will influence student’s retention rate.</p>
@@ -1519,152 +1543,152 @@ Name: diversity_index, Length: 6681, dtype: float64
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.273709</td>
+      <td>0.240834</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.137703</td>
+      <td>0.122376</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.065378</td>
+      <td>0.069933</td>
     </tr>
     <tr>
       <th>21</th>
       <td>PCTPELL</td>
-      <td>0.050986</td>
+      <td>0.067078</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.048184</td>
+      <td>0.063849</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.037158</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.030151</td>
+      <td>0.040186</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.030150</td>
+      <td>0.035175</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.024643</td>
+      <td>0.026425</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.018260</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.017780</td>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.024922</td>
     </tr>
     <tr>
       <th>28</th>
       <td>UGDS_WOMEN</td>
-      <td>0.017615</td>
+      <td>0.018644</td>
     </tr>
     <tr>
       <th>22</th>
       <td>PCTFLOAN</td>
-      <td>0.016859</td>
+      <td>0.018180</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.016549</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.016523</td>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.018168</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ADM_RATE</td>
-      <td>0.016237</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.016199</td>
+      <td>0.018110</td>
     </tr>
     <tr>
       <th>23</th>
       <td>AGE_ENTRY</td>
-      <td>0.016073</td>
+      <td>0.018065</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.017823</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.017822</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.016471</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.016239</td>
     </tr>
     <tr>
       <th>12</th>
       <td>UGDS_NHPI</td>
-      <td>0.015610</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.014422</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.014283</td>
+      <td>0.015931</td>
     </tr>
     <tr>
       <th>2</th>
       <td>ST_FIPS</td>
-      <td>0.013808</td>
+      <td>0.014164</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.014131</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.013871</td>
     </tr>
     <tr>
       <th>20</th>
       <td>PFTFAC</td>
-      <td>0.013192</td>
+      <td>0.013320</td>
     </tr>
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.012902</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>UGDS_NRA</td>
-      <td>0.012615</td>
+      <td>0.013011</td>
     </tr>
     <tr>
       <th>13</th>
       <td>UGDS_2MOR</td>
-      <td>0.012031</td>
+      <td>0.012186</td>
     </tr>
     <tr>
       <th>0</th>
       <td>HIGHDEG</td>
-      <td>0.011531</td>
+      <td>0.011965</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.011895</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.010845</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.009835</td>
+      <td>0.011495</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.008768</td>
+      <td>0.009178</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.008555</td>
     </tr>
   </tbody>
 </table>
@@ -1719,87 +1743,87 @@ Name: diversity_index, Length: 6681, dtype: float64
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.187966</td>
+      <td>0.210318</td>
     </tr>
     <tr>
       <th>11</th>
       <td>UGDS_AIAN</td>
-      <td>0.113873</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>CCUGPROF</td>
-      <td>0.102301</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>UGDS_NRA</td>
-      <td>0.073383</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.058710</td>
+      <td>0.109979</td>
     </tr>
     <tr>
       <th>12</th>
       <td>UGDS_NHPI</td>
-      <td>0.054927</td>
+      <td>0.089757</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.084617</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.082302</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.063452</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.054413</td>
+      <td>0.049513</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.053370</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.037310</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>SAT_AVG</td>
-      <td>0.028039</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.027336</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.025072</td>
+      <td>0.036108</td>
     </tr>
     <tr>
       <th>22</th>
       <td>PCTFLOAN</td>
-      <td>0.024916</td>
+      <td>0.031928</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>ADMCON7</td>
-      <td>0.019852</td>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.026564</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.019414</td>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.024737</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.018134</td>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.024393</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.022332</td>
     </tr>
     <tr>
       <th>17</th>
       <td>TUITIONFEE_OUT</td>
-      <td>0.013686</td>
+      <td>0.020441</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.016357</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.014521</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.014180</td>
     </tr>
     <tr>
       <th>21</th>
@@ -1807,59 +1831,59 @@ Name: diversity_index, Length: 6681, dtype: float64
       <td>0.013327</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.013124</td>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.011319</td>
     </tr>
     <tr>
       <th>2</th>
       <td>ST_FIPS</td>
-      <td>0.012127</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.011591</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.010927</td>
+      <td>0.010829</td>
     </tr>
     <tr>
       <th>13</th>
       <td>UGDS_2MOR</td>
-      <td>0.009580</td>
+      <td>0.009932</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>UGDS_ASIAN</td>
-      <td>0.005332</td>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.009926</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.009380</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.004782</td>
+      <td>0.005766</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.002848</td>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.003756</td>
     </tr>
     <tr>
       <th>20</th>
       <td>PFTFAC</td>
-      <td>0.002179</td>
+      <td>0.001920</td>
     </tr>
     <tr>
       <th>25</th>
       <td>MD_FAMINC</td>
-      <td>0.001334</td>
+      <td>0.001171</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.000607</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.000148</td>
+      <td>0.000568</td>
     </tr>
     <tr>
       <th>0</th>
@@ -1952,17 +1976,18 @@ INSTNM is the primary key:  False
 <span class="c1"># bar plot of how many institution ID&#39;s a name is attached to</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">counts</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;How manyf institution ID&#39;s an institution name is attached to&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;How many institution ID&#39;s an institution name is attached to&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of institution ID&#39;s&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">duplicates</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/institution_id.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f8f91930060ab3c82bb12ff5d9fbe54bdfa73056eb90ae650aefcffdeaab366e.png" src="_images/f8f91930060ab3c82bb12ff5d9fbe54bdfa73056eb90ae650aefcffdeaab366e.png" />
+<img alt="_images/963817d872fc278851fbedbde268ed637c112365ea343a90a79156ec3e9d78a0.png" src="_images/963817d872fc278851fbedbde268ed637c112365ea343a90a79156ec3e9d78a0.png" />
 </div>
 </div>
 <p>Most institutions are only connected to one institution ID and name, but there are enough names connected to multiple institutions that they could represent a different relationship with student retention.</p>
@@ -2090,6 +2115,7 @@ INSTNM is the primary key:  False
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Correlations&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/institution_id_corr.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2342,6 +2368,7 @@ number of PrivacySuppressed for MS, HS, college (PS) respectively:  1986 1979 76
 <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with college edu&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Correlations&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/parent_edu_corr.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
