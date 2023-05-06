@@ -392,17 +392,18 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Performing Exploratory Data Analysis for Student Retention</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-control-of-the-school-affect-retention-rates">How does the control of the school affect retention rates?</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-control-of-the-school">Explore the control of the school</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-state-and-out-state-tuition">In-state and Out-state tuition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percentage-of-individuals-receiving-federal-loans">Percentage of individuals receiving federal loans</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#race">Race</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-racial-and-ethnic-diversity">Explore the racial and ethnic diversity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
@@ -450,8 +451,13 @@ document.write(`
 </div>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>For this data, we want to analyze the what factor will influence the retention rate of the school, and analyze how close they relate with retention rate.
-Before start the analysis, we should know what is retention rate. Retention rate is the proportion of full-time, first-time undergraduates from one year’s fall term that re-enrolled during the following year’s fall term. Students also count as retained if they completed their program prior to the measurement point for retention reporting. Schools that offer at least 1 program of 4 years or more report on students that entered seeking a bachelor’s degree while schools only offering programs of less than 4 years duration report on all full-time, first-time undergraduates.</p>
+<p>The purpose of this project is to analyze the factors that influence the retention rate of a school and how closely they relate to retention rate. Retention rate is a critical indicator of a school’s effectiveness and success in keeping students enrolled and engaged in their academic pursuits. In this project, we will examine various factors that could potentially impact retention rates, such as the control of the school(public, non-profit private and profit private), in-state/out-state tuition &amp; fee, the percentage of individuals receiving federal loans, race, parent education and so on.</p>
+</section>
+<section id="data-description">
+<h2>Data Description<a class="headerlink" href="#data-description" title="Permalink to this heading">#</a></h2>
+<p>The data used in this analysis will be obtained from the College Scorecard, a comprehensive dataset maintained by the United States Department of Education. The dataset includes information on over 7,000 higher education institutions in the United States, spanning a period of more than two decades.</p>
+<p>The dataset includes a range of variables, including institutional characteristics such as size, location, and type of degree programs offered, as well as information on student outcomes such as graduation rates, earnings, and debt levels. In addition, the dataset includes information on institutional net price, which is the average cost of attendance after accounting for grants and scholarships.</p>
+<p>Overall, the data provides a comprehensive view of the factors that impact retention rates in higher education institutions and will be used to inform strategies for improving retention rates and student success.</p>
 </section>
 <section id="loading-in-data">
 <h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this heading">#</a></h2>
@@ -512,8 +518,8 @@ Before start the analysis, we should know what is retention rate. Retention rate
 </div>
 <p>Based on the histograms, we notice that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
 </section>
-<section id="how-does-the-control-of-the-school-affect-retention-rates">
-<h2>How does the control of the school affect retention rates?<a class="headerlink" href="#how-does-the-control-of-the-school-affect-retention-rates" title="Permalink to this heading">#</a></h2>
+<section id="explore-the-control-of-the-school">
+<h2>Explore the control of the school<a class="headerlink" href="#explore-the-control-of-the-school" title="Permalink to this heading">#</a></h2>
 <section id="public-schools">
 <h3>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -602,8 +608,8 @@ Before start the analysis, we should know what is retention rate. Retention rate
 <p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
 </section>
 </section>
-<section id="in-state-and-out-state-tuition">
-<h2>In-state and Out-state tuition<a class="headerlink" href="#in-state-and-out-state-tuition" title="Permalink to this heading">#</a></h2>
+<section id="explore-in-state-and-out-state-tuition-fee">
+<h2>Explore In-state and Out-state Tuition &amp; Fee<a class="headerlink" href="#explore-in-state-and-out-state-tuition-fee" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
@@ -755,6 +761,7 @@ Before start the analysis, we should know what is retention rate. Retention rate
 </div>
 </div>
 </div>
+<p>We use the correlation coefficient(r) measures the strength of the linear relationship between two variables. Graphically, it measures how clustered the scatter diagram is around a straight line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standard_units</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
@@ -932,29 +939,35 @@ Before start the analysis, we should know what is retention rate. Retention rate
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4-year in state</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the correlation coefficient(r) of 4-year instituion with in-state tuition</span>
 <span class="n">r_4_in_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_IN</span><span class="p">)</span>
-<span class="c1"># 4-year out state</span>
+<span class="c1"># the correlation coefficient(r) of 4-year instituion with out-state tuition</span>
 <span class="n">r_4_out_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_OUT</span><span class="p">)</span>
-<span class="c1"># less than 4-year in state</span>
+<span class="c1"># the correlation coefficient(r) of less than 4-year instituion with in-state tuition</span>
 <span class="n">r_less_4_in_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_IN</span><span class="p">)</span>
-<span class="c1"># 4-year in state</span>
+<span class="c1"># the correlation coefficient(r) of less than 4-year instituion with out-state tuition</span>
 <span class="n">r_less_4_out_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_OUT</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">r_4_in_state</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_4_out_state</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_in_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_out_state</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of 4-year instution for in-state tuition &amp; fee is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_4_in_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of 4-year instution for out-state tuition &amp; fee is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_4_out_state</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of less than 4-year instution for in-state tuition &amp; fee is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_in_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of less than 4-year instution for out-state tuition &amp; fee is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_out_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.27829321886510244,0.3726884580745627,0.32978043799834184,0.3277732356542793
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient of 4-year instution for in-state tuition &amp; fee is 0.27829321886510244.
+The correlation coefficient of 4-year instution for out-state tuition &amp; fee is 0.3726884580745627.
+The correlation coefficient of less than 4-year instution for in-state tuition &amp; fee is 0.32978043799834184.
+The correlation coefficient of less than 4-year instution for out-state tuition &amp; fee is 0.3277732356542793.
 </pre></div>
 </div>
 </div>
 </div>
-<p>Based on the correlation coefficient, in-state and out-state tuition does not have a relationship with retention rate at either four-year and less-than-four-year institutions.</p>
+<p>Based on the correlation coefficient, there is a weak relationship between in/out-state tuition&amp; fee with retention rate at either four-year and less-than-four-year institutions.</p>
 </section>
-<section id="percentage-of-individuals-receiving-federal-loans">
-<h2>Percentage of individuals receiving federal loans<a class="headerlink" href="#percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h2>
+<section id="explore-percentage-of-individuals-receiving-federal-loans">
+<h2>Explore Percentage of individuals receiving federal loans<a class="headerlink" href="#explore-percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h2>
 <p>Now we will focus on if the percent of all undergraduate students receiving federal student loan affect the the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions”. We can filter out the related data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1050,10 +1063,32 @@ Before start the analysis, we should know what is retention rate. Retention rate
 </div>
 </div>
 </div>
-<p>By the scatter above we think the percentage of receiving federal student loan at 4-year Institutions looks like have a negative relationship with the retention rate. In other words, if one student has higher percentage of receiving federal student loan then he/she will have lower retention rate. We can think that if one student owe more loan will make them want to leave since the high financial pressure. But the percentage of receiving federal student loan at less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year Institutions will influence student’s retention rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard_percent_loan_data</span> <span class="o">=</span> <span class="n">tuition_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">standard_RET_FT4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">),</span>
+                       <span class="n">standard_RET_FTL4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">),</span>
+                       <span class="n">standard_percent_loan</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">))</span>
+<span class="n">standard_percent_loan_data</span>
+<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at 4-year Institutions</span>
+<span class="n">r_percent_loan_4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_4year</span><span class="p">))</span>
+<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at less than 4-year Institutions</span>
+<span class="n">r_percent_loan_l4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_l4year</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is -0.1654776936242682
+The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is 0.14346890122719802
+</pre></div>
+</div>
+</div>
+</div>
+<p>By the scatter above and the correlation coefficient,we think the percentage of receiving federal student loan at 4-year Institutions and less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year or less than 4-year Institutions not really influence student’s retention rate.</p>
 </section>
-<section id="race">
-<h2>Race<a class="headerlink" href="#race" title="Permalink to this heading">#</a></h2>
+<section id="explore-the-racial-and-ethnic-diversity">
+<h2>Explore the racial and ethnic diversity<a class="headerlink" href="#explore-the-racial-and-ethnic-diversity" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
@@ -1543,152 +1578,152 @@ Name: diversity_index, Length: 6681, dtype: float64
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.240834</td>
+      <td>0.264472</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.122376</td>
+      <td>0.140174</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.069933</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.067078</td>
+      <td>0.060281</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.063849</td>
+      <td>0.054224</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.045132</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.040186</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>UGDS_ASIAN</td>
-      <td>0.035175</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.026425</td>
+      <td>0.037226</td>
     </tr>
     <tr>
       <th>25</th>
       <td>MD_FAMINC</td>
-      <td>0.024922</td>
+      <td>0.035133</td>
     </tr>
     <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.018644</td>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.034986</td>
     </tr>
     <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.018180</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.018168</td>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.027815</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ADM_RATE</td>
-      <td>0.018110</td>
+      <td>0.019090</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.018065</td>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.018507</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.018392</td>
     </tr>
     <tr>
       <th>27</th>
       <td>UGDS_MEN</td>
-      <td>0.017823</td>
+      <td>0.018158</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.017822</td>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.016864</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.016471</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.016239</td>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.016382</td>
     </tr>
     <tr>
       <th>12</th>
       <td>UGDS_NHPI</td>
-      <td>0.015931</td>
+      <td>0.015266</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.014164</td>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.015249</td>
     </tr>
     <tr>
       <th>7</th>
       <td>UGDS_WHITE</td>
-      <td>0.014131</td>
+      <td>0.015219</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.014562</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.014258</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.013871</td>
+      <td>0.014140</td>
     </tr>
     <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.013320</td>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013879</td>
     </tr>
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.013011</td>
+      <td>0.013648</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.012186</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>HIGHDEG</td>
-      <td>0.011965</td>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.013250</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.011895</td>
+      <td>0.012948</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.011495</td>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.011809</td>
     </tr>
     <tr>
-      <th>26</th>
-      <td>ADMCON7</td>
-      <td>0.009178</td>
+      <th>0</th>
+      <td>HIGHDEG</td>
+      <td>0.011490</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LOCALE</td>
-      <td>0.008555</td>
+      <td>0.009584</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.008985</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.008876</td>
     </tr>
   </tbody>
 </table>
@@ -1743,147 +1778,147 @@ Name: diversity_index, Length: 6681, dtype: float64
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.210318</td>
+      <td>0.188089</td>
     </tr>
     <tr>
       <th>11</th>
       <td>UGDS_AIAN</td>
-      <td>0.109979</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.089757</td>
+      <td>0.136716</td>
     </tr>
     <tr>
       <th>8</th>
       <td>UGDS_BLACK</td>
-      <td>0.084617</td>
+      <td>0.092121</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.082302</td>
+      <td>0.080904</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.063533</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.063452</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.049513</td>
+      <td>0.046759</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.036108</td>
+      <td>0.043784</td>
     </tr>
     <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.031928</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.026564</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.024737</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.024393</td>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.039671</td>
     </tr>
     <tr>
       <th>28</th>
       <td>UGDS_WOMEN</td>
-      <td>0.022332</td>
+      <td>0.034589</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.020441</td>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.033952</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>SAT_AVG</td>
-      <td>0.016357</td>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.029766</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.025329</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.025046</td>
     </tr>
     <tr>
       <th>15</th>
       <td>UGDS_UNKN</td>
-      <td>0.014521</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.014180</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.013327</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.011319</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.010829</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.009932</td>
+      <td>0.024746</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.009926</td>
+      <td>0.019852</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.016055</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SAT_AVG</td>
+      <td>0.015537</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.012225</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.011926</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ADM_RATE</td>
-      <td>0.009380</td>
+      <td>0.011797</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.005766</td>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.009747</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>UGDS_ASIAN</td>
-      <td>0.003756</td>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.009633</td>
     </tr>
     <tr>
       <th>20</th>
       <td>PFTFAC</td>
-      <td>0.001920</td>
+      <td>0.009495</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.001171</td>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.005792</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>UGDS_ASIAN</td>
+      <td>0.005481</td>
     </tr>
     <tr>
       <th>7</th>
       <td>UGDS_WHITE</td>
-      <td>0.000607</td>
+      <td>0.003382</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.002991</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.000720</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.000568</td>
+      <td>0.000363</td>
     </tr>
     <tr>
       <th>0</th>
@@ -2546,17 +2581,18 @@ number of PrivacySuppressed for MS, HS, college (PS) respectively:  1986 1979 76
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Performing Exploratory Data Analysis for Student Retention</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-the-control-of-the-school-affect-retention-rates">How does the control of the school affect retention rates?</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-control-of-the-school">Explore the control of the school</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-state-and-out-state-tuition">In-state and Out-state tuition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#percentage-of-individuals-receiving-federal-loans">Percentage of individuals receiving federal loans</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#race">Race</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-racial-and-ethnic-diversity">Explore the racial and ethnic diversity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
