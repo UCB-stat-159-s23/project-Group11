@@ -2,9 +2,9 @@
 
 # Reproducible Research Project for Institution Retention Rates
 
-Binder link:
+Binder link: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD)
 
-Github page:
+Github page: https://ucb-stat-159-s23.github.io/project-Group11/README.html
 
 Dataset link: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg)](https://doi.org/10.5281/zenodo.7857257)
 
