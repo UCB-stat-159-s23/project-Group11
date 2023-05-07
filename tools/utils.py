@@ -58,3 +58,9 @@ def compute_feature_importance(df, target_column):
     importance_df = importance_df.sort_values('Importance', ascending=False)
 
     return importance_df
+
+
+def standard_units(col):
+    "Convert any column to standard units."
+    stand_unit = (col - np.mean(col))/np.std(col)
+    return stand_unit
