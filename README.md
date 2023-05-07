@@ -2,7 +2,7 @@
 
 # Reproducible Research Project for Institution Retention Rates
 
-Binder link:
+Binder link: [![DOI](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD)
 
 Github page:
 
