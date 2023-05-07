@@ -61,6 +61,14 @@ def compute_feature_importance(df, target_column):
 
 
 def standard_units(col):
-    "Convert any column to standard units."
+    """
+    Convert any column to standard units.
+    
+    Parameters: 
+    col : dataframe column
+    
+    Returns:
+    column
+    """
     stand_unit = (col - np.mean(col))/np.std(col)
     return stand_unit
