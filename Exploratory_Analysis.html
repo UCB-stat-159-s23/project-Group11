@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Performing Exploratory Data Analysis for Student Retention &#8212; Final Project</title>
+    <title>Variable Analysis for Student Retention &#8212; Final Project</title>
   
   
   
@@ -160,12 +160,6 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Variable Analysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="Exploratory_Data_Analysis.html">Goal - Understand Student Retention</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
-</ul>
-</li>
 </ul>
 
     </div>
@@ -380,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Performing Exploratory Data Analysis for Student Retention</h1>
+    <h1>Variable Analysis for Student Retention</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,30 +384,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-control-of-the-school">Explore the control of the school</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-racial-and-ethnic-diversity">Explore the racial and ethnic diversity</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#does-number-of-programs-offered-prgmofr-affect-retention">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-on-programs-offered-prgmofr">Analysis on Programs offered (PRGMOFR)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-how-parent-education-affects-retention-of-students">Analyze how parent education affects retention of students</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admission-rate-vs-retention-rate-in-four-year-institution">Admission Rate vs. Retention Rate in four year institution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-four-year-institution">SAT Scores vs. Retention Rate in four year institution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
 </ul>
@@ -429,8 +410,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="performing-exploratory-data-analysis-for-student-retention">
-<h1>Performing Exploratory Data Analysis for Student Retention<a class="headerlink" href="#performing-exploratory-data-analysis-for-student-retention" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="variable-analysis-for-student-retention">
+<h1>Variable Analysis for Student Retention<a class="headerlink" href="#variable-analysis-for-student-retention" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -444,16 +425,6 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>The purpose of this project is to analyze the factors that influence the retention rate of a school and how closely they relate to retention rate. Retention rate is a critical indicator of a school’s effectiveness and success in keeping students enrolled and engaged in their academic pursuits. In this project, we will examine various factors that could potentially impact retention rates, such as the control of the school(public, non-profit private and profit private), in-state/out-state tuition &amp; fee, the percentage of individuals receiving federal loans, race, parent education and so on.</p>
-</section>
-<section id="data-description">
-<h2>Data Description<a class="headerlink" href="#data-description" title="Permalink to this heading">#</a></h2>
-<p>The data used in this analysis will be obtained from the College Scorecard, a comprehensive dataset maintained by the United States Department of Education. The dataset includes information on over 7,000 higher education institutions in the United States, spanning a period of more than two decades.</p>
-<p>The dataset includes a range of variables, including institutional characteristics such as size, location, and type of degree programs offered, as well as information on student outcomes such as graduation rates, earnings, and debt levels. In addition, the dataset includes information on institutional net price, which is the average cost of attendance after accounting for grants and scholarships.</p>
-<p>Overall, the data provides a comprehensive view of the factors that impact retention rates in higher education institutions and will be used to inform strategies for improving retention rates and student success.</p>
-</section>
 <section id="loading-in-data">
 <h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -465,625 +436,9 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FT4</span>
-<span class="n">less_four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FTL4</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Since we are focusing on retention rates, we are renaming the variable names for the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions” in order to improve identification of the main variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First-time, full-time student retention rate at four-year institutions</span>
-<span class="n">four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FT4</span>
-
-<span class="c1"># First-time, full-time student retention rate at less-than-four-year institutions</span>
-<span class="n">less_four_yr_retention</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">RET_FTL4</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="histograms-for-retention-rates">
-<h2>Histograms for Retention Rates<a class="headerlink" href="#histograms-for-retention-rates" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Retention Rates&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">four_yr_retention</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">less_four_yr_retention</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/figure_1.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" src="_images/c2944d2c98bd64975383d8abd4390d7e92d79c1fa3de2b77a25b9640e0220759.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Based on the histograms, we notice that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
-</section>
-<section id="explore-the-control-of-the-school">
-<h2>Explore the control of the school<a class="headerlink" href="#explore-the-control-of-the-school" title="Permalink to this heading">#</a></h2>
-<section id="public-schools">
-<h3>Public Schools<a class="headerlink" href="#public-schools" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Public Institution Retention Rates&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" src="_images/70d5e16d3ce3564eccd97b77c17232d11d6e5a6acdbfcc8d68f51fc1c18d4b1e.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
-</section>
-<section id="private-non-profit">
-<h3>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_non_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Private (Non-profit) Institution Retention Rates&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_non_profit</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_non_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;dimgray&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_non_profit.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" src="_images/aaecf0c73d040ee52cfa41c2a0cb89fa879ae3e970c5c8ab700830f321e3e599.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
-</section>
-<section id="private-for-profit">
-<h3>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">private_profit</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;CONTROL&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Private (For Profit) Institution Retention Rates&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_profit</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">private_profit</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_profit.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" src="_images/d6c6a84a29ee6f61b32ee852cd58dbddf7c9071cb09018a9062ab7dc34bab12c.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
-</section>
-</section>
-<section id="explore-in-state-and-out-state-tuition-fee">
-<h2>Explore In-state and Out-state Tuition &amp; Fee<a class="headerlink" href="#explore-in-state-and-out-state-tuition-fee" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
-<span class="n">tuition_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span><span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">]]</span>
-<span class="n">tuition_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RET_FT4</th>
-      <th>RET_FTL4</th>
-      <th>TUITIONFEE_IN</th>
-      <th>TUITIONFEE_OUT</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.5403</td>
-      <td>NaN</td>
-      <td>10024.0</td>
-      <td>18634.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.8640</td>
-      <td>NaN</td>
-      <td>8568.0</td>
-      <td>20400.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5000</td>
-      <td>NaN</td>
-      <td>6950.0</td>
-      <td>6950.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.8180</td>
-      <td>NaN</td>
-      <td>11338.0</td>
-      <td>23734.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.6202</td>
-      <td>NaN</td>
-      <td>11068.0</td>
-      <td>19396.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>First, we can take a look at what difference in the distribution between in-state and out-state tuition.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuition_data_inout</span> <span class="o">=</span> <span class="n">tuition_data</span><span class="p">[[</span><span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span><span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">]]</span>
-<span class="n">tuition_data_inout</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span>
-        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Histogram Of tuition in/out state tuition&#39;</span><span class="p">,</span>
-        <span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
-        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span>
-        <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> 
-        <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition&#39;</span><span class="p">);</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/in_out_tuition.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" src="_images/3b52835cd8171f3ae0d3f3fd3cc20fd861b565ce2ccde218b3f41426b0e507a6.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>From the Histogram above, in state more concentrated in the low cost segment. And more people are out of state than in state in every range except 0 to 5,000. It can be seen that students out of state need to pay more fees than those in state. The same conclusion can be found when we directly compare the mean and median of students in state and out state, that is, both the mean and median of students in out state are higher than those in state.</p>
-<p>After looking at the difference in distribution between in state tuition &amp; fee and out state tuition &amp; fee, we can analysis them combine with retention rate. And take a look at if in/out state tuition&amp;fee affect retention rate.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_FT4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">]]</span>
-<span class="n">in_FTL4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">]]</span>
-<span class="n">out_FT4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">]]</span>
-<span class="n">out_FTL4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">((</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),(</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">))</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;In/out State Tuition&amp;Fee Retention rate&#39;</span><span class="p">)</span>
-
-<span class="c1"># make a graph for in state tuition &amp; fee and 4 year institutions</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;In State at 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition &amp; Fee&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">in_FT4</span><span class="o">.</span><span class="n">TUITIONFEE_IN</span><span class="p">,</span> <span class="n">in_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-
-<span class="c1"># make a graph for in state tuition &amp; fee and less than 4 year institutions</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;In state at Less than 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition &amp; Fee&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">in_FTL4</span><span class="o">.</span><span class="n">TUITIONFEE_IN</span><span class="p">,</span> <span class="n">in_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-
-<span class="c1"># make a graph for out state tuition &amp; fee and 4 year institutions</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Out State at 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition &amp; Fee&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">out_FT4</span><span class="o">.</span><span class="n">TUITIONFEE_OUT</span><span class="p">,</span> <span class="n">out_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-
-<span class="c1"># make a graph for out state tuition &amp; fee and less than 4 year institutions</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Out State at Less than 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Tuition &amp; Fee&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">out_FTL4</span><span class="o">.</span><span class="n">TUITIONFEE_OUT</span><span class="p">,</span> <span class="n">out_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_in_out_tuition.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/36ddbb833b33ee57c65c949346f7a2b7f09d832bd3a49e5d555b35ac99367dae.png" src="_images/36ddbb833b33ee57c65c949346f7a2b7f09d832bd3a49e5d555b35ac99367dae.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>We use the correlation coefficient(r) measures the strength of the linear relationship between two variables. Graphically, it measures how clustered the scatter diagram is around a straight line.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standard_units</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
-    <span class="s2">&quot;Convert any column to standard units.&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">col</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">col</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard_tuition_data</span> <span class="o">=</span> <span class="n">tuition_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">standard_RET_FT4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">tuition_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">),</span>
-                       <span class="n">standard_RET_FTL4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">tuition_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">),</span>
-                       <span class="n">standard_TUI_IN</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">tuition_data</span><span class="o">.</span><span class="n">TUITIONFEE_IN</span><span class="p">),</span>
-                       <span class="n">standard_TUI_OUT</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">tuition_data</span><span class="o">.</span><span class="n">TUITIONFEE_OUT</span><span class="p">))</span>
-<span class="n">standard_tuition_data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RET_FT4</th>
-      <th>RET_FTL4</th>
-      <th>TUITIONFEE_IN</th>
-      <th>TUITIONFEE_OUT</th>
-      <th>standard_RET_FT4</th>
-      <th>standard_RET_FTL4</th>
-      <th>standard_TUI_IN</th>
-      <th>standard_TUI_OUT</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.5403</td>
-      <td>NaN</td>
-      <td>10024.0</td>
-      <td>18634.0</td>
-      <td>-1.139438</td>
-      <td>NaN</td>
-      <td>-0.422876</td>
-      <td>-0.038961</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.8640</td>
-      <td>NaN</td>
-      <td>8568.0</td>
-      <td>20400.0</td>
-      <td>0.794970</td>
-      <td>NaN</td>
-      <td>-0.526098</td>
-      <td>0.095119</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5000</td>
-      <td>NaN</td>
-      <td>6950.0</td>
-      <td>6950.0</td>
-      <td>-1.380268</td>
-      <td>NaN</td>
-      <td>-0.640805</td>
-      <td>-0.926044</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.8180</td>
-      <td>NaN</td>
-      <td>11338.0</td>
-      <td>23734.0</td>
-      <td>0.520077</td>
-      <td>NaN</td>
-      <td>-0.329721</td>
-      <td>0.348246</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.6202</td>
-      <td>NaN</td>
-      <td>11068.0</td>
-      <td>19396.0</td>
-      <td>-0.661961</td>
-      <td>NaN</td>
-      <td>-0.348862</td>
-      <td>0.018892</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>6676</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>13604.0</td>
-      <td>22196.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.169074</td>
-      <td>0.231476</td>
-    </tr>
-    <tr>
-      <th>6677</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14486.0</td>
-      <td>23476.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.106546</td>
-      <td>0.328658</td>
-    </tr>
-    <tr>
-      <th>6678</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6679</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>15216.0</td>
-      <td>24926.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.054793</td>
-      <td>0.438746</td>
-    </tr>
-    <tr>
-      <th>6680</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>14486.0</td>
-      <td>23476.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>-0.106546</td>
-      <td>0.328658</td>
-    </tr>
-  </tbody>
-</table>
-<p>6681 rows × 8 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the correlation coefficient(r) of 4-year instituion with in-state tuition</span>
-<span class="n">r_4_in_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_IN</span><span class="p">)</span>
-<span class="c1"># the correlation coefficient(r) of 4-year instituion with out-state tuition</span>
-<span class="n">r_4_out_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_OUT</span><span class="p">)</span>
-<span class="c1"># the correlation coefficient(r) of less than 4-year instituion with in-state tuition</span>
-<span class="n">r_less_4_in_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_IN</span><span class="p">)</span>
-<span class="c1"># the correlation coefficient(r) of less than 4-year instituion with out-state tuition</span>
-<span class="n">r_less_4_out_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_tuition_data</span><span class="o">.</span><span class="n">standard_TUI_OUT</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of 4-year instution for in-state tuition &amp; fee is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_4_in_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of 4-year instution for out-state tuition &amp; fee is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_4_out_state</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of less than 4-year instution for in-state tuition &amp; fee is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_in_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of less than 4-year instution for out-state tuition &amp; fee is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_less_4_out_state</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient of 4-year instution for in-state tuition &amp; fee is 0.27829321886510244.
-The correlation coefficient of 4-year instution for out-state tuition &amp; fee is 0.3726884580745627.
-The correlation coefficient of less than 4-year instution for in-state tuition &amp; fee is 0.32978043799834184.
-The correlation coefficient of less than 4-year instution for out-state tuition &amp; fee is 0.3277732356542793.
-</pre></div>
-</div>
-</div>
-</div>
-<p>Based on the correlation coefficient, there is a weak relationship between in/out-state tuition&amp; fee with retention rate at either four-year and less-than-four-year institutions.</p>
-</section>
-<section id="explore-percentage-of-individuals-receiving-federal-loans">
-<h2>Explore Percentage of individuals receiving federal loans<a class="headerlink" href="#explore-percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h2>
-<p>Now we will focus on if the percent of all undergraduate students receiving federal student loan affect the the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions”. We can filter out the related data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
-<span class="n">percent_loan_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">]]</span>
-<span class="n">percent_loan_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RET_FT4</th>
-      <th>RET_FTL4</th>
-      <th>PCTFLOAN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.5403</td>
-      <td>NaN</td>
-      <td>0.7504</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.8640</td>
-      <td>NaN</td>
-      <td>0.4688</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5000</td>
-      <td>NaN</td>
-      <td>0.8493</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.8180</td>
-      <td>NaN</td>
-      <td>0.3855</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.6202</td>
-      <td>NaN</td>
-      <td>0.7805</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan at 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">,</span> <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">)</span>
-
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan at less than 4-year Institutions&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">,</span> <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_percentage_federal_loan.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" src="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard_percent_loan_data</span> <span class="o">=</span> <span class="n">tuition_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">standard_RET_FT4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">),</span>
-                       <span class="n">standard_RET_FTL4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">),</span>
-                       <span class="n">standard_percent_loan</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">))</span>
-<span class="n">standard_percent_loan_data</span>
-<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at 4-year Institutions</span>
-<span class="n">r_percent_loan_4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_4year</span><span class="p">))</span>
-<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at less than 4-year Institutions</span>
-<span class="n">r_percent_loan_l4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_l4year</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is -0.1654776936242682
-The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is 0.14346890122719802
-</pre></div>
-</div>
-</div>
-</div>
-<p>By the scatter above and the correlation coefficient,we think the percentage of receiving federal student loan at 4-year Institutions and less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year or less than 4-year Institutions not really influence student’s retention rate.</p>
-</section>
-<section id="explore-the-racial-and-ethnic-diversity">
-<h2>Explore the racial and ethnic diversity<a class="headerlink" href="#explore-the-racial-and-ethnic-diversity" title="Permalink to this heading">#</a></h2>
+<section id="racial-and-ethnic-diversity-analysis">
+<h2>Racial and Ethnic Diversity Analysis<a class="headerlink" href="#racial-and-ethnic-diversity-analysis" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
@@ -1435,7 +790,13 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.730971298076923 0.5035307974807692
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># four-year institutions</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="ne">NameError</span>: name &#39;FT4_institutions&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1522,412 +883,9 @@ Name: diversity_index, Length: 6681, dtype: float64
 <p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions. The correlation between diversity index and retention rate is negative. Therefore, we can conclude that as diversity index increases, the retention rate for less-than-four-year institution decreases.</strong></p>
 </section>
 </section>
-<section id="feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">
-<h3>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
-            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
-            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
-            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
-            <span class="c1">## four year specific</span>
-            <span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span>
-
-<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Feature</th>
-      <th>Importance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>4</th>
-      <td>SAT_AVG</td>
-      <td>0.264472</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.140174</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>CCUGPROF</td>
-      <td>0.060281</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>FAMINC</td>
-      <td>0.054224</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.045132</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.037226</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.035133</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>UGDS_ASIAN</td>
-      <td>0.034986</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.027815</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.019090</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.018507</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.018392</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.018158</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.016864</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.016382</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.015266</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.015249</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.015219</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.014562</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.014258</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.014140</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.013879</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.013648</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.013250</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>UGDS_NRA</td>
-      <td>0.012948</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.011809</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>HIGHDEG</td>
-      <td>0.011490</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.009584</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.008985</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>ADMCON7</td>
-      <td>0.008876</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
-            <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
-            <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">,</span> <span class="s1">&#39;INEXPFTE&#39;</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span> <span class="p">,</span> <span class="s1">&#39;PFTFAC&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;PCTPELL&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE_ENTRY&#39;</span><span class="p">,</span> 
-            <span class="s1">&#39;FAMINC&#39;</span><span class="p">,</span><span class="s1">&#39;MD_FAMINC&#39;</span><span class="p">,</span> <span class="s1">&#39;ADMCON7&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_MEN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_WOMEN&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">,</span>
-            <span class="c1">## less than four year specific</span>
-            <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span>
-
-<span class="n">clean_data</span> <span class="o">=</span> <span class="n">combine_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;NPT4_PUB&#39;</span><span class="p">,</span> <span class="s1">&#39;NPT4_PRIV&#39;</span><span class="p">,</span> <span class="s1">&#39;ANP&#39;</span><span class="p">)[</span><span class="n">less_fouryr_features</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compute_feature_importance</span><span class="p">(</span><span class="n">clean_data</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Feature</th>
-      <th>Importance</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.188089</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.136716</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.092121</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>CCUGPROF</td>
-      <td>0.080904</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.063533</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>UGDS_NRA</td>
-      <td>0.046759</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.043784</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.039671</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.034589</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.033952</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.029766</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.025329</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.025046</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.024746</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>ADMCON7</td>
-      <td>0.019852</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.016055</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>SAT_AVG</td>
-      <td>0.015537</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.012225</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.011926</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.011797</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.009747</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.009633</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.009495</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.005792</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>UGDS_ASIAN</td>
-      <td>0.005481</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.003382</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.002991</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.000720</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>FAMINC</td>
-      <td>0.000363</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>HIGHDEG</td>
-      <td>0.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
 </section>
-</section>
-<section id="does-number-of-programs-offered-prgmofr-affect-retention">
-<h2>Does number of programs offered (PRGMOFR) affect retention?<a class="headerlink" href="#does-number-of-programs-offered-prgmofr-affect-retention" title="Permalink to this heading">#</a></h2>
+<section id="analysis-on-programs-offered-prgmofr">
+<h2>Analysis on Programs offered (PRGMOFR)<a class="headerlink" href="#analysis-on-programs-offered-prgmofr" title="Permalink to this heading">#</a></h2>
 <p>Notice that of the institutions with data, a large proportion offer only a few programs. Upon close inspection, these appear to be highly specialized trade schools</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2271,7 +1229,7 @@ min retention of a parent institution:  0.0
 <li><p>It shuold be noted that some potential parent institutions could have more sub-institutions / ID’s which aren’t recorded. Similarly institutions could have the same name by conincedence and not be related.</p></li>
 <li><p>Furthermore, a large proportion of <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> is null, meaning that our analysis on the non-nulls may not be representative of the sample and therefore of the population.</p></li>
 </ul>
-<p>Therefore, <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> cannot be proven to be significantly associated with student retention features <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>. If further information on parent-institutinos becomes available, we can pursue this idea again.</p>
+<p><strong>Therefore, <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> cannot be proven to be significantly associated with student retention features <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>. If further information on parent-institutinos becomes available, we can pursue this idea again.</strong></p>
 </section>
 <section id="analyze-how-parent-education-affects-retention-of-students">
 <h2>Analyze how parent education affects retention of students<a class="headerlink" href="#analyze-how-parent-education-affects-retention-of-students" title="Permalink to this heading">#</a></h2>
@@ -2294,8 +1252,14 @@ min retention of a parent institution:  0.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prop null:  0.11824577159107919
-number of nulls for MS, HS, college (PS) respectively:  790 790 790
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">prop_null</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">null_MS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">null_HS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_HS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;data&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -2531,78 +1495,7 @@ number of nulls for MS, HS, college (PS) respectively:  790 790 790
 <img alt="_images/8c969d270f6f9820d204cbed88265ac8253e814f36e96fdbf306e585d1081888.png" src="_images/8c969d270f6f9820d204cbed88265ac8253e814f36e96fdbf306e585d1081888.png" />
 </div>
 </div>
-<p>We get roughly the same results as with the previous method, with parents’ college education being strongly positively correlated with retention at 4 year institutions and parents’ highscholl education being negatively correlated. This affirms that we should be using these variables in our final analysis of student retention.</p>
-<section id="admission-rate-vs-retention-rate-in-four-year-institution">
-<h3>Admission Rate vs. Retention Rate in four year institution<a class="headerlink" href="#admission-rate-vs-retention-rate-in-four-year-institution" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">]]</span>
-<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RET_FT4</th>
-      <th>ADM_RATE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>RET_FT4</th>
-      <td>1.000000</td>
-      <td>-0.168163</td>
-    </tr>
-    <tr>
-      <th>ADM_RATE</th>
-      <td>-0.168163</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Admission Rates&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Admission Rates vs. Retention Rates&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/ADM_RATE_VS_RET_FT4.png&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/588e1fb728baf060ef95d76e4c2377a099400ec6a8a5ac12ae423697b077d086.png" src="_images/588e1fb728baf060ef95d76e4c2377a099400ec6a8a5ac12ae423697b077d086.png" />
-</div>
-</div>
-<p>There is no relationship between the admission rates and retention rates.</p>
-</section>
+<p><strong>We get roughly the same results as with the previous method, with parents’ college education being strongly positively correlated with retention at 4 year institutions and parents’ highscholl education being negatively correlated. This affirms that we should be using these variables in our final analysis of student retention.</strong></p>
 <section id="sat-scores-vs-retention-rate-in-four-year-institution">
 <h3>SAT Scores vs. Retention Rate in four year institution<a class="headerlink" href="#sat-scores-vs-retention-rate-in-four-year-institution" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -2701,30 +1594,17 @@ number of nulls for MS, HS, college (PS) respectively:  790 790 790
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-description">Data Description</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms-for-retention-rates">Histograms for Retention Rates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-control-of-the-school">Explore the control of the school</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-schools">Public Schools</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-non-profit">Private Non-Profit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-for-profit">Private For-Profit</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-the-racial-and-ethnic-diversity">Explore the racial and ethnic diversity</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#does-number-of-programs-offered-prgmofr-affect-retention">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-on-programs-offered-prgmofr">Analysis on Programs offered (PRGMOFR)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyze-how-parent-education-affects-retention-of-students">Analyze how parent education affects retention of students</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#admission-rate-vs-retention-rate-in-four-year-institution">Admission Rate vs. Retention Rate in four year institution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-four-year-institution">SAT Scores vs. Retention Rate in four year institution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
 </ul>
