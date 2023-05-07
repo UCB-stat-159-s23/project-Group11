@@ -395,6 +395,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-parent-education">Explore Parent Education</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
 </ul>
             </nav>
@@ -497,7 +498,7 @@ document.write(`
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Retention Rate at less than 4-year institutions&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">less_four_yr_retention</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/overall_retention_histogram.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -530,7 +531,7 @@ document.write(`
 <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">public</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;salmon&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -541,7 +542,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</p>
+<p><strong>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is more noticeable in the retention rates of less than 4-year public institutions.</strong></p>
 </section>
 <section id="private-non-profit">
 <h3>Private Non-Profit<a class="headerlink" href="#private-non-profit" title="Permalink to this heading">#</a></h3>
@@ -570,7 +571,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
+<p><strong>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</strong></p>
 </section>
 <section id="private-for-profit">
 <h3>Private For-Profit<a class="headerlink" href="#private-for-profit" title="Permalink to this heading">#</a></h3>
@@ -599,7 +600,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
+<p><strong>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</strong></p>
 </section>
 </section>
 <section id="explore-in-state-and-out-state-tuition-fee">
@@ -882,7 +883,7 @@ The correlation coefficient of less than 4-year instution for out-state tuition 
 </div>
 </div>
 </div>
-<p>Based on the correlation coefficient, there is a weak relationship between in/out-state tuition&amp;fee with retention rate at either four-year and less-than-four-year institutions.</p>
+<p><strong>Based on the correlation coefficient, there is a weak relationship between in/out-state tuition&amp;fee with retention rate at either four-year and less-than-four-year institutions.</strong></p>
 </section>
 <section id="explore-percentage-of-individuals-receiving-federal-loans">
 <h2>Explore Percentage of individuals receiving federal loans<a class="headerlink" href="#explore-percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h2>
@@ -1003,10 +1004,261 @@ The correlation coefficient of percentage of receiving federal student loan at l
 </div>
 </div>
 </div>
-<p>By the scatter above and the correlation coefficient,we think the percentage of receiving federal student loan at 4-year Institutions and less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year or less than 4-year Institutions not really influence student’s retention rate.</p>
+<p><strong>By the scatter above and the correlation coefficient,we think the percentage of receiving federal student loan at 4-year Institutions and less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year or less than 4-year Institutions not really influence student’s retention rate.</strong></p>
+</section>
+<section id="explore-parent-education">
+<h2>Explore Parent Education<a class="headerlink" href="#explore-parent-education" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code> is the percentage of parents who have a middle school education</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> is the percentage of parents who have a high school education</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> is the percentage of parents who have some college school education</p></li>
+</ul>
+<p>Only about 10% of these columns’ values are null, so we can trust our analysis of these variables with greater certainty.</p>
+<p>However, note that the null values occur for exactly the same rows, meaning that they likely share some trait or may come from a different generating distribution. We will drop these values for now as they represent a minority of the dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prop_null</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="p">)</span>
+<span class="n">null_MS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">null_HS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_HS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">null_PS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_PS</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;prop null: &quot;</span><span class="p">,</span> <span class="n">prop_null</span><span class="p">)</span>
+
+<span class="c1">#each column has the same number of nulls.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of nulls for MS, HS, college (PS) respectively: &quot;</span><span class="p">,</span> <span class="n">null_MS</span><span class="p">,</span> <span class="n">null_HS</span><span class="p">,</span> <span class="n">null_PS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prop null:  0.11824577159107919
+number of nulls for MS, HS, college (PS) respectively:  790 790 790
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#each column has nulls in the exact same row as the other columns</span>
+<span class="n">null_count</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">all</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All 3 columns have </span><span class="si">{</span><span class="n">null_count</span><span class="si">}</span><span class="s2"> overlapping nulls&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All 3 columns have 790 overlapping nulls
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are also “PrivacySuppressed” values which act as null values. They still represent a minority of the dataset so we will continue our analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;proportion of PAR_ED_PCT_PS which is PrivacySuppressed: &quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_PS</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proportion of PAR_ED_PCT_PS which is PrivacySuppressed:  0.11465349498578058
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that once again these null-like values contain a pattern. Rows which are “PrivacySuppressed” for college education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> tend to be privacy suppressed in highschool education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> and middle school education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>. Similarly, rows which are “PrivacySuppressed” for highschool education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> tend to be privacy suppressed in middleschool education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>.</p>
+<p>This may have something to do with higschool requiring a middleschool education, and college requiring a highschool education. It may also have something to do with the school’s size, as having a smaller population makes it easier to re-identify individuals from aggregate data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PS_MS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">PS_HS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_HS</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">PS_PS</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">PAR_ED_PCT_PS</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number of PrivacySuppressed for MS, HS, college (PS) respectively: &quot;</span><span class="p">,</span> <span class="n">PS_MS</span><span class="p">,</span> <span class="n">PS_HS</span><span class="p">,</span> <span class="n">PS_PS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of PrivacySuppressed for MS, HS, college (PS) respectively:  1986 1979 766
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 757 of the college-education column&#39;s 766 PrivacySuppressed values are also PrivacySuppressed in the HS and MS education columns </span>
+<span class="n">ps_and_hs_and_ms</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="nb">all</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The College, Highschool, and Middleschool columns share </span><span class="si">{</span><span class="n">ps_and_hs_and_ms</span><span class="si">}</span><span class="s2"> nulls of Middleschool&#39;s </span><span class="si">{</span><span class="n">PS_PS</span><span class="si">}</span><span class="s2"> nulls&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The College, Highschool, and Middleschool columns share 757 nulls of Middleschool&#39;s 766 nulls
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1978 of the HS-education column&#39;s 1979 PrivacySuppressed values are also PrivacySuppressed in the MS education columns</span>
+<span class="n">ms_and_hs</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="nb">all</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Highschool and Middleschool columns share </span><span class="si">{</span><span class="n">ms_and_hs</span><span class="si">}</span><span class="s2"> nulls of Highschool&#39;s </span><span class="si">{</span><span class="n">PS_HS</span><span class="si">}</span><span class="s2"> nulls&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Highschool and Middleschool columns share 1978 nulls of Highschool&#39;s 1979 nulls
+</pre></div>
+</div>
+</div>
+</div>
+<p>These two questions are out of the scope of our project. If school size is a confounding factor, our meta-analysis of feature importance will include those confounders, adjusting for them.</p>
+<p>For now we will drop the null values and PrivacySuppressed values to continue our analysis.</p>
+<p>We can’t analyze the same exact subsample when measuring association with <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code> because one or the other is always null.</p>
+<p>Therefore we will measure association on different samples for <code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code> and <code class="docutils literal notranslate"><span class="pre">RETFTL4</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select all rows with &quot;PrivacySuppressed&quot; in them</span>
+<span class="n">edu_all_PrivacySuppressed_indices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">))</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="nb">any</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#remove those rows</span>
+<span class="n">edu_no_PrivacySuppressed_ft4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_all_PrivacySuppressed_indices</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">edu_no_PrivacySuppressed_ftl4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_all_PrivacySuppressed_indices</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+        <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1">#check to see how large our subsample is</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One of our samples would be of size: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">edu_no_PrivacySuppressed_ft4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>One of our samples would be of size:  1410
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with MS edu&quot;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">y0</span> <span class="o">+=</span> <span class="mf">.4</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with MS edu&quot;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">y0</span> <span class="o">+=</span> <span class="mf">.4</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with HS edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with HS edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with college edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with college edu&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Retention and Parent Education Correlations &quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="mf">1.02</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b0dbe4bd953f5629584f2ebc52d72f180d0692e9574779d3eec21f4a44640dc1.png" src="_images/b0dbe4bd953f5629584f2ebc52d72f180d0692e9574779d3eec21f4a44640dc1.png" />
+</div>
+</div>
+<p>Here we see that parents’ middle school education seems have a nonlinear weak relationship with student retention. Parents’ highschool and college education seem to be very weakly correlated with retention at less than 4 year institutions.</p>
+<p>However, Parents’ highschool and college education seems to be strongly correlated with a clear linear relationship with retention at 4 year institutions. Highschool education appears to have a negative correlation while college education has a positive correlationship. This may be because of confounding factors, but the association is clear.</p>
+<p><strong>Based on this, we should include parent HS and college education <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> and <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> in our final analysis.</strong></p>
+<p>This approach forces us to remove lots of the data. Instead, we can remove all indices with PrivacySuppressed or nulls for each combination of parent education (<code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>) with student retention (<code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code>, <code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>).</p>
+<p>This results in a unique subsample for each combination making their results less comparable, but the samples have more data in them making each test possible more representative of the fully sample.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select all indices with &quot;PrivacySuppressed&quot; in them for each column individually</span>
+<span class="n">edu_indiv_PrivacySuppressed_indices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">))</span>
+
+<span class="c1">#remove those indices to get sample for each parent education and student retention feature combo</span>
+<span class="n">edu_no_PrivacySuppressed_MS_ft4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">edu_no_PrivacySuppressed_HS_ft4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_HS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">edu_no_PrivacySuppressed_PS_ft4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_PS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">edu_no_PrivacySuppressed_MS_ftl4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_MS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">edu_no_PrivacySuppressed_HS_ftl4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_HS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">edu_no_PrivacySuppressed_PS_ftl4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">edu_indiv_PrivacySuppressed_indices</span><span class="o">.</span><span class="n">PAR_ED_PCT_PS</span><span class="p">]</span>\
+    <span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">]]</span><span class="o">.</span>\
+    <span class="n">dropna</span><span class="p">()</span><span class="o">.</span>\
+    <span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1">#check how large our samples are (note that they are larger)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One of our samples now has size: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">edu_no_PrivacySuppressed_PS_ftl4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>One of our samples now has size:  2538
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_MS_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with MS edu&quot;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">y0</span> <span class="o">+=</span> <span class="mf">.25</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_MS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_MS_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with MS edu&quot;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_position</span><span class="p">()</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">y0</span> <span class="o">+=</span> <span class="mf">.25</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_HS_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with HS edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_HS_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with HS edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_PS_ft4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with college edu&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RET_FTL4&quot;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">edu_no_PrivacySuppressed_PS_ftl4</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">},</span> <span class="n">ci</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Proportion of parents with college edu&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Correlations&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/parent_edu_corr.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/528ce53ca17b6163d877253f1e70a66611c0bd1f9aad28b95eade61e4bd0aa99.png" src="_images/528ce53ca17b6163d877253f1e70a66611c0bd1f9aad28b95eade61e4bd0aa99.png" />
+</div>
+</div>
+<p><strong>We get roughly the same results as with the previous method, with parents’ college education being strongly positively correlated with retention at 4 year institutions and parents’ highschool education being negatively correlated. This affirms that we should be using these variables in our final analysis of student retention.</strong></p>
 </section>
 <section id="feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">
 <h2>Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)<a class="headerlink" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables" title="Permalink to this heading">#</a></h2>
+<p>Within the dataset, there are many variables that include “Privacy Suppressed” values. Due to the variability of these values, we have to exclude the these variables from the analysis since our dataset will be very small if we wanted to include them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
@@ -1056,158 +1308,158 @@ The correlation coefficient of percentage of receiving federal student loan at l
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.225643</td>
+      <td>0.236063</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.133965</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>FAMINC</td>
-      <td>0.062228</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.062037</td>
+      <td>0.133465</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.060383</td>
+      <td>0.064880</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.049620</td>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.060235</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.057118</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.040125</td>
+      <td>0.044625</td>
     </tr>
     <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.029388</td>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.042761</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.025987</td>
+      <td>0.026178</td>
     </tr>
     <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.019062</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.018589</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.018518</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.018496</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.017805</td>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.025227</td>
     </tr>
     <tr>
       <th>22</th>
       <td>PCTFLOAN</td>
-      <td>0.017073</td>
+      <td>0.019064</td>
     </tr>
     <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.016026</td>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.018772</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.015950</td>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.018597</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.015931</td>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.017717</td>
     </tr>
     <tr>
       <th>27</th>
       <td>UGDS_MEN</td>
-      <td>0.015854</td>
+      <td>0.017672</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.017643</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.017083</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.016380</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.015803</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.015529</td>
     </tr>
     <tr>
       <th>7</th>
       <td>UGDS_WHITE</td>
-      <td>0.014453</td>
+      <td>0.014895</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.013849</td>
+      <td>0.014278</td>
     </tr>
     <tr>
       <th>20</th>
       <td>PFTFAC</td>
-      <td>0.013830</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.013818</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.013419</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>UGDS_NRA</td>
-      <td>0.012828</td>
+      <td>0.013834</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.012763</td>
+      <td>0.013568</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013066</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UGDS_NRA</td>
+      <td>0.012463</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.012368</td>
     </tr>
     <tr>
       <th>13</th>
       <td>UGDS_2MOR</td>
-      <td>0.012684</td>
+      <td>0.011634</td>
     </tr>
     <tr>
       <th>0</th>
       <td>HIGHDEG</td>
-      <td>0.011446</td>
+      <td>0.011477</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LOCALE</td>
-      <td>0.009633</td>
+      <td>0.009200</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.008596</td>
+      <td>0.008407</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Based on the feature analysis with four-year retention rates, <code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code> and <code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code> have some importance in determining retention rates.</p>
+<p><strong>Based on the feature analysis with four-year retention rates, <code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code> and <code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code> have some importance in determining retention rates.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">less_fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
@@ -1255,149 +1507,149 @@ The correlation coefficient of percentage of receiving federal student loan at l
   </thead>
   <tbody>
     <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.128479</td>
-    </tr>
-    <tr>
       <th>11</th>
       <td>UGDS_AIAN</td>
-      <td>0.122401</td>
+      <td>0.167815</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>CCUGPROF</td>
-      <td>0.119550</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>INEXPFTE</td>
-      <td>0.079287</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.077447</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.075504</td>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.129623</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.062974</td>
+      <td>0.081477</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.073147</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CCUGPROF</td>
+      <td>0.063649</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>INEXPFTE</td>
+      <td>0.058522</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.041554</td>
+      <td>0.049173</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.037260</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.026139</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.022396</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>AVGFACSAL</td>
-      <td>0.020889</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.019032</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.018385</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.018180</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.015583</td>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.045601</td>
     </tr>
     <tr>
       <th>29</th>
       <td>ANP</td>
-      <td>0.015238</td>
+      <td>0.044941</td>
     </tr>
     <tr>
-      <th>27</th>
-      <td>UGDS_MEN</td>
-      <td>0.015216</td>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.034154</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.015094</td>
+      <th>19</th>
+      <td>AVGFACSAL</td>
+      <td>0.031384</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.014889</td>
+      <td>0.024814</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.023477</td>
     </tr>
     <tr>
       <th>17</th>
       <td>TUITIONFEE_OUT</td>
-      <td>0.011456</td>
+      <td>0.021725</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.020454</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.018488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.017976</td>
     </tr>
     <tr>
       <th>23</th>
       <td>AGE_ENTRY</td>
-      <td>0.011372</td>
+      <td>0.016154</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>UGDS_MEN</td>
+      <td>0.013608</td>
     </tr>
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.007998</td>
+      <td>0.012969</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.012085</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.011383</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.011197</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.007418</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.005762</td>
+      <td>0.004814</td>
     </tr>
     <tr>
       <th>6</th>
       <td>CCSIZSET</td>
-      <td>0.004947</td>
+      <td>0.003616</td>
     </tr>
     <tr>
       <th>7</th>
       <td>UGDS_WHITE</td>
-      <td>0.003456</td>
+      <td>0.003484</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>FAMINC</td>
-      <td>0.002026</td>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.002581</td>
     </tr>
     <tr>
       <th>25</th>
       <td>MD_FAMINC</td>
-      <td>0.000068</td>
+      <td>0.001493</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FAMINC</td>
+      <td>0.000195</td>
     </tr>
     <tr>
       <th>0</th>
@@ -1408,7 +1660,7 @@ The correlation coefficient of percentage of receiving federal student loan at l
 </table>
 </div></div></div>
 </div>
-<p>Based on the feature analysis with less-than-four-year retention rates, the diversity of ethnicity and <code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code> have some importance in determining retention rates.</p>
+<p><strong>Based on the feature analysis with less-than-four-year retention rates, the diversity of ethnicity and <code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code> have some importance in determining retention rates.</strong></p>
 </section>
 </section>
 
@@ -1474,6 +1726,7 @@ The correlation coefficient of percentage of receiving federal student loan at l
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-in-state-and-out-state-tuition-fee">Explore In-state and Out-state Tuition &amp; Fee</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-percentage-of-individuals-receiving-federal-loans">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-parent-education">Explore Parent Education</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-analysis-on-numerical-variables-not-including-privacy-suppressed-variables">Feature Analysis on Numerical variables (not including “Privacy Suppressed” variables)</a></li>
 </ul>
   </nav></div>
