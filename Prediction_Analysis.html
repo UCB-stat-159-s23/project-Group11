@@ -421,10 +421,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 
-<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span><span class="p">,</span> <span class="n">standard_units</span>
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">filtered_df_two_columns</span><span class="p">,</span> <span class="n">pearson_corr_coef</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">,</span> <span class="n">regression_analysis_results</span><span class="p">,</span> <span class="n">calculate_MSE</span>
 </pre></div>
 </div>
 </div>
@@ -453,138 +451,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in cleaned data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtered_df_two_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: the dataframe and 2 variable column names</span>
-<span class="sd">    Output: returns a new DataFrame that only contains values in both columns (no NA)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains both column names</span>
-    <span class="k">if</span> <span class="n">col1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">col2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame does not contain both specified column names&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Select only the specified columns</span>
-    <span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">]</span>
-    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
-
-    <span class="c1"># Use pandas&#39; built-in methods to check which cells have numbers</span>
-    <span class="n">is_numeric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
-
-    <span class="c1"># Filter the DataFrame to keep only the rows with numbers in both columns</span>
-    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_numeric</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">filtered_df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pearson correlation coefficient </span>
-<span class="k">def</span> <span class="nf">pearson_corr_coef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: two lists of equal length</span>
-<span class="sd">    Output: returns an array with the Pearson correlation coefficient</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Checking if the values in the list are the same</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input lists must have the same length&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Find Covariance</span>
-    <span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Standard deviation of x and y</span>
-    <span class="n">stdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">stdy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Returning Correlation coefficient</span>
-    <span class="k">return</span> <span class="n">covariance</span> <span class="o">/</span> <span class="p">(</span><span class="n">stdx</span> <span class="o">*</span> <span class="n">stdy</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prediction_analysis</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: Filtered Dataframe that only has two columns</span>
-<span class="sd">    Performs a simple linear regression analysis on the input data and generates </span>
-<span class="sd">    predictions based on the input variables.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains only two columns</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains less than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains more than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Fit a simple linear regression model to the input data</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Generate predictions for the output column based on the input variables</span>
-    <span class="n">pred_col</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">pred_col</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regression_analysis_results</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: Columns containing actual values and predicted values</span>
-<span class="sd">    Performs a regression analysis to determine how well the model predicts the actual values.</span>
-<span class="sd">    Calculates and returns the R-squared value and generates a scatter plot of the predicted values </span>
-<span class="sd">    versus the actual values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains both columns</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_col</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_col</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input columns are not the same length&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Calculate the R-squared value</span>
-    <span class="n">r_squared</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
-
-    <span class="c1"># Generates a scatter plot of the observed vs. fitted values</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actual Values&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regression Analysis Results&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">r_squared</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_MSE</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Evaluates a set of predictive values given the actual values using the Mean Squared Error (MSE) metric</span>
-
-<span class="sd">    Inputs:</span>
-<span class="sd">    predicted_values: A list or numpy array of predicted values.</span>
-<span class="sd">    actual_values: A list or numpy array of actual values.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">    The Mean Squared Error (MSE) between the predicted and actual values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check if the inputs are of equal length</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_col</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_col</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The predicted and actual values must have the same length.&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Calculate the Mean Squared Error (MSE) between the predicted and actual values</span>
-    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_col</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_col</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">mse</span>
 </pre></div>
 </div>
 </div>
