@@ -3,6 +3,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
+data = pd.read_csv("data/Most-Recent-Cohorts-Institution-filtered.csv")
 
 def test_combinecolumns():
     df = pd.DataFrame({'A': [np.nan, 2, 3], 'B': [4, np.nan, np.nan]})
@@ -25,3 +26,7 @@ def test_featureimportance():
 
     # Check that the sum of the feature importances equals 1
     assert np.isclose(importance_df['Importance'].sum(), 1.0)
+    
+    
+def test_standard_units():
+    assert type(ul.standard_units(data.RET_FT4)) is not None
