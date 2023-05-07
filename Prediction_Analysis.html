@@ -385,7 +385,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg">SAT_AVG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal">AVGFACSAL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
@@ -396,7 +401,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
             </nav>
         </div>
@@ -453,9 +457,346 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtered_df_two_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input: the dataframe and 2 variable column names</span>
+<span class="sd">    Output: returns a new DataFrame that only contains values in both columns (no NA)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the input DataFrame contains both column names</span>
+    <span class="k">if</span> <span class="n">col1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">col2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame does not contain both specified column names&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Select only the specified columns</span>
+    <span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">]</span>
+    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
+
+    <span class="c1"># Use pandas&#39; built-in methods to check which cells have numbers</span>
+    <span class="n">is_numeric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+
+    <span class="c1"># Filter the DataFrame to keep only the rows with numbers in both columns</span>
+    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_numeric</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">filtered_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pearson correlation coefficient </span>
+<span class="k">def</span> <span class="nf">pearson_corr_coef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input: two lists of equal length</span>
+<span class="sd">    Output: returns an array with the Pearson correlation coefficient</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Checking if the values in the list are the same</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input lists must have the same length&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find Covariance</span>
+    <span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># Standard deviation of x and y</span>
+    <span class="n">stdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">stdy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># Returning Correlation coefficient</span>
+    <span class="k">return</span> <span class="n">covariance</span> <span class="o">/</span> <span class="p">(</span><span class="n">stdx</span> <span class="o">*</span> <span class="n">stdy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prediction_analysis</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input: Filtered Dataframe that only has two columns</span>
+<span class="sd">    Performs a simple linear regression analysis on the input data and generates </span>
+<span class="sd">    predictions based on the input variables.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the input DataFrame contains only two columns</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains less than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains more than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Fit a simple linear regression model to the input data</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># Generate predictions for the output column based on the input variables</span>
+    <span class="n">pred_col</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">pred_col</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regression_analysis_results</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Input: Columns containing actual values and predicted values</span>
+<span class="sd">    Performs a regression analysis to determine how well the model predicts the actual values.</span>
+<span class="sd">    Calculates and returns the R-squared value and generates a scatter plot of the predicted values </span>
+<span class="sd">    versus the actual values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the input DataFrame contains both columns</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_col</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_col</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input columns are not the same length&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the R-squared value</span>
+    <span class="n">r_squared</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
+
+    <span class="c1"># Generates a scatter plot of the observed vs. fitted values</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actual Values&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regression Analysis Results&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">r_squared</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_MSE</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluates a set of predictive values given the actual values using the Mean Squared Error (MSE) metric</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">    predicted_values: A list or numpy array of predicted values.</span>
+<span class="sd">    actual_values: A list or numpy array of actual values.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    The Mean Squared Error (MSE) between the predicted and actual values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if the inputs are of equal length</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_col</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_col</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The predicted and actual values must have the same length.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the Mean Squared Error (MSE) between the predicted and actual values</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred_col</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_col</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mse</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="four-year-retention-rates">
 <h2>Four-Year Retention Rates<a class="headerlink" href="#four-year-retention-rates" title="Permalink to this heading">#</a></h2>
+<section id="sat-avg">
+<h3>SAT_AVG<a class="headerlink" href="#sat-avg" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SAT_score_FT4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
+<span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SAT_AVG</th>
+      <th>RET_FT4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>959.0</td>
+      <td>0.5403</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1245.0</td>
+      <td>0.8640</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1300.0</td>
+      <td>0.8180</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>938.0</td>
+      <td>0.6202</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1262.0</td>
+      <td>0.8723</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pearson_corr_coef</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">SAT_AVG</span><span class="p">,</span> <span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.20105587e+03, 6.97777529e-01],
+       [6.97777529e-01, 8.34092182e-04]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/eba1de2446a20f3e177b08983eac4d92bd62caaa7c69fef82c38aa8523015db4.png" src="_images/eba1de2446a20f3e177b08983eac4d92bd62caaa7c69fef82c38aa8523015db4.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4860228610596219
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017792116415510515
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="avgfacsal">
+<h3>AVGFACSAL<a class="headerlink" href="#avgfacsal" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AVGFACSAL_FT4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
+<span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>AVGFACSAL</th>
+      <th>RET_FT4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7599.0</td>
+      <td>0.5403</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11380.0</td>
+      <td>0.8640</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4545.0</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9697.0</td>
+      <td>0.8180</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7194.0</td>
+      <td>0.6202</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pearson_corr_coef</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">AVGFACSAL</span><span class="p">,</span> <span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.66224401e+04, 3.66145436e-01],
+       [3.66145436e-01, 6.02185469e-05]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d03b871cc239843b9daaba57b7502b6f754e61c8f525a1d9b5871c9fbaf61eb9.png" src="_images/d03b871cc239843b9daaba57b7502b6f754e61c8f525a1d9b5871c9fbaf61eb9.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1339313356752908
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03094448077224073
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="par-ed-pct-hs-and-par-ed-pct-ps">
+<h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 <section id="racial-and-ethnic-diversity-analysis">
 <h2>Racial and Ethnic Diversity Analysis<a class="headerlink" href="#racial-and-ethnic-diversity-analysis" title="Permalink to this heading">#</a></h2>
@@ -950,117 +1291,6 @@ Name: diversity_index, Length: 6681, dtype: float64
 <p>Less than four year institutions do not require the SAT score, therefore there is not too much SAT scores data collected. However, there appears to be a positive relationship between average SAT score and retention rate. As the average SAT scores increase, the retention rate also increases.</p>
 </section>
 </section>
-<section id="linear-regression">
-<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtered_df_two_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: the dataframe and 2 variable column names</span>
-<span class="sd">    Output: returns a new DataFrame that only contains values in both columns (no NA)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains both column names</span>
-    <span class="k">if</span> <span class="n">col1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">col2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame does not contain both specified column names&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Select only the specified columns</span>
-    <span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">]</span>
-    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
-
-    <span class="c1"># Use pandas&#39; built-in methods to check which cells have numbers</span>
-    <span class="n">is_numeric</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">new_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
-
-    <span class="c1"># Filter the DataFrame to keep only the rows with numbers in both columns</span>
-    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_numeric</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">filtered_df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pearson correlation coefficient </span>
-<span class="k">def</span> <span class="nf">pearson_corr_coef</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: two lists of equal length</span>
-<span class="sd">    Output: returns an array with the Pearson correlation coefficient</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Checking if the values in the list are the same</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">!=</span>  <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input lists must have the same length&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Find Covariance</span>
-    <span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Standard deviation of x and y</span>
-    <span class="n">stdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">stdy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Returning Correlation coefficient</span>
-    <span class="k">return</span> <span class="n">covariance</span> <span class="o">/</span> <span class="p">(</span><span class="n">stdx</span> <span class="o">*</span> <span class="n">stdy</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prediction_analysis</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: Filtered Dataframe that only has two columns</span>
-<span class="sd">    Performs a simple linear regression analysis on the input data and generates </span>
-<span class="sd">    predictions based on the input variables.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains only two columns</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains less than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input DataFrame contains more than 2 columns (Must only include 2)&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Fit a simple linear regression model to the input data</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="c1"># Generate predictions for the output column based on the input variables</span>
-    <span class="n">pred_col</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">pred_col</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regression_analysis_results</span><span class="p">(</span><span class="n">x_col</span><span class="p">,</span> <span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Input: Columns containing the x values, actual values, and predicted values</span>
-<span class="sd">    Performs a regression analysis to determine how well the model predicts the actual values.</span>
-<span class="sd">    Calculates and returns the R-squared value and generates a scatter plot of the predicted values </span>
-<span class="sd">    versus the actual values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Check that the input DataFrame contains both columns</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_col</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred_col</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input columns are not the same length&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Calculate the R-squared value</span>
-    <span class="n">r_squared</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
-
-    <span class="c1"># Generate a scatter plot of the predicted values versus the actual values</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_col</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Actual Values&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted Values&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Regression Analysis Results&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="n">r_squared</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1113,7 +1343,12 @@ Name: diversity_index, Length: 6681, dtype: float64
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg">SAT_AVG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal">AVGFACSAL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
@@ -1124,7 +1359,6 @@ Name: diversity_index, Length: 6681, dtype: float64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
   </nav></div>
 
