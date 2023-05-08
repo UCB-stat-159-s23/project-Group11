@@ -406,6 +406,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
 </ul>
             </nav>
         </div>
@@ -536,22 +538,147 @@ while our Github holds our edited version that includes only some variables out 
 <ol class="arabic simple">
 <li><p>SAT_AVG: Average SAT equivalent score of students admitted</p></li>
 </ol>
+<p>Based on our feature analysis, SAT_AVG has the strongest predictive power for four-year retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FT4.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fcf1db642daf5923e406d518a93a79a81aec77b461837b1b067ac64e5449c798.png" src="_images/fcf1db642daf5923e406d518a93a79a81aec77b461837b1b067ac64e5449c798.png" />
+</div>
+</div>
+<p>As shown above, there is a positive relationship between average SAT score and retention rate, which indicates that as the average SAT scores increase, the retention rate also increases.</p>
+<p>In order to analyze whether average SAT score is predictive of retention rates, we conduct a regression analysis with the actual values that we have.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SATactual_vs_SATpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0a6e34b1622e40dc08f3ef04063a1f318d71b3d5f43f7f10bad594fde7ac3cde.png" src="_images/0a6e34b1622e40dc08f3ef04063a1f318d71b3d5f43f7f10bad594fde7ac3cde.png" />
+</div>
+</div>
+<p>We believe that average SAT score is an accurate predictor of four-year retention rates. Based on the regression, as the actual retention values increase, the predicted retention values increase, which indicates that the predicted values follow the trend of the actual values. Thus, it is evident that SAT_AVG is significant in determining four-year retention rates.</p>
 <ol class="arabic simple" start="2">
 <li><p>AVGFACSAL: Average faculty salary</p></li>
 </ol>
+<p>As for average faculty salary, the importance is not as significant as average SAT scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/AVGFACSALactual_vs_AVGFACSALpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6fb15ed00180a48b0ac1e3becf84ed5eb89715ec33fdbf7d36c64f64b8c353a6.png" src="_images/6fb15ed00180a48b0ac1e3becf84ed5eb89715ec33fdbf7d36c64f64b8c353a6.png" />
+</div>
+</div>
+<p>As shown above, the trend between the actual retention values and the predicted retention values based on faculty salary does not follow as closely as the previous regression. However, it appears as though there is still some sort of increasing linear trend. This indicates that average faculty may be an important factor in determining four-year retention rates.</p>
 <ol class="arabic simple" start="3">
 <li><p>PAR_ED_PCT_HS: Percent of students whose parents’ highest educational level is high school</p></li>
 </ol>
+<p>While we could not compute the feature importance of parent education (due to “privacy suppressed” issues), we found that the correlation between the parent education and retention rates were high.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/PAR_ED_HSactual_vs_PAR_ED_HSpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9a77522a0550b30d862ffe2fc4aacfa09dbaa2a52a9cdedd997b757e854cd907.png" src="_images/9a77522a0550b30d862ffe2fc4aacfa09dbaa2a52a9cdedd997b757e854cd907.png" />
+</div>
+</div>
+<p>Based on the regression analysis, parents’ education level (high school) has a positive relationship with four-year retention rates. As shown above, when the actual retention values increase, the predicted retention values also increasing, indicating that parents’ education level (high school) has some predictive power in four-year retention rates.</p>
 <ol class="arabic simple" start="4">
 <li><p>PAR_ED_PCT_PS: Percent of students whose parents’ highest education level was in some form of postsecondary education</p></li>
 </ol>
+<p>The effect on retention rates based on parent education (postsecondary) appears to have a similar effect as shown in the parent education (high school).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/PAR_ED_PSactual_vs_PAR_ED_PSpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ce4f638c253f1fde8afdc64857fd68079af516a49c788e73ff4d177b38084b1.png" src="_images/0ce4f638c253f1fde8afdc64857fd68079af516a49c788e73ff4d177b38084b1.png" />
+</div>
+</div>
+<p>As shown above, the regression analysis appears to be similar as the one with parents’ education level (high school). This means that parents’ education level (postsecondary) has similar predictive power in four-year retention rates.</p>
 </section>
 <section id="less-than-four-year-institutions">
 <h3><em>Less-than-four-year institutions</em><a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Ethnic Diversity (UGDS): Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
 </ol>
+<p>Based on our feature analysis, ethnic diversity was several of the most important features in predicting less than four-year retention rates as the different UGDS variables were ranked within the top 3.</p>
+<p>As a result, we utilized Simpson’s Diversity Index to create a variable that captures the Racial and Ethnic diversity of professional schools in the United States. With this diversity index, we conducted hypothesis testing that uncovers whether there is truly a relationship between the diversity and less than four-year retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/RET_FTL4_diversity.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9ce6af3bea66eb4d82e4857a56759ecf37e08f13d27875bc7e41febace31c95c.png" src="_images/9ce6af3bea66eb4d82e4857a56759ecf37e08f13d27875bc7e41febace31c95c.png" />
+</div>
+</div>
+<p>Based on the hypothesis test, we found that the p-value is very small, indicating that that there is a relationship between retention rate and diversity index at less-than-four-year institutions. However, while the correlation between diversity index and retention rate is negative, the correlation is also small.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Diversity_Real_Retention.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/63077ffabf68c1845f2e345397716ded14d7e5aea9d2830db4d387e96ea1ed63.png" src="_images/63077ffabf68c1845f2e345397716ded14d7e5aea9d2830db4d387e96ea1ed63.png" />
+</div>
+</div>
+<p>By graphing the diversity index and the retention rate, it appeared that as diversity index increases, the retention rate for less-than-four-year institution decreases. However, this relationship does not appear to be evident.</p>
+<p>This is apparent in the regression analysis below as there is no obvious increasing trend between the actual retention values and the predicted retention values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Diversity_actual_vs_Diversity_predicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/959ab2df8e5efd61dbb5b67cf5f526383d113af2f8bb9dc8a30f81113a1d03d7.png" src="_images/959ab2df8e5efd61dbb5b67cf5f526383d113af2f8bb9dc8a30f81113a1d03d7.png" />
+</div>
+</div>
+<p>Thus, while there is no apparent linear relationship between diversity and less than four-year retention rates, there seems to still be a relationship between the variables based on the hypothesis testing</p>
 </section>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Four-year retention rates</p></li>
+</ul>
+<p>Based on the conducted regression analysis, it is apparent that average SAT score is a reliable predictor of four-retention rates. The results of the regression analysis indicates that there was a significant positive relationship between the variables as they increased alongside each other. This relationship was supported by the feature importance and high degree of explanatory power as indicated by the adjusted R-squared value.</p>
+<p>This finding suggests that improving the academic quality of the student body through measures such as raising SAT score requirements could lead to higher retention rates and thus improved institutional outcomes. However, it is important to note that while the regression analysis provides evidence of a relationship between average SAT scores and retention rates, it does not prove causality. Other factors, such as student engagement, campus climate, and support services, may also play a role in retention rates. Further research is needed to explore the complex factors that influence retention rates.</p>
+<ul class="simple">
+<li><p>Less than four-year retention rates</p></li>
+</ul>
+<p>As for less than four-year retention rates, it is quite tricky in understanding the role of diversity with retention rates. While our hypothesis tests and feature importance showed that there is a relationship between diversity and retention, the regression analysis displayed that there is no <strong>linear</strong> relationship between the two variables.</p>
+<p>As a result, there appears to be a more complex story behind these variables. While it is not quite clear how diversity affects the retention rates, it is still evident that diversity is a factor that affects retention. Thus, further research is required to explore in order to understand the complex relationship.</p>
+</section>
+<section id="author-contribution">
+<h2>Author Contribution<a class="headerlink" href="#author-contribution" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Janet Choe</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Overall</span> <span class="pre">Retention</span> <span class="pre">Rate</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">of</span> <span class="pre">Institution</span></code> analysis</p></li>
+<li><p>Created 7/8 functions in utils and made tests for respective functions</p></li>
+<li><p>Wrote the narrative of the main.ipynb</p></li>
+<li><p>Formatted the README file</p></li>
+</ul>
+</li>
+<li><p>Daniel Richards</p></li>
+<li><p>Connie He</p></li>
+<li><p>Henry Lam</p></li>
+</ul>
 </section>
 </section>
 
@@ -639,6 +766,8 @@ while our Github holds our edited version that includes only some variables out 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
 </ul>
   </nav></div>
 
