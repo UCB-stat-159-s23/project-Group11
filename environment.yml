@@ -10,5 +10,5 @@ dependencies:
   - scipy==1.10
   - seaborn==0.12
   - xarray==2023.1
-  - sklearn==0.0.post4
+  - scikit-learn==1.2
   - pytest==7.1
