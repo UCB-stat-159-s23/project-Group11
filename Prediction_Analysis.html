@@ -392,19 +392,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg">SAT_AVG</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal">AVGFACSAL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-retention-rates">Less-than-four-year Retention Rates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ccugprof">CCUGPROF</a></li>
 </ul>
 </li>
 </ul>
@@ -447,7 +441,6 @@ document.write(`
 <li><p>Less-than-four-year retention rates</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">Ethnic</span> <span class="pre">Diversity</span> <span class="pre">(UGDS)</span></code> : Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code> : Carnegie Classification – undergraduate profile</p></li>
 </ul>
 </li>
 </ul>
@@ -466,8 +459,8 @@ document.write(`
 </section>
 <section id="four-year-retention-rates">
 <h2>Four-Year Retention Rates<a class="headerlink" href="#four-year-retention-rates" title="Permalink to this heading">#</a></h2>
-<section id="sat-avg">
-<h3>SAT_AVG<a class="headerlink" href="#sat-avg" title="Permalink to this heading">#</a></h3>
+<section id="sat-avg-average-sat-equivalent-score-of-students-admitted">
+<h3>SAT_AVG: Average SAT equivalent score of students admitted<a class="headerlink" href="#sat-avg-average-sat-equivalent-score-of-students-admitted" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
@@ -581,6 +574,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Based on the R^2 value, a linear model based on SAT average scores explains 0.49 of the variance within retention rates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">SAT_score_FT4</span><span class="p">))</span>
@@ -593,9 +587,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Thus, due to the low MSE, we believe that average SAT score is a good predictor of four-year retention rates. Based on the regression, higher SAT average score indicates higher retention rates.</p>
 </section>
-<section id="avgfacsal">
-<h3>AVGFACSAL<a class="headerlink" href="#avgfacsal" title="Permalink to this heading">#</a></h3>
+<section id="avgfacsal-average-faculty-salary">
+<h3>AVGFACSAL: Average faculty salary<a class="headerlink" href="#avgfacsal-average-faculty-salary" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AVGFACSAL_FT4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
@@ -685,6 +680,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Based on the R^2 value, a linear model based on faculty salary explains 0.13 of the variance within retention rates. While it is not the best predictor, there is a general upward trend within the actual vs predicted values, signifying some sort of predicting power.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="p">))</span>
@@ -697,80 +693,25 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Thus, including the low MSE, we conclude that there is a weak but present relationship between faculty salary and retention at four-year institutions. While faculty salary increases, retention rates increase at the general trend as well.</p>
 </section>
-<section id="par-ed-pct-hs-and-par-ed-pct-ps">
-<h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps" title="Permalink to this heading">#</a></h3>
+<section id="par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">
+<h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school" title="Permalink to this heading">#</a></h3>
 <p>As noted in our EDA, these two features have high amounts of null and “PrivacySuppressed” values. We will need to drop these values in order to continue our analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_privacy_suppressed</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">no_privacy_suppressed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PAR_HS_RET_FT4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">PAR_PS_RET_FT4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PAR_ED_PCT_PS</th>
-      <th>PAR_ED_PCT_HS</th>
-      <th>RET_FT4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.634172</td>
-      <td>0.349406</td>
-      <td>0.5403</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.658776</td>
-      <td>0.318957</td>
-      <td>0.8640</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.487500</td>
-      <td>0.462500</td>
-      <td>0.5000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.689868</td>
-      <td>0.290308</td>
-      <td>0.8180</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.656566</td>
-      <td>0.324610</td>
-      <td>0.6202</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Next, we will find the correlation between parent’s highschool education and college education respectively with retention at 4 year universities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_HS</span><span class="p">,</span> <span class="n">p_value_HS</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;PAR_ED_PCT_HS&#39;</span><span class="p">],</span>  <span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_privacy_suppressed</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">corr_HS</span><span class="p">,</span> <span class="n">p_value_HS</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;PAR_ED_PCT_HS&#39;</span><span class="p">],</span>  <span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
 <span class="n">corr_PS</span><span class="p">,</span> <span class="n">p_value_PS</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">],</span>  <span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlation of proportion of parents&#39; being highschool educated with retention: &quot;</span> <span class="p">,</span> <span class="n">corr_HS</span><span class="p">)</span>
@@ -796,27 +737,66 @@ Correlation of proportion of parents&#39; having some college education with ret
 <img alt="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" src="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" />
 </div>
 </div>
-<p>Let us define our alternate and null hypotheses:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and parent education at four-year institutions.</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and parent education  at four-year institutions.</p></li>
-</ul>
-<p>All variables appear normally distributed as shown above, and therefore we can determine the probability of the correlations actually being zero. We will take a threshold value of 0.05. If the probability of the correlations being zero is less than the threshold, we reject the null.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value for correlation of proportion of parents&#39; being highschool educated with retention: &quot;</span> <span class="p">,</span> <span class="n">p_value_HS</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value for correlation of proportion of parents&#39; having some college education with retention: &quot;</span> <span class="p">,</span> <span class="n">p_value_PS</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="p">),</span> <span class="s1">&#39;PAR_ED_HSactual_vs_PAR_ED_HSpredicted.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P-value for correlation of proportion of parents&#39; being highschool educated with retention:  8.717586148499827e-95
-P-value for correlation of proportion of parents&#39; having some college education with retention:  1.5460362760661148e-79
+<img alt="_images/2a86607bf6537c251fe3e84ba7b5761a41235a7142ee08527694c8767071f075.png" src="_images/2a86607bf6537c251fe3e84ba7b5761a41235a7142ee08527694c8767071f075.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2614911186035256
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>These are far less than 0.05 so we reject the null and accept the alternate hypothesis that there is an association between HS and college education of parents with student retention at 4 year institutions.</p>
+<p>Based on the R^2 value, a linear model based on Parent Education (high school) explains 0.26 of the variance within retention rates. While this R^2 value is low, the relationship between actual vs predicted values showcase some sort of predictive power.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03096682761276435
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus, the low MSE signifies that our predicted retention values based on Parent Education (high school) is not far off from the actual values. This means that there is an increasing linear relationship between the two variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">PAR_PS_RET_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">PAR_PS_RET_FT4</span><span class="p">),</span> <span class="s1">&#39;PAR_ED_PSactual_vs_PAR_ED_PSpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ba14b6dbac90036d36802218750c6f11c7817eef193e4409be4c60d6f299abc9.png" src="_images/ba14b6dbac90036d36802218750c6f11c7817eef193e4409be4c60d6f299abc9.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.19753850951573393
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on the R^2 value, a linear model based on Parent Education (postsecondary school) explains 0.20 of the variance within retention rates. While this R^2 value is lower than Parent Education (high school), the relationship between actual vs. predicted values showcase some sort of predictive power while not as strong.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">PAR_PS_RET_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">PAR_PS_RET_FT4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02902789934662409
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, the MSE of retention rates based on Parent Education (postsecondary school) is actually lower than the MSE of retention rates based on Parent Education (high school). This indicates that our predicted values have less of an error compared to the previous predicted values. <strong>With this in mind, we conclude that both Parent Education variables have some sort of predictive power in retention rates with strengths in different areas.</strong></p>
 </section>
 </section>
 <section id="less-than-four-year-retention-rates">
@@ -1040,70 +1020,10 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
-<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;diversity_index&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RET_FT4</th>
-      <th>diversity_index</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.5403</td>
-      <td>0.183444</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.8640</td>
-      <td>0.628836</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5000</td>
-      <td>0.455797</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.8180</td>
-      <td>0.469490</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.6202</td>
-      <td>0.140635</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1130,55 +1050,39 @@ Name: diversity_index, Length: 6681, dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>RET_FTL4</th>
       <th>diversity_index</th>
+      <th>RET_FTL4</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>6</th>
-      <td>0.5915</td>
       <td>0.430426</td>
+      <td>0.5915</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>0.5538</td>
       <td>0.661073</td>
+      <td>0.5538</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>0.5961</td>
       <td>0.588972</td>
+      <td>0.5961</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>0.5449</td>
       <td>0.527717</td>
+      <td>0.5449</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>0.5357</td>
       <td>0.478832</td>
+      <td>0.5357</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
-</div>
-</section>
-<section id="comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">
-<h3>Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution<a class="headerlink" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># four-year institutions</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.730971298076923 0.5035307974807692
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1193,43 +1097,6 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 </div>
 </div>
-<section id="four-year-institutions">
-<h4>Four-year institutions<a class="headerlink" href="#four-year-institutions" title="Permalink to this heading">#</a></h4>
-<p>When you have two massive continuous data and you want to visualize their relationship, you can use a scatter plot. Scatter plots are useful for visualizing the relationship between two continuous variables. Each data point is plotted as a point on the graph, with one variable on the x-axis and the other on the y-axis.</p>
-<p>However, if you have a large number of data points, a scatter plot can become overcrowded and difficult to interpret. In such cases, you can use a 2D density plot. These plots provide a way to visualize the distribution of the data while reducing the clutter caused by overlapping points in a scatter plot. A 2D density plot creates a smoothed representation of the data by estimating the density of points in different regions of the plot.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at four-year institutions.</p></li>
-<li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at four-year institutions.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">],</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.012020871881703171 0.583742479083747
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">f</span><span class="o">.</span><span class="n">ax_joint</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;corr: </span><span class="si">{</span><span class="n">corr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, p-value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/RET_FT4_diversity.png&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" src="_images/14656fd507d35213fdca55670d136b8ac1e11c646968b3d6b6538e8e760d8792.png" />
-</div>
-</div>
-<p><strong>The p-value is around 0.58, which is very large. This means that we can conclude that there is no relationship between retention rate and diversity index at four-year institutions.</strong></p>
-</section>
-<section id="less-than-four-year-institutions">
-<h4>Less than four-year institutions<a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
 <li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and diversity index at less-than-four-year institutions.</p></li>
@@ -1260,92 +1127,29 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 </div>
 <p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions. The correlation between diversity index and retention rate is negative. Therefore, we can conclude that as diversity index increases, the retention rate for less-than-four-year institution decreases.</strong></p>
-</section>
-</section>
-<section id="ccugprof">
-<h3>CCUGPROF<a class="headerlink" href="#ccugprof" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CCUG_FTL4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
-<span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">diversity_index</span><span class="p">,</span> <span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Diversity Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Retention Rate at less-than-four-year institutions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Diversity Index vs. Retention&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Diversity_Real_Retention.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>CCUGPROF</th>
-      <th>RET_FTL4</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>6</th>
-      <td>2.0</td>
-      <td>0.5915</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>2.0</td>
-      <td>0.5538</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>2.0</td>
-      <td>0.5961</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>2.0</td>
-      <td>0.5449</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>2.0</td>
-      <td>0.5357</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pearson_corr_coef</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">CCUGPROF</span><span class="p">,</span> <span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11.06490256, -0.27930278],
-       [-0.27930278,  0.09043423]])
-</pre></div>
-</div>
+<img alt="_images/170334f4e934a06107aea782f2d6980ac90fe0532c68872e3a35a6f39327f664.png" src="_images/170334f4e934a06107aea782f2d6980ac90fe0532c68872e3a35a6f39327f664.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="p">),</span> <span class="s1">&#39;CCUGPROFactual_vs_CCUGPROFpredicted.png&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="p">),</span> <span class="s1">&#39;Diversity_actual_vs_Diversity_predicted.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e361c408910f1b9dbe67d03f536f33dbb31330520f55431336a6c8ed201014f3.png" src="_images/e361c408910f1b9dbe67d03f536f33dbb31330520f55431336a6c8ed201014f3.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07795969145423698
+<img alt="_images/66c89d66447ff0e905be6b6b80d2a9ec41d5fa2042d8527e37f721a120539eb2.png" src="_images/66c89d66447ff0e905be6b6b80d2a9ec41d5fa2042d8527e37f721a120539eb2.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.006822246291913636
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
@@ -1353,18 +1157,20 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 </div>
 </div>
+<p>Based on the R^2 value, there does not seem to be a stable prediction of retention values based on diversity index. The R^2 value appears to be too low in order to conclude that there is predictive power.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">FTL4_institutions</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04143792812705519
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.03870332834271446
 </pre></div>
 </div>
 </div>
 </div>
+<p>However, the MSE value signifies that there is not much error in the predicted values vs the actual values for retention rates.</p>
 </section>
 </section>
 </section>
@@ -1429,19 +1235,13 @@ Name: diversity_index, Length: 6681, dtype: float64
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg">SAT_AVG</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal">AVGFACSAL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-retention-rates">Less-than-four-year Retention Rates</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ccugprof">CCUGPROF</a></li>
 </ul>
 </li>
 </ul>
