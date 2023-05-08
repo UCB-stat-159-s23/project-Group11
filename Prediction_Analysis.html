@@ -648,6 +648,18 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<p>Before using linear models, we visualize the relationship between average faculty salary and student retention and find that it is, in fact, linear.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">AVGFACSAL_FT4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;AVGFACSAL&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;RET_FT4&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figures/avgfacsal_retft4_scatter.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5afd07fd00148d9e5e0a4a326cfc0ec3c53b2f2195d4ad3771b2628aa5a32e41.png" src="_images/5afd07fd00148d9e5e0a4a326cfc0ec3c53b2f2195d4ad3771b2628aa5a32e41.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pearson_corr_coef</span><span class="p">(</span><span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">AVGFACSAL</span><span class="p">,</span> <span class="n">AVGFACSAL_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">)</span>
