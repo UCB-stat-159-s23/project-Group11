@@ -177,10 +177,11 @@ def regression_analysis_results(y_col, pred_col, filename):
     plt.xlabel('Actual Values')
     plt.ylabel('Predicted Values')
     plt.title('Regression Analysis Results')
-    plt.show()
 
     filepath = os.path.join('figures', filename)
     plt.savefig(filepath)
+
+    plt.show()
 
     return r_squared
 
