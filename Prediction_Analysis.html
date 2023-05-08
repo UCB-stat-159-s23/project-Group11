@@ -416,6 +416,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -692,6 +693,123 @@ document.write(`
 </section>
 <section id="par-ed-pct-hs-and-par-ed-pct-ps">
 <h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps" title="Permalink to this heading">#</a></h3>
+<p>As noted in our EDA, these two features have high amounts of null and “PrivacySuppressed” values. We will need to drop these values in order to continue our analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_privacy_suppressed</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">,</span> <span class="s2">&quot;PAR_ED_PCT_HS&quot;</span><span class="p">,</span> <span class="s2">&quot;RET_FT4&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;PrivacySuppressed&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">no_privacy_suppressed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PAR_ED_PCT_PS</th>
+      <th>PAR_ED_PCT_HS</th>
+      <th>RET_FT4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.634172</td>
+      <td>0.349406</td>
+      <td>0.5403</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.658776</td>
+      <td>0.318957</td>
+      <td>0.8640</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.487500</td>
+      <td>0.462500</td>
+      <td>0.5000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.689868</td>
+      <td>0.290308</td>
+      <td>0.8180</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.656566</td>
+      <td>0.324610</td>
+      <td>0.6202</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Next, we will find the correlation between parent’s highschool education and college education respectively with retention at 4 year universities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr_HS</span><span class="p">,</span> <span class="n">p_value_HS</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;PAR_ED_PCT_HS&#39;</span><span class="p">],</span>  <span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
+<span class="n">corr_PS</span><span class="p">,</span> <span class="n">p_value_PS</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s2">&quot;PAR_ED_PCT_PS&quot;</span><span class="p">],</span>  <span class="n">no_privacy_suppressed</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlation of proportion of parents&#39; being highschool educated with retention: &quot;</span> <span class="p">,</span> <span class="n">corr_HS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correlation of proportion of parents&#39; having some college education with retention: &quot;</span> <span class="p">,</span> <span class="n">corr_PS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correlation of proportion of parents&#39; being highschool educated with retention:  -0.5113620230360538
+Correlation of proportion of parents&#39; having some college education with retention:  0.47308519546666317
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both have moderate correlations. Given both variables are normally distributed, we can find the probability of this correlation being nonzero. First let us examine whether we can make this assumption.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">no_privacy_suppressed</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;PAR_ED_PCT_PS&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" src="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" />
+</div>
+</div>
+<p>Let us define our alternate and null hypotheses:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_0:\)</span> There is no relationship between the retension rate and parent education at four-year institutions.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_1:\)</span> There is no relationship between the retension rate and parent education  at four-year institutions.</p></li>
+</ul>
+<p>All variables appear normally distributed as shown above, and therefore we can determine the probability of the correlations actually being zero. We will take a threshold value of 0.05. If the probability of the correlations being zero is less than the threshold, we reject the null.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value for correlation of proportion of parents&#39; being highschool educated with retention: &quot;</span> <span class="p">,</span> <span class="n">p_value_HS</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value for correlation of proportion of parents&#39; having some college education with retention: &quot;</span> <span class="p">,</span> <span class="n">p_value_PS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P-value for correlation of proportion of parents&#39; being highschool educated with retention:  8.717586148499827e-95
+P-value for correlation of proportion of parents&#39; having some college education with retention:  1.5460362760661148e-79
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are far less than 0.05 so we reject the null and accept the alternate hypothesis that there is an association between HS and college education of parents with student retention at 4 year institutions.</p>
 </section>
 </section>
 <section id="less-than-four-year-retention-rates">
