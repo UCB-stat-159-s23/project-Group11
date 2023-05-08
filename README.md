@@ -10,6 +10,11 @@ Dataset link: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg)](
 
 This is a project attempting to analyze the factors that affect student retention at universities in a reproducible manner. We conduct exploratory data analysis, compute feature importance, and implement logistic regression for prediction. The data originates from the U.S. Department of Education College Scoreboard through the Institution-level data files for 1996-97 through 2020-21 containing aggregate data for each institution. The dataset includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. You can find more information here: https://collegescorecard.ed.gov/data/
 
+## Useful Commands
+* To run all tests for utility functions, run ``` pytest ``` from the terminal in the root directory.
+* To create the environment, run ``` make env ``` from the reminal in the root directory.
+* In addition, you may run ``` make html ``` to build the jupyter-book html, ``` make clean ``` to remove figures and html files, and ``` make all ``` to run all the aforementioned ```make``` commands.
+
 ## Repository Structure
 * `/data`: cleaned data csv files
 * `/figures`: all generated figures as png files
