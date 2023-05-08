@@ -720,17 +720,7 @@ Correlation of proportion of parents&#39; having some college education with ret
 </div>
 </div>
 </div>
-<p>Both have moderate correlations. Given both variables are normally distributed, we can find the probability of this correlation being nonzero. First let us examine whether we can make this assumption.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">no_privacy_suppressed</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;PAR_ED_PCT_PS&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" src="_images/53780003213614a9ed19399cdd7ce242ecfd23c69332c737903d3d43d5e83fe5.png" />
-</div>
-</div>
+<p>Both also have linear relationships with retention as shown in EDA. Therefore, we can continue with a linear model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">PAR_HS_RET_FT4</span><span class="p">),</span> <span class="s1">&#39;PAR_ED_HSactual_vs_PAR_ED_HSpredicted.png&#39;</span><span class="p">)</span>
