@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Retention Rate Analysis &#8212; Final Project</title>
+    <title>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions &#8212; Final Project</title>
   
   
   
@@ -366,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -377,11 +379,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Retention Rate Analysis</h1>
+    <h1>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-analysis">Purpose of Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -391,8 +406,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="retention-rate-analysis">
-<h1>Retention Rate Analysis<a class="headerlink" href="#retention-rate-analysis" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-retention-rates-at-four-year-and-less-than-four-year-institutions">
+<h1>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions<a class="headerlink" href="#analysis-of-retention-rates-at-four-year-and-less-than-four-year-institutions" title="Permalink to this heading">#</a></h1>
+<p>Authors: Janet Choe, Daniel Richards, Connie He, Henry Lam</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>What factors affect retention rates at institutions? The retention of students in higher education is a critical factor in ensuring academic success and achieving institutional goals. It is a measure of the proportion of students who continue their studies at the same institution from their initial enrollment to the subsequent academic year. A high retention rate indicates that students are satisfied with their academic experience and the institution’s support services, leading to increased student success, reputation, and revenue for the university. In contrast, low retention rates can be detrimental to the institution’s academic reputation, financial stability, and the overall student experience.</p>
+<section id="purpose-of-analysis">
+<h3>Purpose of Analysis<a class="headerlink" href="#purpose-of-analysis" title="Permalink to this heading">#</a></h3>
+<p>Given the importance of retention rates, there is a growing interest in identifying the factors that influence them. Therefore, our research aims to analyze the factors that affect retention rates at institutions. By examining institutional data, we identify the factors that have the most significant impact on student retention. The findings of this study may provide insight to institutions on how to improve retention rates and enhance the student experience.</p>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<p>Our team retrieves the data from the <a class="reference external" href="https://collegescorecard.ed.gov/data/">U.S. Department of Education College Scorecard</a>. We utilize the “Most Recent Institution-Level Data” for 1996-97 through 2020-21 containing aggregate data for each institution, which includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. Since the data was too large to upload to Github, we uploaded the original dataset to <a class="reference external" href="https://doi.org/10.5281/zenodo.7857257"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg" /></a>
+while our Github holds our edited version that includes only some variables out of the original dataset.</p>
+<p><em>It is also important to note that most of the variables in the dataset include a high amount of null or “Privacy Suppressed” variables. Due to this aspect, we emphasize to readers that <strong>missing data were excluded from the analysis</strong>, reducing our sample size.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/null_values.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2d6ed0b5b75b8c1ddca0c58975a0197e9a1eea9b46e38b2e811340d8a876942c.png" src="_images/2d6ed0b5b75b8c1ddca0c58975a0197e9a1eea9b46e38b2e811340d8a876942c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exploratory-analysis">
+<h2>Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this heading">#</a></h2>
+<p>We first examine the retention rates between four-year institutions and less-than-four-year institutions. We found that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/overall_retention_histogram.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4002f0933e45b90082d16cf64245e42b039a288e8c05e821afc89bfbcfbdce62.png" src="_images/4002f0933e45b90082d16cf64245e42b039a288e8c05e821afc89bfbcfbdce62.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -453,6 +514,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-analysis">Purpose of Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
