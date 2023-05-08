@@ -6,6 +6,7 @@ import scipy.stats as stats
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
+import os
 
 # Set figure size
 plt.rcParams["figure.figsize"] = (14, 8) 
@@ -152,12 +153,13 @@ def prediction_analysis(filtered_data):
 
     return pred_col
 
-def regression_analysis_results(y_col, pred_col):
+def regression_analysis_results(y_col, pred_col, filename):
     """
     Performs a regression analysis to determine how well the model predicts the actual values.
 
     Parameters:
     Columns containing actual values and predicted values
+    filename that you want the figure to be saved as
 
     Returns:
     Calculates and returns the R-squared value and generates a scatter plot of the predicted values 
@@ -176,6 +178,9 @@ def regression_analysis_results(y_col, pred_col):
     plt.ylabel('Predicted Values')
     plt.title('Regression Analysis Results')
     plt.show()
+
+    filepath = os.path.join('figures', filename)
+    plt.savefig(filepath)
 
     return r_squared
 
