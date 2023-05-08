@@ -390,14 +390,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-retention-rates">Less-than-four-year Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-four-year-institution">SAT Scores vs. Retention Rate in four year institution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ccugprof">CCUGPROF</a></li>
 </ul>
 </li>
 </ul>
@@ -430,15 +430,16 @@ document.write(`
 <ul class="simple">
 <li><p>Four-year retention rates</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> and <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code>: Average SAT equivalent score of students admitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code>: Average faculty salary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> : Percent of students whose parents’ highest educational level is high school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>: Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
 </ul>
 </li>
 <li><p>Less-than-four-year retention rates</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Ethnic</span> <span class="pre">Diversity</span> <span class="pre">(UGDS)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethnic</span> <span class="pre">Diversity</span> <span class="pre">(UGDS)</span></code> : Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code> : Carnegie Classification – undergraduate profile</p></li>
 </ul>
 </li>
 </ul>
@@ -459,6 +460,30 @@ document.write(`
 <h2>Four-Year Retention Rates<a class="headerlink" href="#four-year-retention-rates" title="Permalink to this heading">#</a></h2>
 <section id="sat-avg">
 <h3>SAT_AVG<a class="headerlink" href="#sat-avg" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
+<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Average SAT Scores&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average SAT Scores vs. Retention Rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FT4.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" src="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" />
+</div>
+</div>
+<p>The average SAT score for four year institutions is around 1100. There is a positive relationship between average SAT score and retention rate. In other words, as the average SAT scores increase, the retention rate also increases.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SAT_score_FT4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
@@ -669,8 +694,10 @@ document.write(`
 <h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps" title="Permalink to this heading">#</a></h3>
 </section>
 </section>
+<section id="less-than-four-year-retention-rates">
+<h2>Less-than-four-year Retention Rates<a class="headerlink" href="#less-than-four-year-retention-rates" title="Permalink to this heading">#</a></h2>
 <section id="racial-and-ethnic-diversity-analysis">
-<h2>Racial and Ethnic Diversity Analysis<a class="headerlink" href="#racial-and-ethnic-diversity-analysis" title="Permalink to this heading">#</a></h2>
+<h3>Racial and Ethnic Diversity Analysis<a class="headerlink" href="#racial-and-ethnic-diversity-analysis" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">race_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span>
@@ -1012,6 +1039,7 @@ Name: diversity_index, Length: 6681, dtype: float64
 </table>
 </div></div></div>
 </div>
+</section>
 <section id="comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">
 <h3>Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution<a class="headerlink" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1022,13 +1050,7 @@ Name: diversity_index, Length: 6681, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># four-year institutions</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">FT4_institutions</span><span class="p">[</span><span class="s1">&#39;diversity_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-
-<span class="ne">NameError</span>: name &#39;FT4_institutions&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.730971298076923 0.5035307974807692
 </pre></div>
 </div>
 </div>
@@ -1115,51 +1137,109 @@ Name: diversity_index, Length: 6681, dtype: float64
 <p><strong>The p-value is very small. This means that we can conclude that there is a relationship between retention rate and diversity index at less-than-four-year institutions. The correlation between diversity index and retention rate is negative. Therefore, we can conclude that as diversity index increases, the retention rate for less-than-four-year institution decreases.</strong></p>
 </section>
 </section>
-<section id="sat-scores-vs-retention-rate-in-four-year-institution">
-<h3>SAT Scores vs. Retention Rate in four year institution<a class="headerlink" href="#sat-scores-vs-retention-rate-in-four-year-institution" title="Permalink to this heading">#</a></h3>
+<section id="ccugprof">
+<h3>CCUGPROF<a class="headerlink" href="#ccugprof" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
-<span class="n">FTL4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Average SAT Scores&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FT4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average SAT Scores vs. Retention Rates&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FT4.png&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CCUG_FTL4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">)</span>
+<span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" src="_images/24301593a026f9773d2ad45049a3fc22bd5c6a35cdf9260ca8e25d9ea6b738fe.png" />
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CCUGPROF</th>
+      <th>RET_FTL4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>2.0</td>
+      <td>0.5915</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2.0</td>
+      <td>0.5538</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2.0</td>
+      <td>0.5961</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2.0</td>
+      <td>0.5449</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2.0</td>
+      <td>0.5357</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-<p>The average SAT score for four year institutions is around 1100. There is a positive relationship between average SAT score and retention rate. In other words, as the average SAT scores increase, the retention rate also increases.</p>
-</section>
-<section id="sat-scores-vs-retention-rate-in-less-than-four-year-institution">
-<h3>SAT Scores vs. Retention Rate in less than four year institution<a class="headerlink" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Average SAT Scores&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FTL4_institutions</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Average SAT Scores vs. Retention Rates&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FTL4.png&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pearson_corr_coef</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">CCUGPROF</span><span class="p">,</span> <span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e957ef752cd30cc682e4f1a939f8bf2d63ef9076d3f4bd70ba6c97a62f667fcb.png" src="_images/e957ef752cd30cc682e4f1a939f8bf2d63ef9076d3f4bd70ba6c97a62f667fcb.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11.06490256, -0.27930278],
+       [-0.27930278,  0.09043423]])
+</pre></div>
 </div>
 </div>
-<p>Less than four year institutions do not require the SAT score, therefore there is not too much SAT scores data collected. However, there appears to be a positive relationship between average SAT score and retention rate. As the average SAT scores increase, the retention rate also increases.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_analysis_results</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="p">),</span> <span class="s1">&#39;CCUGPROFactual_vs_CCUGPROFpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e361c408910f1b9dbe67d03f536f33dbb31330520f55431336a6c8ed201014f3.png" src="_images/e361c408910f1b9dbe67d03f536f33dbb31330520f55431336a6c8ed201014f3.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07795969145423698
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1400x800 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_MSE</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">(</span><span class="n">CCUG_FTL4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.04143792812705519
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1220,14 +1300,14 @@ Name: diversity_index, Length: 6681, dtype: float64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps">PAR_ED_PCT_HS and PAR_ED_PCT_PS</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-retention-rates">Less-than-four-year Retention Rates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#racial-and-ethnic-diversity-analysis">Racial and Ethnic Diversity Analysis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-the-diversity-and-retention-rates-between-four-year-and-less-than-four-year-institution">Comparing the Diversity and Retention Rates between four-year and less-than-four-year institution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions">Four-year institutions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions">Less than four-year institutions</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-four-year-institution">SAT Scores vs. Retention Rate in four year institution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-scores-vs-retention-rate-in-less-than-four-year-institution">SAT Scores vs. Retention Rate in less than four year institution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ccugprof">CCUGPROF</a></li>
 </ul>
 </li>
 </ul>
