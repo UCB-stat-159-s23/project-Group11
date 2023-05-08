@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Predicting Retention Rates &#8212; Final Project</title>
+    <title>Predicting Retention Rates &#8212; My sample book</title>
   
   
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -64,9 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Variable_Analysis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How does the control of the school affect retention rates?" href="Control_public_vs_private.html" />
     <link rel="prev" title="Final Project: original data analysis" href="project-description.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -151,14 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="README.html">
-                    Reproducible Research Project for Institution Retention Rates
+                    <no title>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Project Description</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variable Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Predicting Retention Rates</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">How does the control of the school affect retention rates?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Does number of programs offered (PRGMOFR) affect retention?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Analyze how parent education affects retention of students</a></li>
 </ul>
 
     </div>
@@ -200,37 +209,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Variable_Analysis.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -383,6 +361,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-packages-and-data">Loading in Packages and Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
             </nav>
@@ -396,9 +375,214 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predicting-retention-rates">
-<h1>Predicting Retention Rates<a class="headerlink" href="#predicting-retention-rates" title="Permalink to this heading">#</a></h1>
+<h1>Predicting Retention Rates<a class="headerlink" href="#predicting-retention-rates" title="Permalink to this headline">#</a></h1>
+<p>Given the preliminary feature analysis conducted in the ‘Exploratory Analysis.ipynb’, we have found that the following variables affect retention rates.</p>
+<ul class="simple">
+<li><p>list features</p></li>
+</ul>
+<p>Now, we are going to conduct further analysis (linear regression) in order to explore the true relationship between these features and retention rates.</p>
+<section id="loading-in-packages-and-data">
+<h2>Loading in Packages and Data<a class="headerlink" href="#loading-in-packages-and-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Prep plotting aesthetics</span>
+<span class="c1"># Set font size names</span>
+<span class="n">SMALL_SIZE</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">MEDIUM_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="c1"># Set font sizes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>          <span class="c1"># controls default text sizes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the axes title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the x and y labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># fontsize of the tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;legend&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">SMALL_SIZE</span><span class="p">)</span>    <span class="c1"># legend fontsize</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">titlesize</span><span class="o">=</span><span class="n">MEDIUM_SIZE</span><span class="p">)</span>  <span class="c1"># fontsize of the figure title</span>
+<span class="c1"># Set figure size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1"># size of the figure plotted</span>
+
+<span class="c1"># Load in cleaned data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>UNITID</th>
+      <th>INSTNM</th>
+      <th>CITY</th>
+      <th>HIGHDEG</th>
+      <th>CONTROL</th>
+      <th>ST_FIPS</th>
+      <th>REGION</th>
+      <th>LOCALE</th>
+      <th>LOCALE2</th>
+      <th>...</th>
+      <th>MD_FAMINC</th>
+      <th>FAMINC_IND</th>
+      <th>MN_EARN_WNE_P10</th>
+      <th>UGDS_MEN</th>
+      <th>UGDS_WOMEN</th>
+      <th>GRADS</th>
+      <th>RET_FT4_POOLED</th>
+      <th>RET_FTL4_POOLED</th>
+      <th>PRGMOFR</th>
+      <th>ADMCON7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>100654</td>
+      <td>Alabama A &amp; M University</td>
+      <td>Normal</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>23553</td>
+      <td>10340.346032</td>
+      <td>35500</td>
+      <td>0.3978</td>
+      <td>0.6022</td>
+      <td>884.0</td>
+      <td>0.5533</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>100663</td>
+      <td>University of Alabama at Birmingham</td>
+      <td>Birmingham</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>34489</td>
+      <td>30607.18029</td>
+      <td>48400</td>
+      <td>0.3816</td>
+      <td>0.6184</td>
+      <td>8685.0</td>
+      <td>0.8477</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>100690</td>
+      <td>Amridge University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>15033.5</td>
+      <td>20596.158491</td>
+      <td>47600</td>
+      <td>0.2886</td>
+      <td>0.7114</td>
+      <td>477.0</td>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>100706</td>
+      <td>University of Alabama in Huntsville</td>
+      <td>Huntsville</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>44787</td>
+      <td>27941.821963</td>
+      <td>52000</td>
+      <td>0.5891</td>
+      <td>0.4109</td>
+      <td>1972.0</td>
+      <td>0.8234</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>100724</td>
+      <td>Alabama State University</td>
+      <td>Montgomery</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>22080.5</td>
+      <td>8551.802974</td>
+      <td>30600</td>
+      <td>0.3605</td>
+      <td>0.6395</td>
+      <td>458.0</td>
+      <td>0.6164</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 77 columns</p>
+</div></div></div>
+</div>
+</section>
 <section id="linear-regression">
-<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h2>
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">filtered_df_two_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">):</span>
@@ -634,6 +818,15 @@ document.write(`
         <p class="prev-next-title">Final Project: original data analysis</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Control_public_vs_private.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How does the control of the school affect retention rates?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -652,6 +845,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-packages-and-data">Loading in Packages and Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
 </ul>
   </nav></div>
@@ -667,7 +861,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Janet Choe, Kanglin He, Daniel Richards,Henry Lam
+By The Jupyter Book Community
 </p>
 
   </div>
