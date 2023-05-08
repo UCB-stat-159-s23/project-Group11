@@ -409,12 +409,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Less-than-four-year institutions</em></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Author Contribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
 </ul>
             </nav>
         </div>
@@ -719,104 +714,7 @@ while our Github holds our edited version that includes only some variables out 
 <li><p>Set up Github Actions to rebuild and deploy Jupyter-Book to Github PAges</p></li>
 </ul>
 </li>
-<li><p>Connie He</p></li>
-<li><p>Henry Lam</p></li>
-</ul>
-<ol class="arabic simple" start="4">
-<li><p>PAR_ED_PCT_PS: Percent of students whose parents’ highest education level was in some form of postsecondary education</p></li>
-</ol>
-<p>The effect on retention rates based on parent education (postsecondary) appears to have a similar effect as shown in the parent education (high school).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/PAR_ED_PSactual_vs_PAR_ED_PSpredicted.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/61e20e0a593a2a49f2a5b2eb97fd1d3974cbe6600a5c3819c66441faaa6cf392.png" src="_images/61e20e0a593a2a49f2a5b2eb97fd1d3974cbe6600a5c3819c66441faaa6cf392.png" />
-</div>
-</div>
-<p>As shown above, the regression analysis appears to be similar as the one with parents’ education level (high school). This means that parents’ education level (postsecondary) has similar predictive power in four-year retention rates.</p>
-<p>The <span class="math notranslate nohighlight">\(R^2\)</span> for our linear model is .20, and mean squared error is .03. Similar to Average Faculty Salary, this suggests that there is a weak but present relationship between parents’ education level (high school) and four-year retention rates, making it a significant predictor.</p>
-<section id="id1">
-<h3><em>Less-than-four-year institutions</em><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Ethnic Diversity (UGDS): Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
-</ol>
-<p>Based on our feature analysis, ethnic diversity was several of the most important features in predicting less than four-year retention rates as the different UGDS variables were ranked within the top 3.</p>
-<p>As a result, we utilized Simpson’s Diversity Index to create a variable that captures the Racial and Ethnic diversity of professional schools in the United States. With this diversity index, we conducted hypothesis testing that uncovers whether there is truly a relationship between the diversity and less than four-year retention rates.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/RET_FTL4_diversity.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/98b2fca36f978d3b2ed6960eba63bbd71674b8f2f6504266650467a75ae9cb7e.png" src="_images/98b2fca36f978d3b2ed6960eba63bbd71674b8f2f6504266650467a75ae9cb7e.png" />
-</div>
-</div>
-<p>We can do a T-test assuming normally distributed variables to determine whether the correlation is nonzero. Diversity index and RET_FTL4 appear roughly normally distributed, so these assumptions hold.</p>
-<p>We found that that the p-value is very small, indicating that that there is a relationship between retention rate and diversity index at less-than-four-year institutions. However, while the correlation between diversity index and retention rate is negative, the correlation is also small.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Diversity_Real_Retention.png&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/d6686976dbd440dfee5f3572e836c01bcff9758d7af7964e529ad1cc19b3a955.png" src="_images/d6686976dbd440dfee5f3572e836c01bcff9758d7af7964e529ad1cc19b3a955.png" />
-</div>
-</div>
-<p>By graphing the diversity index and the retention rate, it appeared that as diversity index increases, the retention rate for less-than-four-year institution decreases. However, this relationship does not appear to be evident.</p>
-<p>This is apparent in the regression analysis below as there is no obvious increasing trend between the actual retention values and the predicted retention values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Diversity_actual_vs_Diversity_predicted.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/2f61cabb9a6ebebb9091f5beaa171382037e807bba9ebed158a7f86add082369.png" src="_images/2f61cabb9a6ebebb9091f5beaa171382037e807bba9ebed158a7f86add082369.png" />
-</div>
-</div>
-<p>Thus, while there is no apparent linear relationship between diversity and less than four-year retention rates, there seems to still be a relationship between the variables based on the hypothesis testing.</p>
-<p>We conclude that diversity may be a useful predictor for retention, but its relationship’s nature is unclear. Further exploration and information is needed.</p>
-</section>
-</section>
-<section id="id2">
-<h2>Interpretation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Four-year retention rates</p></li>
-</ul>
-<p>Based on the conducted regression analysis, it is apparent that average SAT score is a reliable predictor of four-retention rates. The results of the regression analysis indicates that there was a significant positive relationship between the variables as they increased alongside each other. This relationship was supported by the feature importance and high degree of explanatory power as indicated by the adjusted R-squared value.</p>
-<p>This finding suggests that improving the academic quality of the student body through measures such as raising SAT score requirements could lead to higher retention rates and thus improved institutional outcomes. However, it is important to note that while the regression analysis provides evidence of a relationship between average SAT scores and retention rates, it does not prove causality. Other factors, such as student engagement, campus climate, and support services, may also play a role in retention rates. Further research is needed to explore the complex factors that influence retention rates.</p>
-<p>Average faculty salary and parent’s post-secondary education are both weaker but still significant predictors of retention with positive linear relationships. Parents’ middle school education is also a weaker but still significant predictor with a negative linear relationship with retention. These patterns are likely caused by inequities in higher education. Institutions with more privilege and wealth may be less accessible to less educated families, pay faculty more, and have more resources for students thus increasing retention.</p>
-<ul class="simple">
-<li><p>Less than four-year retention rates</p></li>
-</ul>
-<p>As for less than four-year retention rates, it is quite tricky in understanding the role of diversity with retention rates. While our hypothesis tests and feature importance showed that there is a relationship between diversity and retention, the regression analysis displayed that there is no <strong>linear</strong> relationship between the two variables.</p>
-<p>As a result, there appears to be a more complex story behind these variables. While it is not quite clear how diversity affects the retention rates, it is still evident that diversity is a factor that affects retention. Thus, further research is required to explore in order to understand the complex relationship.</p>
-</section>
-<section id="id3">
-<h2>Author Contribution<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Janet Choe</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Overall</span> <span class="pre">Retention</span> <span class="pre">Rate</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">of</span> <span class="pre">Institution</span></code> analysis</p></li>
-<li><p>Created 7/8 functions in utils and made tests for respective functions</p></li>
-<li><p>Wrote the narrative of the main.ipynb</p></li>
-<li><p>Formatted the README file</p></li>
-</ul>
-</li>
-<li><p>Daniel Richards</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> analysis</p></li>
-<li><p>Editted narrative of main.ipynb</p></li>
-<li><p>Created Makefile, environment, and Jupyter-Book</p></li>
-<li><p>Set up Github Actions to rebuild and deploy Jupyter-Book to Github PAges</p></li>
-</ul>
-</li>
-<li><p>Connie He</p></li>
+<li><p>Kanglin He</p></li>
 <li><p>Henry Lam</p></li>
 </ul>
 </section>
@@ -907,12 +805,7 @@ while our Github holds our edited version that includes only some variables out 
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><em>Less-than-four-year institutions</em></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Interpretation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Author Contribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
 </ul>
   </nav></div>
 
