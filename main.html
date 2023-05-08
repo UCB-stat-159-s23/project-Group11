@@ -394,7 +394,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-school">Public School</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-profit-private-schools">Non-profit Private Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-profit-private-schools">For-profit Private schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-modeling">Predictive Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions"><em>Four-year institutions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -450,9 +461,97 @@ while our Github holds our edited version that includes only some variables out 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4002f0933e45b90082d16cf64245e42b039a288e8c05e821afc89bfbcfbdce62.png" src="_images/4002f0933e45b90082d16cf64245e42b039a288e8c05e821afc89bfbcfbdce62.png" />
+<img alt="_images/6440231d59151c624013f7b95ed4e2bc2693fc7365dde67609cedf61a9187915.png" src="_images/6440231d59151c624013f7b95ed4e2bc2693fc7365dde67609cedf61a9187915.png" />
 </div>
 </div>
+<p>While the dataset mainly focuses on numerical data, a significant categorical variable that appeared to influence retention rates is the “Control” of the school.</p>
+<section id="public-school">
+<h3>Public School<a class="headerlink" href="#public-school" title="Permalink to this heading">#</a></h3>
+<p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is most evident in the retention rates of less than 4-year public institutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b909c27abb8282cc62a1cbae40c5b954838bd52b73c234ab447d7c5e73f04e5f.png" src="_images/b909c27abb8282cc62a1cbae40c5b954838bd52b73c234ab447d7c5e73f04e5f.png" />
+</div>
+</div>
+</section>
+<section id="non-profit-private-schools">
+<h3>Non-profit Private Schools<a class="headerlink" href="#non-profit-private-schools" title="Permalink to this heading">#</a></h3>
+<p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_non_profit.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/37e0cce5bc2564c7fceaebf89db0e4c6edda613f7daee93dbb3efc8ef95ccbe7.png" src="_images/37e0cce5bc2564c7fceaebf89db0e4c6edda613f7daee93dbb3efc8ef95ccbe7.png" />
+</div>
+</div>
+</section>
+<section id="for-profit-private-schools">
+<h3>For-profit Private schools<a class="headerlink" href="#for-profit-private-schools" title="Permalink to this heading">#</a></h3>
+<p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_profit.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/334e2048ebcd5efd2aa8334c7593cbd2a5c36e1fc47edee3c815ec0924531dc8.png" src="_images/334e2048ebcd5efd2aa8334c7593cbd2a5c36e1fc47edee3c815ec0924531dc8.png" />
+</div>
+</div>
+<p>Based on the control of the schools, the retention rates for <code class="docutils literal notranslate"><span class="pre">For-Profit</span> <span class="pre">Private</span> <span class="pre">Schools</span></code> had the most significant change compared to the overall retention rates. The retention between the 4-year and less than 4-year also appears to be the most drastic in this category. Overall, the retention rates at less than 4-year institutions appear to do better despite the different control of the institutions.</p>
+</section>
+<section id="feature-importance">
+<h3>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">#</a></h3>
+<p>As for the majority of the numerical variables, we conduct feature analysis utilizing the ExtraTreesRegressor. However, within the dataset, there are many variables that include “Privacy Suppressed” values. Due to the variability of these values, we have to exclude the these variables from the analysis since our dataset will be very small if we wanted to include them.</p>
+<p>Based on feature importance, we found that the following variables have some importance in determining retention rates:</p>
+<ul class="simple">
+<li><p>Four-year retention rates</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code> : Average SAT equivalent score of students admitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code> : Average faculty salary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> : Percent of students whose parents’ highest educational level is high school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> : Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
+</ul>
+</li>
+<li><p>Less-than-four-year retention rates</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethnic</span> <span class="pre">Diversity</span> <span class="pre">(UGDS)</span></code> : Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="predictive-modeling">
+<h2>Predictive Modeling<a class="headerlink" href="#predictive-modeling" title="Permalink to this heading">#</a></h2>
+<section id="four-year-institutions">
+<h3><em>Four-year institutions</em><a class="headerlink" href="#four-year-institutions" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>SAT_AVG: Average SAT equivalent score of students admitted</p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>AVGFACSAL: Average faculty salary</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>PAR_ED_PCT_HS: Percent of students whose parents’ highest educational level is high school</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>PAR_ED_PCT_PS: Percent of students whose parents’ highest education level was in some form of postsecondary education</p></li>
+</ol>
+</section>
+<section id="less-than-four-year-institutions">
+<h3><em>Less-than-four-year institutions</em><a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ethnic Diversity (UGDS): Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -528,7 +627,18 @@ while our Github holds our edited version that includes only some variables out 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-school">Public School</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-profit-private-schools">Non-profit Private Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-profit-private-schools">For-profit Private schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-modeling">Predictive Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions"><em>Four-year institutions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
