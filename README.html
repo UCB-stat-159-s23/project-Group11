@@ -381,8 +381,8 @@ document.write(`
 <section id="useful-commands">
 <h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>To run all tests for utility functions, run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> from the terminal in the root directory.</p></li>
-<li><p>To create the environment, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> from the reminal in the root directory.</p></li>
+<li><p>To run all tests for utility functions, run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tools</span></code> from the terminal in the root directory.</p></li>
+<li><p>To create the environment, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> from the terminal in the root directory.</p></li>
 <li><p>In addition, you may run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> to build the jupyter-book html, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> to remove figures and html files, and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> to run all the aforementioned <code class="docutils literal notranslate"><span class="pre">make</span></code> commands.</p></li>
 </ul>
 </section>
@@ -411,6 +411,40 @@ document.write(`
 </section>
 <section id="dataset-attribute-information">
 <h2>Dataset Attribute Information<a class="headerlink" href="#dataset-attribute-information" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UNITID</span></code>: Unit ID for institution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTROL</span></code>: Control of institution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code>: Carnegie Classification – undergraduate profile</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCSIZSET</span></code>: Carnegie Classification – size and setting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADM_RATE</span></code>: Admission Rate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code>: Average SAT equivalent score of students admitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UG</span></code>: Enrollment of all undergraduate students</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UGDS_[...]</span></code>: Total share of enrollment of undergraduate degree-seeking students who are […]</p>
+<ul>
+<li><p>UGDS_WHITE (white), UGDS_BLACK (black), UGDS_HISP (Hispanic), UGDS_ASIAN (Asian), UGDS_AIAN (American Indian/Alaska Native), UGDS_NHPI (Native Hawaiian/Pacific Islander), UGDS_2MOR (two or more races), UGDS_NRA (non-resident aliens), UGDS_UNKN (unknown), UGDS_WHITENH (white non-Hispanic)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PUB</span></code>: Average net price for Title IV institutions (public institutions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PRIV</span></code>: Average net price for Title IV institutions (private for-profit and nonprofit institutions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_IN</span></code>: In-state tuition and fees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_OUT</span></code>: Out-of-state tuition and fees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AVGFACSAL</span></code>: Average faculty salary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code>: Percentage of undergraduates who receive a Pell grant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code>: First-time, full-time student retention rate at four-year institutions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>: First-time, full-time student retention rate at less-than-four-year institutions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PCTFLOAN</span></code>: Percent of all undergraduate students receiving a federal student loan</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>: Percent of students whose parents’ highest educational level is middle school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>: Percent of students whose parents’ highest educational level is high school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>: Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEP_INC_AVG</span></code>: Average family income of dependent students in real 2015 dollars</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IND_INC_AVG</span></code>: Average family income of independent students in real 2015 dollars</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GRAD_DEBT_MDN</span></code>: The median debt for students who have completed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WDRAW_DEBT_MDN</span></code>: The median debt for students who have not completed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FAMINC</span></code>: Average family income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MD_FAMINC</span></code>: Median family income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code>: Number of programs offered</p></li>
+</ul>
+<p>For more information on the additional variables, please refer to the <a class="reference external" href="https://collegescorecard.ed.gov/data/">Data Dictionary</a>. Make sure to download the <code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">Recent</span> <span class="pre">Institution-Level</span> <span class="pre">Data</span></code> data dictionary and you can find all the descriptions of the variables in the <code class="docutils literal notranslate"><span class="pre">Institution_Data_Dictionary</span></code> tab.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
