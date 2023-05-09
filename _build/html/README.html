@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Reproducible Research Project for Institution Retention Rates &#8212; Final Project</title>
   
   
   
@@ -63,7 +63,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Final Project: original data analysis" href="project-description.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -129,7 +128,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="main.html">
   
   
   
@@ -148,25 +147,19 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
-                    <no title>
+            <li class="toctree-l1">
+                <a class="reference internal" href="main.html">
+                    Analysis of Retention Rates at Four-year and Less-than-four-year Institutions
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prediction Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Variable_Analysis.html">Predicting Retention Rates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediction_Analysis.html">Prediction Analysis for Student Retention Rates</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Feature Importance Analysis</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory and Prediction Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Control_public_vs_private.html">How does the control of the school affect retention rates?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tuition_and_Loans.html">In-state and Out-state tuition</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="Race_and_Diversity.html">Race</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Programs_Offered.html">Does number of programs offered (PRGMOFR) affect retention?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Parent_Education.html">Analyze how parent education affects retention of students</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA.html">Performing Exploratory Data Analysis for Student Retention</a></li>
 </ul>
 
     </div>
@@ -350,7 +343,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Reproducible Research Project for Institution Retention Rates</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,8 +353,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -373,12 +368,81 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a class="reference external" href="https://classroom.github.com/a/LiaEl886"><img alt="Review Assignment Due Date" src="https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg" /></a></p>
-<p>Dataset link: 10.5281/zenodo.7857257</p>
-<p>This is a project attempting to analyze the factors that affect student retention in a reproducible manner. The data originates from the U.S. Department of Education College Scoreboard. You can find more information here: <a class="reference external" href="https://collegescorecard.ed.gov/data/">https://collegescorecard.ed.gov/data/</a></p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="reproducible-research-project-for-institution-retention-rates">
+<h1>Reproducible Research Project for Institution Retention Rates<a class="headerlink" href="#reproducible-research-project-for-institution-retention-rates" title="Permalink to this headline">#</a></h1>
+<p>Binder link: <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>Github page: <a class="reference external" href="https://ucb-stat-159-s23.github.io/project-Group11/README.html">https://ucb-stat-159-s23.github.io/project-Group11/README.html</a></p>
+<p>Dataset link: <a class="reference external" href="https://doi.org/10.5281/zenodo.7857257"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg" /></a></p>
+<p>This is a project attempting to analyze the factors that affect student retention at universities in a reproducible manner. We conduct exploratory data analysis, compute feature importance, and implement logistic regression for prediction. The data originates from the U.S. Department of Education College Scoreboard through the Institution-level data files for 1996-97 through 2020-21 containing aggregate data for each institution. The dataset includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. You can find more information here: <a class="reference external" href="https://collegescorecard.ed.gov/data/">https://collegescorecard.ed.gov/data/</a></p>
+<section id="useful-commands">
+<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>To run all tests for utility functions, run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tools</span></code> from the terminal in the root directory.</p></li>
+<li><p>To create the environment, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> from the terminal in the root directory.</p></li>
+<li><p>In addition, you may run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> to build the jupyter-book html, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> to remove figures and html files, and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> to run all the aforementioned <code class="docutils literal notranslate"><span class="pre">make</span></code> commands.</p></li>
+</ul>
+</section>
+<section id="repository-structure">
+<h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/data</span></code>: cleaned data csv files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/figures</span></code>: all generated figures as png files</p></li>
+<li><p>Jupyter Notebooks:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code>: the main narrative notebook of the research project</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA.ipynb</span></code>: code for exploratory data analysis and for EDA related figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variable_Analysis.ipynb</span></code>: code for logistic regression model and their corresponding figures</p></li>
+</ul>
+</li>
+<li><p>Python utility package tools:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/tools</span></code>: code and tests for python package</p></li>
+<li><p>Setup files: <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproj.toml</span></code></p></li>
+</ul>
+</li>
+<li><p>Environment files: <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">envsetup.sh</span></code></p></li>
+<li><p>Jupyter Book: <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, <code class="docutils literal notranslate"><span class="pre">postBuild</span></code>, <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contribution_statement.md</span></code>: authors’ contributions</p></li>
+</ul>
+</section>
+<section id="dataset-attribute-information">
+<h2>Dataset Attribute Information<a class="headerlink" href="#dataset-attribute-information" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UNITID</span></code>: Unit ID for institution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTROL</span></code>: Control of institution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code>: Carnegie Classification – undergraduate profile</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CCSIZSET</span></code>: Carnegie Classification – size and setting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADM_RATE</span></code>: Admission Rate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code>: Average SAT equivalent score of students admitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UG</span></code>: Enrollment of all undergraduate students</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UGDS_[...]</span></code>: Total share of enrollment of undergraduate degree-seeking students who are […]</p>
+<ul>
+<li><p>UGDS_WHITE (white), UGDS_BLACK (black), UGDS_HISP (Hispanic), UGDS_ASIAN (Asian), UGDS_AIAN (American Indian/Alaska Native), UGDS_NHPI (Native Hawaiian/Pacific Islander), UGDS_2MOR (two or more races), UGDS_NRA (non-resident aliens), UGDS_UNKN (unknown), UGDS_WHITENH (white non-Hispanic)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PUB</span></code>: Average net price for Title IV institutions (public institutions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PRIV</span></code>: Average net price for Title IV institutions (private for-profit and nonprofit institutions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_IN</span></code>: In-state tuition and fees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_OUT</span></code>: Out-of-state tuition and fees</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AVGFACSAL</span></code>: Average faculty salary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code>: Percentage of undergraduates who receive a Pell grant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code>: First-time, full-time student retention rate at four-year institutions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>: First-time, full-time student retention rate at less-than-four-year institutions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PCTFLOAN</span></code>: Percent of all undergraduate students receiving a federal student loan</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>: Percent of students whose parents’ highest educational level is middle school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>: Percent of students whose parents’ highest educational level is high school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>: Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEP_INC_AVG</span></code>: Average family income of dependent students in real 2015 dollars</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IND_INC_AVG</span></code>: Average family income of independent students in real 2015 dollars</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GRAD_DEBT_MDN</span></code>: The median debt for students who have completed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WDRAW_DEBT_MDN</span></code>: The median debt for students who have not completed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FAMINC</span></code>: Average family income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MD_FAMINC</span></code>: Median family income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code>: Number of programs offered</p></li>
+</ul>
+<p>For more information on the additional variables, please refer to the <a class="reference external" href="https://collegescorecard.ed.gov/data/">Data Dictionary</a>. Make sure to download the <code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">Recent</span> <span class="pre">Institution-Level</span> <span class="pre">Data</span></code> data dictionary and you can find all the descriptions of the variables in the <code class="docutils literal notranslate"><span class="pre">Institution_Data_Dictionary</span></code> tab.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -411,15 +475,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="project-description.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Final Project: original data analysis</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -438,8 +493,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -453,7 +510,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Janet Choe, Kanglin He, Daniel Richards,Henry Lam
 </p>
 
   </div>
