@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: main.ipynb
+root: main
 parts:
 - caption: Prediction Analysis
   chapters:
