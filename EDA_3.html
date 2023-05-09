@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Reproducible Research Project for Institution Retention Rates &#8212; Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</title>
+    <title>Explore Percentage of individuals receiving federal loans &#8212; Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</title>
   
   
   
@@ -61,9 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'EDA_3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Explore Parent Education" href="EDA_4.html" />
+    <link rel="prev" title="Explore In state and Out state Tuition" href="EDA_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,11 +162,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Prediction_Analysis_2.html">Less-than-four-year Retention Rates</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="EDA.html">Performing Exploratory Data Analysis for Student Retention</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_1.html">Explore Control of the school</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_2.html">Explore In state and Out state Tuition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_3.html">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Explore Percentage of individuals receiving federal loans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_4.html">Explore Parent Education</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_5.html">Explore Programs Offered</a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_6.html">Feature Analysis on Numerical variables</a></li>
@@ -214,6 +216,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/EDA_3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -239,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEDA_3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/README.md" target="_blank"
+      <li><a href="_sources/EDA_3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -338,9 +371,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -351,21 +382,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reproducible Research Project for Institution Retention Rates</h1>
+    <h1>Explore Percentage of individuals receiving federal loans</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -375,81 +396,123 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><a class="reference external" href="https://classroom.github.com/a/LiaEl886"><img alt="Review Assignment Due Date" src="https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg" /></a></p>
-<section class="tex2jax_ignore mathjax_ignore" id="reproducible-research-project-for-institution-retention-rates">
-<h1>Reproducible Research Project for Institution Retention Rates<a class="headerlink" href="#reproducible-research-project-for-institution-retention-rates" title="Permalink to this heading">#</a></h1>
-<p>Binder link: <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-<p>Github page: <a class="reference external" href="https://ucb-stat-159-s23.github.io/project-Group11/main.html">https://ucb-stat-159-s23.github.io/project-Group11/</a></p>
-<p>Dataset link: <a class="reference external" href="https://doi.org/10.5281/zenodo.7857257"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg" /></a></p>
-<p>This is a project attempting to analyze the factors that affect student retention at universities in a reproducible manner. We conduct exploratory data analysis, compute feature importance, and implement logistic regression for prediction. The data originates from the U.S. Department of Education College Scoreboard through the Institution-level data files for 1996-97 through 2020-21 containing aggregate data for each institution. The dataset includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. You can find more information here: <a class="reference external" href="https://collegescorecard.ed.gov/data/">https://collegescorecard.ed.gov/data/</a></p>
-<section id="useful-commands">
-<h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>To run all tests for utility functions, run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tools</span></code> from the terminal in the root directory.</p></li>
-<li><p>To create the environment, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> from the terminal in the root directory.</p></li>
-<li><p>In addition, you may run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> to build the jupyter-book html, <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> to remove figures and html files, and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">all</span></code> to run all the aforementioned <code class="docutils literal notranslate"><span class="pre">make</span></code> commands.</p></li>
-</ul>
-</section>
-<section id="repository-structure">
-<h2>Repository Structure<a class="headerlink" href="#repository-structure" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">/data</span></code>: cleaned data csv files</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/figures</span></code>: all generated figures as png files</p></li>
-<li><p>Jupyter Notebooks:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code>: the main narrative notebook of the research project</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDA.ipynb</span></code>: code for exploratory data analysis and for EDA related figures</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Variable_Analysis.ipynb</span></code>: code for logistic regression model and their corresponding figures</p></li>
-</ul>
-</li>
-<li><p>Python utility package tools:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">/tools</span></code>: code and tests for python package</p></li>
-<li><p>Setup files: <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>, <code class="docutils literal notranslate"><span class="pre">pyproj.toml</span></code></p></li>
-</ul>
-</li>
-<li><p>Environment files: <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">envsetup.sh</span></code></p></li>
-<li><p>Jupyter Book: <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>, <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, <code class="docutils literal notranslate"><span class="pre">postBuild</span></code>, <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">contribution_statement.md</span></code>: authors’ contributions</p></li>
-</ul>
-</section>
-<section id="dataset-attribute-information">
-<h2>Dataset Attribute Information<a class="headerlink" href="#dataset-attribute-information" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">UNITID</span></code>: Unit ID for institution</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CONTROL</span></code>: Control of institution</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CCUGPROF</span></code>: Carnegie Classification – undergraduate profile</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CCSIZSET</span></code>: Carnegie Classification – size and setting</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ADM_RATE</span></code>: Admission Rate</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code>: Average SAT equivalent score of students admitted</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UG</span></code>: Enrollment of all undergraduate students</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">UGDS_[...]</span></code>: Total share of enrollment of undergraduate degree-seeking students who are […]</p>
-<ul>
-<li><p>UGDS_WHITE (white), UGDS_BLACK (black), UGDS_HISP (Hispanic), UGDS_ASIAN (Asian), UGDS_AIAN (American Indian/Alaska Native), UGDS_NHPI (Native Hawaiian/Pacific Islander), UGDS_2MOR (two or more races), UGDS_NRA (non-resident aliens), UGDS_UNKN (unknown), UGDS_WHITENH (white non-Hispanic)</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PUB</span></code>: Average net price for Title IV institutions (public institutions)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">NPT4_PRIV</span></code>: Average net price for Title IV institutions (private for-profit and nonprofit institutions)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_IN</span></code>: In-state tuition and fees</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">TUITIONFEE_OUT</span></code>: Out-of-state tuition and fees</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AVGFACSAL</span></code>: Average faculty salary</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PCTPELL</span></code>: Percentage of undergraduates who receive a Pell grant</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RET_FT4</span></code>: First-time, full-time student retention rate at four-year institutions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RET_FTL4</span></code>: First-time, full-time student retention rate at less-than-four-year institutions</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PCTFLOAN</span></code>: Percent of all undergraduate students receiving a federal student loan</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>: Percent of students whose parents’ highest educational level is middle school</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>: Percent of students whose parents’ highest educational level is high school</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>: Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">DEP_INC_AVG</span></code>: Average family income of dependent students in real 2015 dollars</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">IND_INC_AVG</span></code>: Average family income of independent students in real 2015 dollars</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GRAD_DEBT_MDN</span></code>: The median debt for students who have completed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WDRAW_DEBT_MDN</span></code>: The median debt for students who have not completed</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">FAMINC</span></code>: Average family income</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">MD_FAMINC</span></code>: Median family income</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code>: Number of programs offered</p></li>
-</ul>
-<p>For more information on the additional variables, please refer to the <a class="reference external" href="https://collegescorecard.ed.gov/data/">Data Dictionary</a>. Make sure to download the <code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">Recent</span> <span class="pre">Institution-Level</span> <span class="pre">Data</span></code> data dictionary and you can find all the descriptions of the variables in the <code class="docutils literal notranslate"><span class="pre">Institution_Data_Dictionary</span></code> tab.</p>
-</section>
+  <section id="explore-percentage-of-individuals-receiving-federal-loans">
+<h1>Explore Percentage of individuals receiving federal loans<a class="headerlink" href="#explore-percentage-of-individuals-receiving-federal-loans" title="Permalink to this heading">#</a></h1>
+<p>Now we will focus on if the percent of all undergraduate students receiving federal student loan affect the the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions”. We can filter out the related data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
+<span class="n">percent_loan_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">]]</span>
+<span class="n">percent_loan_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RET_FT4</th>
+      <th>RET_FTL4</th>
+      <th>PCTFLOAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5403</td>
+      <td>NaN</td>
+      <td>0.7504</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.8640</td>
+      <td>NaN</td>
+      <td>0.4688</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5000</td>
+      <td>NaN</td>
+      <td>0.8493</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.8180</td>
+      <td>NaN</td>
+      <td>0.3855</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.6202</td>
+      <td>NaN</td>
+      <td>0.7805</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan at 4-year Institutions&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">,</span> <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan at less than 4-year Institutions&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;percentage of receiving federal student loan&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Retention Rate&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">,</span> <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="s1">&#39;maroon&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figures/retention_percentage_federal_loan.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" src="_images/6cc15c3b1e57c01efc4aef7910bcf3abe9deee587bf53877e4c850d0d584e14e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standard_percent_loan_data</span> <span class="o">=</span> <span class="n">tuition_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">standard_RET_FT4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FT4</span><span class="p">),</span>
+                       <span class="n">standard_RET_FTL4</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">RET_FTL4</span><span class="p">),</span>
+                       <span class="n">standard_percent_loan</span><span class="o">=</span><span class="n">standard_units</span><span class="p">(</span><span class="n">percent_loan_data</span><span class="o">.</span><span class="n">PCTFLOAN</span><span class="p">))</span>
+<span class="n">standard_percent_loan_data</span>
+<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at 4-year Institutions</span>
+<span class="n">r_percent_loan_4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FT4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_4year</span><span class="p">))</span>
+<span class="c1"># the correlation coefficient(r) of percentage of receiving federal student loan at less than 4-year Institutions</span>
+<span class="n">r_percent_loan_l4year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_RET_FTL4</span> <span class="o">*</span> <span class="n">standard_percent_loan_data</span><span class="o">.</span><span class="n">standard_percent_loan</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">r_percent_loan_l4year</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The correlation coefficient of percentage of receiving federal student loan at 4-year Institutions is -0.1654776936242682
+The correlation coefficient of percentage of receiving federal student loan at less than 4-year Institutions is 0.14346890122719802
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>By the scatter above and the correlation coefficient,we think the percentage of receiving federal student loan at 4-year Institutions and less than 4-year Institutions graph looks like not really match the positive or negative relationship with retention rate. Therefore, we think the percentage of receiving federal student loan at 4-year or less than 4-year Institutions not really influence student’s retention rate.</strong></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,6 +546,24 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="EDA_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Explore In state and Out state Tuition</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="EDA_4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Explore Parent Education</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -492,22 +573,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
