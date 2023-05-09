@@ -6,7 +6,8 @@ root: main
 parts:
 - caption: Prediction Analysis
   chapters:
-  - file: Prediction_Analysis
+  - file: Prediction_Analysis_1
+  - file: Prediction_Analysis_2
 - caption: Exploratory Data Analysis
   chapters:
   - file: EDA
