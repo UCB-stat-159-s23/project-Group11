@@ -4,7 +4,7 @@
 format: jb-book
 root: main
 parts:
-- caption: Prediction Analysis
+- caption: Prediction Analysis for Student Retention Rates
   chapters:
   - file: Prediction_Analysis_1
   - file: Prediction_Analysis_2
