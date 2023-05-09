@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Retention Rate Analysis &#8212; My sample book</title>
+    <title>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions &#8212; Final Project</title>
   
   
   
@@ -60,9 +60,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'main';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Prediction Analysis for Student Retention Rates" href="Prediction_Analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -128,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="README.html">
+<a class="navbar-brand logo" href="#">
   
   
   
@@ -147,15 +150,19 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="README.html">
-                    <no title>
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Analysis of Retention Rates at Four-year and Less-than-four-year Institutions
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Main Narrative</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prediction Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="project-description.html">Final Project: original data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Prediction_Analysis.html">Prediction Analysis for Student Retention Rates</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="EDA.html">Performing Exploratory Data Analysis for Student Retention</a></li>
 </ul>
 
     </div>
@@ -197,6 +204,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/main.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -326,7 +364,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -337,11 +377,37 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Retention Rate Analysis</h1>
+    <h1>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-analysis">Purpose of Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-school">Public School</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-profit-private-schools">Non-profit Private Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-profit-private-schools">For-profit Private schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-modeling">Predictive Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions"><em>Four-year institutions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -351,8 +417,314 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="retention-rate-analysis">
-<h1>Retention Rate Analysis<a class="headerlink" href="#retention-rate-analysis" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="analysis-of-retention-rates-at-four-year-and-less-than-four-year-institutions">
+<h1>Analysis of Retention Rates at Four-year and Less-than-four-year Institutions<a class="headerlink" href="#analysis-of-retention-rates-at-four-year-and-less-than-four-year-institutions" title="Permalink to this headline">#</a></h1>
+<p>Authors: Janet Choe, Daniel Richards, Kanglin He, Henry Lam</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>What factors affect retention rates at institutions? The retention of students in higher education is a critical factor in ensuring academic success and achieving institutional goals. It is a measure of the proportion of students who continue their studies at the same institution from their initial enrollment to the subsequent academic year. A high retention rate indicates that students are satisfied with their academic experience and the institution’s support services, leading to increased student success, reputation, and revenue for the university. In contrast, low retention rates can be detrimental to the institution’s academic reputation, financial stability, and the overall student experience.</p>
+<section id="purpose-of-analysis">
+<h3>Purpose of Analysis<a class="headerlink" href="#purpose-of-analysis" title="Permalink to this headline">#</a></h3>
+<p>Given the importance of retention rates, there is a growing interest in identifying the factors that influence them. Therefore, our research aims to analyze the factors that affect retention rates at institutions. By examining institutional data, we identify the factors that have the most significant impact on student retention. The findings of this study may provide insight to institutions on how to improve retention rates and enhance the student experience.</p>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h3>
+<p>Our team retrieves the data from the <a class="reference external" href="https://collegescorecard.ed.gov/data/">U.S. Department of Education College Scorecard</a>. We utilize the “Most Recent Institution-Level Data” for 1996-97 through 2020-21 containing aggregate data for each institution, which includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. Since the data was too large to upload to Github, we uploaded the original dataset to <a class="reference external" href="https://doi.org/10.5281/zenodo.7857257"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg" /></a>
+while our Github holds our edited version that includes only some variables out of the original dataset.</p>
+<p><em>It is also important to note that most of the variables in the dataset include a high amount of null or “Privacy Suppressed” variables. Due to this aspect, we emphasize to readers that <strong>missing data were excluded from the analysis</strong>, reducing our sample size. For perspective, note that features <code class="docutils literal notranslate"><span class="pre">UG_HISPOLD</span></code> to <code class="docutils literal notranslate"><span class="pre">UG_NRA</span></code> consist of only nulls.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/null_values.png&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2d6ed0b5b75b8c1ddca0c58975a0197e9a1eea9b46e38b2e811340d8a876942c.png" src="_images/2d6ed0b5b75b8c1ddca0c58975a0197e9a1eea9b46e38b2e811340d8a876942c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="exploratory-analysis">
+<h2>Exploratory Analysis<a class="headerlink" href="#exploratory-analysis" title="Permalink to this headline">#</a></h2>
+<p>We first examine the retention rates between four-year institutions and less-than-four-year institutions. We found that retention rates for both 4-year and less than 4-year institutions appear to have a left-skewed distribution. However, less than 4-year institutions has more density contained within the higher retention rates compared to the 4-year institutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/overall_retention_histogram.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6440231d59151c624013f7b95ed4e2bc2693fc7365dde67609cedf61a9187915.png" src="_images/6440231d59151c624013f7b95ed4e2bc2693fc7365dde67609cedf61a9187915.png" />
+</div>
+</div>
+<p>While the dataset mainly focuses on numerical data, a significant categorical variable that appeared to influence retention rates is the “Control” of the school.</p>
+<section id="public-school">
+<h3>Public School<a class="headerlink" href="#public-school" title="Permalink to this headline">#</a></h3>
+<p>For public schools, the retention rates severely declines as the left-skewed distribution transforms into a normal distribution. The change is most evident in the retention rates of less than 4-year public institutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_public.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b909c27abb8282cc62a1cbae40c5b954838bd52b73c234ab447d7c5e73f04e5f.png" src="_images/b909c27abb8282cc62a1cbae40c5b954838bd52b73c234ab447d7c5e73f04e5f.png" />
+</div>
+</div>
+</section>
+<section id="non-profit-private-schools">
+<h3>Non-profit Private Schools<a class="headerlink" href="#non-profit-private-schools" title="Permalink to this headline">#</a></h3>
+<p>In the case of non-profit private institutions, the retention rates for 4-year institutions appears to remain with the same. However, the retention for less than 4-year institution increases with the density focused in the 100% retention rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_non_profit.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/37e0cce5bc2564c7fceaebf89db0e4c6edda613f7daee93dbb3efc8ef95ccbe7.png" src="_images/37e0cce5bc2564c7fceaebf89db0e4c6edda613f7daee93dbb3efc8ef95ccbe7.png" />
+</div>
+</div>
+</section>
+<section id="for-profit-private-schools">
+<h3>For-profit Private schools<a class="headerlink" href="#for-profit-private-schools" title="Permalink to this headline">#</a></h3>
+<p>As for-profit private institutions, the retention rate for 4-year institutions maintains a left skewed distribution. However, a spike appears around the the 50% mark which indicates a slightly worse retention than the overall. As for the less than 4-year institution, the retention increases similarly to the non-profit institution as the density is focused on the higher end of the retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/retention_private_profit.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/334e2048ebcd5efd2aa8334c7593cbd2a5c36e1fc47edee3c815ec0924531dc8.png" src="_images/334e2048ebcd5efd2aa8334c7593cbd2a5c36e1fc47edee3c815ec0924531dc8.png" />
+</div>
+</div>
+<p>Based on the control of the schools, the retention rates for <code class="docutils literal notranslate"><span class="pre">For-Profit</span> <span class="pre">Private</span> <span class="pre">Schools</span></code> had the most significant change compared to the overall retention rates. The retention between the 4-year and less than 4-year also appears to be the most drastic in this category. Overall, the retention rates at less than 4-year institutions appear to do better despite the different control of the institutions.</p>
+</section>
+<section id="feature-importance">
+<h3>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h3>
+<p>As for the majority of the numerical variables, we conduct feature analysis utilizing the ExtraTreesRegressor. However, within the dataset, there are many variables that include “Privacy Suppressed” values. Due to the variability of these values, we have to exclude the these variables from the analysis since our dataset will be very small if we wanted to include them.</p>
+<p>Based on feature importance, we found that the following variables have some importance in determining retention rates:</p>
+<ul class="simple">
+<li><p>Four-year retention rates</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAT_AVG</span></code> : Average SAT equivalent score of students admitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AVGFASCAL</span></code> : Average faculty salary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code> : Percent of students whose parents’ highest educational level is high school</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code> : Percent of students whose parents’ highest educational level was is some form of postsecondary education</p></li>
+</ul>
+</li>
+<li><p>Less-than-four-year retention rates</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethnic</span> <span class="pre">Diversity</span> <span class="pre">(UGDS)</span></code> : Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="predictive-modeling">
+<h2>Predictive Modeling<a class="headerlink" href="#predictive-modeling" title="Permalink to this headline">#</a></h2>
+<section id="four-year-institutions">
+<h3><em>Four-year institutions</em><a class="headerlink" href="#four-year-institutions" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple">
+<li><p>SAT_AVG: Average SAT equivalent score of students admitted</p></li>
+</ol>
+<p>Based on our feature analysis, SAT_AVG has the strongest predictive power for four-year retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SAT_AVG_VS_RET_FT4.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ad9b40afe0145db4e17b056cd9f77a5df6f11164741dc8cb5120156c455d922.png" src="_images/0ad9b40afe0145db4e17b056cd9f77a5df6f11164741dc8cb5120156c455d922.png" />
+</div>
+</div>
+<p>As shown above, there is a positive linear relationship between average SAT score and retention rate, which indicates that as the average SAT scores increase, the retention rate also increases.</p>
+<p>In order to analyze whether average SAT score is predictive of retention rates, we conduct a regression analysis of retention rates based on SAT score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/SATactual_vs_SATpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/72ea1fd1416d2213de5277d667089d22fa3bd0e6e1cb17d7d2cf7426271c8599.png" src="_images/72ea1fd1416d2213de5277d667089d22fa3bd0e6e1cb17d7d2cf7426271c8599.png" />
+</div>
+</div>
+<p>We believe that average SAT score is an accurate predictor of four-year retention rates. Based on the regression, as the actual retention values increase, the predicted retention values increase, which indicates that the predicted values follow the trend of the actual values.</p>
+<p>More formally, by constructing a linear model for the retention rate at 4 year institutions based on average SAT scores, we get a high <span class="math notranslate nohighlight">\(R^2\)</span> value of .49 with a low mean squared error of .018. This means that SAT scores explain 49% of variation in retention with low amounts of error. Thus, it is evident that SAT_AVG is significant in predicting four-year retention rates.</p>
+<ol class="arabic simple" start="2">
+<li><p>AVGFACSAL: Average faculty salary</p></li>
+</ol>
+<p>To use linear regression and models, we verify that average faculty salary has a linear relationship with retention, like average sat score did.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/AVGFACSAL_vs_RET_FT4_scatter.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a374ae1448708e587ea2b3a28e04c2e8678feccdc3efec9e56f7fab1609c2a83.png" src="_images/a374ae1448708e587ea2b3a28e04c2e8678feccdc3efec9e56f7fab1609c2a83.png" />
+</div>
+</div>
+<p>As for average faculty salary, the importance is not as significant as average SAT scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/AVGFACSALactual_vs_AVGFACSALpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/54344a5e1442e434bb99baf9b975b3f23b7ee159023fa9f0cc3051047fd40418.png" src="_images/54344a5e1442e434bb99baf9b975b3f23b7ee159023fa9f0cc3051047fd40418.png" />
+</div>
+</div>
+<p>As shown above, the trend between the actual retention values and the predicted retention values based on faculty salary does not follow as closely as the previous regression. However, it appears as though there is still some sort of increasing linear trend. This indicates that average faculty may be an important factor in predicting four-year retention rates.</p>
+<p><span class="math notranslate nohighlight">\(R^2\)</span> is .13, meaning a linear model based on faculty salary explains 0.13 of the variance within retention rates. The mean squared error of this predictor is low at .031. Thus, including the low MSE, we conclude that there is a weak but present relationship between faculty salary and retention at four-year institutions, making it a significant predictor.</p>
+<ol class="arabic simple" start="3">
+<li><p>PAR_ED_PCT_HS: Percent of students whose parents’ highest educational level is high school</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/parent_edu_corr.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/999f02aeb7199dfbd1353b3218f018ef9a6d885456989c6fa0d6af514ba6e7fc.png" src="_images/999f02aeb7199dfbd1353b3218f018ef9a6d885456989c6fa0d6af514ba6e7fc.png" />
+</div>
+</div>
+<p>While we could not compute the feature importance of parent education with regressor trees (due to “privacy suppressed” issues), we found that the relationship between parent education and (four-year institution) retention rates were roughly linear with moderately strong correlation.</p>
+<p>The proportion of parents with highschool education was correlated with student retention with r = -0.51, and similarly proportion of parents with some college education with r = 0.47.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/PAR_ED_HSactual_vs_PAR_ED_HSpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/75e3e18b7844dc9e3b3c01eeaafb4368325ada5ae27202ec1b73b20f83324bbc.png" src="_images/75e3e18b7844dc9e3b3c01eeaafb4368325ada5ae27202ec1b73b20f83324bbc.png" />
+</div>
+</div>
+<p>Based on the regression analysis, parents’ education level (high school) has a moderately linear relationship with four-year retention rates. As shown above, when the actual retention values increase, the predicted retention values also increasing, indicating that parents’ education level (high school) has some predictive power in four-year retention rates.</p>
+<p>The <span class="math notranslate nohighlight">\(R^2\)</span> for our linear model is .26, and mean squared error is .031. Similar to Average Faculty Salary, this suggests that there is a weak but present relationship between parents’ education level (high school) and four-year retention rates, making it a significant predictor.</p>
+<ol class="arabic simple" start="4">
+<li><p>PAR_ED_PCT_PS: Percent of students whose parents’ highest education level was in some form of postsecondary education</p></li>
+</ol>
+<p>The effect on retention rates based on parent education (postsecondary) appears to have a similar effect as shown in the parent education (high school).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/PAR_ED_PSactual_vs_PAR_ED_PSpredicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/61e20e0a593a2a49f2a5b2eb97fd1d3974cbe6600a5c3819c66441faaa6cf392.png" src="_images/61e20e0a593a2a49f2a5b2eb97fd1d3974cbe6600a5c3819c66441faaa6cf392.png" />
+</div>
+</div>
+<p>As shown above, the regression analysis appears to be similar as the one with parents’ education level (high school). This means that parents’ education level (postsecondary) has similar predictive power in four-year retention rates.</p>
+<p>The <span class="math notranslate nohighlight">\(R^2\)</span> for our linear model is .20, and mean squared error is .03. Similar to Average Faculty Salary, this suggests that there is a weak but present relationship between parents’ education level (high school) and four-year retention rates, making it a significant predictor.</p>
+</section>
+<section id="less-than-four-year-institutions">
+<h3><em>Less-than-four-year institutions</em><a class="headerlink" href="#less-than-four-year-institutions" title="Permalink to this headline">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ethnic Diversity (UGDS): Total share of enrollment of undergraduate degree-seeking students who are [specific race]</p></li>
+</ol>
+<p>Based on our feature analysis, ethnic diversity was several of the most important features in predicting less than four-year retention rates as the different UGDS variables were ranked within the top 3.</p>
+<p>As a result, we utilized Simpson’s Diversity Index to create a variable that captures the Racial and Ethnic diversity of professional schools in the United States. With this diversity index, we conducted hypothesis testing that uncovers whether there is truly a relationship between the diversity and less than four-year retention rates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/RET_FTL4_diversity.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/98b2fca36f978d3b2ed6960eba63bbd71674b8f2f6504266650467a75ae9cb7e.png" src="_images/98b2fca36f978d3b2ed6960eba63bbd71674b8f2f6504266650467a75ae9cb7e.png" />
+</div>
+</div>
+<p>We can do a T-test assuming normally distributed variables to determine whether the correlation is nonzero. Diversity index and RET_FTL4 appear roughly normally distributed, so these assumptions hold.</p>
+<p>We found that that the p-value is very small, indicating that that there is a relationship between retention rate and diversity index at less-than-four-year institutions. However, while the correlation between diversity index and retention rate is negative, the correlation is also small.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/Diversity_Real_Retention.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d6686976dbd440dfee5f3572e836c01bcff9758d7af7964e529ad1cc19b3a955.png" src="_images/d6686976dbd440dfee5f3572e836c01bcff9758d7af7964e529ad1cc19b3a955.png" />
+</div>
+</div>
+<p>By graphing the diversity index and the retention rate, it appeared that as diversity index increases, the retention rate for less-than-four-year institution decreases. However, this relationship does not appear to be evident.</p>
+<p>This is apparent in the regression analysis below as there is no obvious increasing trend between the actual retention values and the predicted retention values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;figures/Diversity_actual_vs_Diversity_predicted.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f61cabb9a6ebebb9091f5beaa171382037e807bba9ebed158a7f86add082369.png" src="_images/2f61cabb9a6ebebb9091f5beaa171382037e807bba9ebed158a7f86add082369.png" />
+</div>
+</div>
+<p>Thus, while there is no apparent linear relationship between diversity and less than four-year retention rates, there seems to still be a relationship between the variables based on the hypothesis testing.</p>
+<p>We conclude that diversity may be a useful predictor for retention, but its relationship’s nature is unclear. Further exploration and information is needed.</p>
+</section>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Four-year retention rates</p></li>
+</ul>
+<p>Based on the conducted regression analysis, it is apparent that average SAT score is a reliable predictor of four-retention rates. The results of the regression analysis indicates that there was a significant positive relationship between the variables as they increased alongside each other. This relationship was supported by the feature importance and high degree of explanatory power as indicated by the adjusted R-squared value.</p>
+<p>This finding suggests that improving the academic quality of the student body through measures such as raising SAT score requirements could lead to higher retention rates and thus improved institutional outcomes. However, it is important to note that while the regression analysis provides evidence of a relationship between average SAT scores and retention rates, it does not prove causality. Other factors, such as student engagement, campus climate, and support services, may also play a role in retention rates. Further research is needed to explore the complex factors that influence retention rates.</p>
+<p>Average faculty salary and parent’s post-secondary education are both weaker but still significant predictors of retention with positive linear relationships. Parents’ middle school education is also a weaker but still significant predictor with a negative linear relationship with retention. These patterns are likely caused by inequities in higher education. Institutions with more privilege and wealth may be less accessible to less educated families, pay faculty more, and have more resources for students thus increasing retention.</p>
+<ul class="simple">
+<li><p>Less than four-year retention rates</p></li>
+</ul>
+<p>As for less than four-year retention rates, it is quite tricky in understanding the role of diversity with retention rates. While our hypothesis tests and feature importance showed that there is a relationship between diversity and retention, the regression analysis displayed that there is no <strong>linear</strong> relationship between the two variables.</p>
+<p>As a result, there appears to be a more complex story behind these variables. While it is not quite clear how diversity affects the retention rates, it is still evident that diversity is a factor that affects retention. Thus, further research is required to explore in order to understand the complex relationship.</p>
+</section>
+<section id="author-contribution">
+<h2>Author Contribution<a class="headerlink" href="#author-contribution" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Janet Choe</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Overall</span> <span class="pre">Retention</span> <span class="pre">Rate</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">Control</span> <span class="pre">of</span> <span class="pre">Institution</span></code> analysis</p></li>
+<li><p>Created 7/8 functions in utils and made tests for respective functions</p></li>
+<li><p>Wrote the narrative of the main.ipynb</p></li>
+<li><p>Formatted the README file</p></li>
+</ul>
+</li>
+<li><p>Daniel Richards</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_PS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_HS</span></code>, <code class="docutils literal notranslate"><span class="pre">PAR_ED_PCT_MS</span></code>, &amp; <code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code> analysis</p></li>
+<li><p>Editted narrative of main.ipynb</p></li>
+<li><p>Created Makefile, environment, and Jupyter-Book</p></li>
+<li><p>Set up Github Actions to rebuild and deploy Jupyter-Book to Github PAges</p></li>
+</ul>
+</li>
+<li><p>Kanglin He</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">in-state</span> <span class="pre">and</span> <span class="pre">out-state</span> <span class="pre">tuition</span> <span class="pre">&amp;</span> <span class="pre">fee</span></code> and <code class="docutils literal notranslate"><span class="pre">percent</span> <span class="pre">of</span> <span class="pre">all</span> <span class="pre">undergraduate</span> <span class="pre">students</span> <span class="pre">receiving</span> <span class="pre">a</span> <span class="pre">federal</span> <span class="pre">student</span> <span class="pre">loan</span></code> analysis</p></li>
+<li><p>Did part of combination of all variable analysis</p></li>
+<li><p>Setting up binder stuff and did part of the testing in <a class="reference external" href="http://utils.py">utils.py</a></p></li>
+<li><p>Setting up LICENSE</p></li>
+</ul>
+</li>
+<li><p>Henry Lam</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -386,6 +758,15 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="right-next"
+       href="Prediction_Analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Prediction Analysis for Student Retention Rates</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -396,6 +777,38 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose-of-analysis">Purpose of Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-analysis">Exploratory Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-school">Public School</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-profit-private-schools">Non-profit Private Schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-profit-private-schools">For-profit Private schools</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-modeling">Predictive Modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-institutions"><em>Four-year institutions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#less-than-four-year-institutions"><em>Less-than-four-year institutions</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretation">Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-contribution">Author Contribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -405,7 +818,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Janet Choe, Kanglin He, Daniel Richards,Henry Lam
 </p>
 
   </div>
