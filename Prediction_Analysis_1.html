@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Prediction Analysis for Student Retention Rates &#8212; Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</title>
+    <title>Four-Year Retention Rates &#8212; Analysis of Retention Rates at Four-year and Less-than-four-year Institutions</title>
   
   
   
@@ -158,7 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Prediction Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Prediction Analysis for Student Retention Rates</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Four-Year Retention Rates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Prediction_Analysis_2.html">Less-than-four-year Retention Rates</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
@@ -378,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Prediction Analysis for Student Retention Rates</h1>
+    <h1>Four-Year Retention Rates</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,12 +389,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
 </ul>
             </nav>
         </div>
@@ -406,9 +403,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="prediction-analysis-for-student-retention-rates">
-<h1>Prediction Analysis for Student Retention Rates<a class="headerlink" href="#prediction-analysis-for-student-retention-rates" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
@@ -439,6 +434,8 @@ document.write(`
 </li>
 </ul>
 <p>Now, we are going to conduct further analysis including linear regression in order to explore the true relationship between these features and retention rates.</p>
+<section id="four-year-retention-rates">
+<h1>Four-Year Retention Rates<a class="headerlink" href="#four-year-retention-rates" title="Permalink to this heading">#</a></h1>
 <section id="loading-in-data">
 <h2>Loading in Data<a class="headerlink" href="#loading-in-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -451,10 +448,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="four-year-retention-rates">
-<h2>Four-Year Retention Rates<a class="headerlink" href="#four-year-retention-rates" title="Permalink to this heading">#</a></h2>
 <section id="sat-avg-average-sat-equivalent-score-of-students-admitted">
-<h3>SAT_AVG: Average SAT equivalent score of students admitted<a class="headerlink" href="#sat-avg-average-sat-equivalent-score-of-students-admitted" title="Permalink to this heading">#</a></h3>
+<h2>SAT_AVG: Average SAT equivalent score of students admitted<a class="headerlink" href="#sat-avg-average-sat-equivalent-score-of-students-admitted" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FT4_institutions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()][[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">]]</span>
@@ -581,7 +576,7 @@ document.write(`
 <p>Thus, due to the low MSE, we believe that average SAT score is a good predictor of four-year retention rates. Based on the regression, higher SAT average score indicates higher retention rates.</p>
 </section>
 <section id="avgfacsal-average-faculty-salary">
-<h3>AVGFACSAL: Average faculty salary<a class="headerlink" href="#avgfacsal-average-faculty-salary" title="Permalink to this heading">#</a></h3>
+<h2>AVGFACSAL: Average faculty salary<a class="headerlink" href="#avgfacsal-average-faculty-salary" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AVGFACSAL_FT4</span> <span class="o">=</span> <span class="n">filtered_df_two_columns</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;AVGFACSAL&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FT4&#39;</span><span class="p">)</span>
@@ -696,7 +691,7 @@ document.write(`
 <p>Thus, including the low MSE, we conclude that there is a weak but present relationship between faculty salary and retention at four-year institutions. While faculty salary increases, retention rates increase at the general trend as well.</p>
 </section>
 <section id="par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">
-<h3>PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school" title="Permalink to this heading">#</a></h3>
+<h2>PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school<a class="headerlink" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school" title="Permalink to this heading">#</a></h2>
 <p>As noted in our EDA, these two features have high amounts of null and “PrivacySuppressed” values. We will need to drop these values in order to continue our analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -783,7 +778,6 @@ Correlation of proportion of parents&#39; having some college education with ret
 <p>However, the MSE of retention rates based on Parent Education (postsecondary school) is actually lower than the MSE of retention rates based on Parent Education (high school). This indicates that our predicted values have less of an error compared to the previous predicted values. <strong>With this in mind, we conclude that both Parent Education variables have some sort of predictive power in retention rates with strengths in different areas.</strong></p>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -853,12 +847,9 @@ Correlation of proportion of parents&#39; having some college education with ret
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-in-data">Loading in Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-year-retention-rates">Four-Year Retention Rates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sat-avg-average-sat-equivalent-score-of-students-admitted">SAT_AVG: Average SAT equivalent score of students admitted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avgfacsal-average-faculty-salary">AVGFACSAL: Average faculty salary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#par-ed-pct-hs-and-par-ed-pct-ps-percent-of-students-whose-parents-highest-educational-level-is-high-school-postsecondary-school">PAR_ED_PCT_HS and PAR_ED_PCT_PS: Percent of students whose parents’ highest educational level is high school/postsecondary school</a></li>
 </ul>
   </nav></div>
 
