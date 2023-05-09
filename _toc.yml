@@ -6,7 +6,7 @@ root: main.ipynb
 parts:
 - caption: Prediction Analysis
   chapters:
-  - file: Prediction_Analysis.ipynb
-- caption: Exploratory and Prediction Analysis
+  - file: Prediction_Analysis
+- caption: Exploratory Data Analysis
   chapters:
-  - file: EDA.ipynb
+  - file: EDA
