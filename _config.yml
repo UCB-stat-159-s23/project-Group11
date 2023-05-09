@@ -21,7 +21,7 @@ bibtex_bibfiles:
 
 # The URL for BinderHub 
 launch_buttons:
-  binderhub_url: "https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD"
+  binderhub_url: "https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb"
   
 # Information about where the book exists on the web
 repository:
