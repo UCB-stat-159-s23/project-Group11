@@ -4,15 +4,9 @@
 format: jb-book
 root: main.ipynb
 parts:
-    - file: project-description.md
-      title: Project Description
-    - caption: Prediction Analysis
-      chapters:
-      - file: Prediction_Analysis.ipynb
-      title: Prediction Analysis
-    - caption: Exploratory and Prediction Analysis
-      chapters:
-      - file: EDA.ipynb
-      title: Goal - Understand Student Retention
-      - file: Prediction_Analysis.ipynb
-      title: Linear Regression and Detailed Analysis
+- caption: Prediction Analysis
+  chapters:
+  - file: Prediction_Analysis.ipynb
+- caption: Exploratory and Prediction Analysis
+  chapters:
+  - file: EDA.ipynb
