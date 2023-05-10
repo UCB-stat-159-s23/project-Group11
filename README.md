@@ -8,6 +8,8 @@ Github page: [https://ucb-stat-159-s23.github.io/project-Group11/](https://ucb-s
 
 Dataset link: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg)](https://doi.org/10.5281/zenodo.7857257)
 
+## Project Goal
+
 This is a project attempting to analyze the factors that affect student retention at universities in a reproducible manner. We conduct exploratory data analysis, compute feature importance, and implement logistic regression for prediction. The data originates from the U.S. Department of Education College Scoreboard through the Institution-level data files for 1996-97 through 2020-21 containing aggregate data for each institution. The dataset includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. You can find more information here: https://collegescorecard.ed.gov/data/
 
 ## Useful Commands
