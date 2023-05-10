@@ -364,6 +364,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-instructions">Running Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
@@ -459,6 +460,14 @@ document.write(`
 </ul>
 <p>For more information on the additional variables, please refer to the <a class="reference external" href="https://collegescorecard.ed.gov/data/">Data Dictionary</a>. Make sure to download the <code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">Recent</span> <span class="pre">Institution-Level</span> <span class="pre">Data</span></code> data dictionary and you can find all the descriptions of the variables in the <code class="docutils literal notranslate"><span class="pre">Institution_Data_Dictionary</span></code> tab.</p>
 </section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>To guarantee that the correct environment is in place, execute the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> command. If an outdated version of the environment is already set up, or if you need to modify the environment, activate a separate environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> and then execute <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">remove-env</span></code> first to remove the prior setup.</p></li>
+<li><p>After running conda activate <code class="docutils literal notranslate"><span class="pre">final_proj</span></code>, run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">anaconda</span> <span class="pre">pytest</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tools</span></code>.</p></li>
+</ol>
+</section>
 <section id="running-instructions">
 <h2>Running Instructions<a class="headerlink" href="#running-instructions" title="Permalink to this heading">#</a></h2>
 <p>To run the main notebook, you have two options: you can either use the provided <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb">binder link</a>, or you can <a class="reference external" href="https://github.com/UCB-stat-159-s23/project-Group11.git">clone the repository</a> and run the notebook locally. If you choose to run the notebook locally, we have also included a makefile with instructions to help streamline the process.</p>
@@ -521,6 +530,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-instructions">Running Instructions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
