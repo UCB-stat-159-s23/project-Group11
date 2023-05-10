@@ -161,12 +161,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Exploratory Data Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="EDA.html">Performing Exploratory Data Analysis for Student Retention</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_1.html">Explore Control of the school</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_2.html">Explore In state and Out state Tuition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_3.html">Explore Percentage of individuals receiving federal loans</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_4.html">Explore Parent Education</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_5.html">Explore Programs Offered</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EDA_6.html">Feature Analysis on Numerical variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_control_of_school.html">Explore Control of the school</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_in_out_state_tuition.html">Explore In state and Out state Tuition &amp; Fee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_rece_loans.html">Explore Percentage of individuals receiving federal loans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_parent_edu.html">Explore Parent Education</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_program_offered.html">Explore Programs Offered</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EDA_num_var.html">Feature Analysis on Numerical variables</a></li>
 </ul>
 
     </div>
@@ -360,9 +360,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-goal">Project Goal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-instructions">Running Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
             </nav>
         </div>
@@ -377,10 +381,13 @@ document.write(`
   <p><a class="reference external" href="https://classroom.github.com/a/LiaEl886"><img alt="Review Assignment Due Date" src="https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg" /></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="reproducible-research-project-for-institution-retention-rates">
 <h1>Reproducible Research Project for Institution Retention Rates<a class="headerlink" href="#reproducible-research-project-for-institution-retention-rates" title="Permalink to this headline">#</a></h1>
-<p>Binder link: <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>Binder link: <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 <p>Github page: <a class="reference external" href="https://ucb-stat-159-s23.github.io/project-Group11/main.html">https://ucb-stat-159-s23.github.io/project-Group11/</a></p>
 <p>Dataset link: <a class="reference external" href="https://doi.org/10.5281/zenodo.7857257"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.7857257.svg" /></a></p>
+<section id="project-goal">
+<h2>Project Goal<a class="headerlink" href="#project-goal" title="Permalink to this headline">#</a></h2>
 <p>This is a project attempting to analyze the factors that affect student retention at universities in a reproducible manner. We conduct exploratory data analysis, compute feature importance, and implement logistic regression for prediction. The data originates from the U.S. Department of Education College Scoreboard through the Institution-level data files for 1996-97 through 2020-21 containing aggregate data for each institution. The dataset includes information on institutional characteristics, enrollment, student aid, costs, and student outcomes. You can find more information here: <a class="reference external" href="https://collegescorecard.ed.gov/data/">https://collegescorecard.ed.gov/data/</a></p>
+</section>
 <section id="useful-commands">
 <h2>Useful Commands<a class="headerlink" href="#useful-commands" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
@@ -397,8 +404,15 @@ document.write(`
 <li><p>Jupyter Notebooks:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code>: the main narrative notebook of the research project</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">EDA.ipynb</span></code>: code for exploratory data analysis and for EDA related figures</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Variable_Analysis.ipynb</span></code>: code for logistic regression model and their corresponding figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA.ipynb</span></code>: introduction, data description and some basic exploratory data analysis of retention rates</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_control_of_school</span></code>: the code of the control of the school for exploratory data analysis and EDA related figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_in_out_state_tuition</span></code>: the code of in/out state tuition &amp; fee for exploratory data analysis and for EDA related figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_rece_loans</span></code>: the code of individuals receiving federal loans for exploratory data analysis and for EDA related figures of percentage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_parent_edu</span></code>: the code of parent education for exploratory data analysis and for EDA related figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_program_offered</span></code>: the code of programs offered for exploratory data analysis and for EDA related figures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDA_num_var</span></code>: feature analysis on numberical variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variable_Analysis_1.ipynb</span></code>: code for logistic regression model and their corresponding figures of four-year institutions retention rates</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Variable_Analysis_2.ipynb</span></code>: code for logistic regression model and their corresponding figures of less than four-year institutions retention rates</p></li>
 </ul>
 </li>
 <li><p>Python utility package tools:</p>
@@ -448,6 +462,22 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">PRGMOFR</span></code>: Number of programs offered</p></li>
 </ul>
 <p>For more information on the additional variables, please refer to the <a class="reference external" href="https://collegescorecard.ed.gov/data/">Data Dictionary</a>. Make sure to download the <code class="docutils literal notranslate"><span class="pre">Most</span> <span class="pre">Recent</span> <span class="pre">Institution-Level</span> <span class="pre">Data</span></code> data dictionary and you can find all the descriptions of the variables in the <code class="docutils literal notranslate"><span class="pre">Institution_Data_Dictionary</span></code> tab.</p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>To guarantee that the correct environment is in place, execute the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> command. If an outdated version of the environment is already set up, or if you need to modify the environment, activate a separate environment using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> and then execute <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">remove-env</span></code> first to remove the prior setup.</p></li>
+<li><p>After running conda activate <code class="docutils literal notranslate"><span class="pre">final_proj</span></code>, run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">anaconda</span> <span class="pre">pytest</span></code>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">tools</span></code>.</p></li>
+</ol>
+</section>
+<section id="running-instructions">
+<h2>Running Instructions<a class="headerlink" href="#running-instructions" title="Permalink to this headline">#</a></h2>
+<p>To run the main notebook, you have two options: you can either use the provided <a class="reference external" href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb">binder link</a>, or you can <a class="reference external" href="https://github.com/UCB-stat-159-s23/project-Group11.git">clone the repository</a> and run the notebook locally. If you choose to run the notebook locally, we have also included a makefile with instructions to help streamline the process.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">#</a></h2>
+<p>The project is released under the BSD 3-clause License.</p>
 </section>
 </section>
 
@@ -500,9 +530,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-goal">Project Goal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-commands">Useful Commands</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure">Repository Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-attribute-information">Dataset Attribute Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-instructions">Running Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
   </nav></div>
 
