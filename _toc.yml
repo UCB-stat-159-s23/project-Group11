@@ -11,9 +11,9 @@ parts:
 - caption: Exploratory Data Analysis
   chapters:
   - file: EDA
-  - file: EDA_1
-  - file: EDA_2
-  - file: EDA_3
-  - file: EDA_4
-  - file: EDA_5
-  - file: EDA_6
+  - file: EDA_control_of_school
+  - file: EDA_in_out_state_tuition
+  - file: EDA_rece_loans
+  - file: EDA_parent_edu
+  - file: EDA_program_offered
+  - file: EDA_num_var
