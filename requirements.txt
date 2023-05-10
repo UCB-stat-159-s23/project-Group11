@@ -7,3 +7,4 @@ seaborn==0.12
 xarray==2023.1
 scikit-learn==1.2
 pytest==7.1
+jupyter-sphinx=0.4
