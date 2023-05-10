@@ -21,14 +21,14 @@ This is a project attempting to analyze the factors that affect student retentio
 * Jupyter Notebooks:
     - `main.ipynb`: the main narrative notebook of the research project
     - `EDA.ipynb`: introduction, data description and some basic exploratory data analysis of retention rates
-    - `EDA_control_of_school`: code for exploratory data analysis and for EDA related figures of the control of the school
-    - `EDA_in_out_state_tuition`: code for exploratory data analysis and for EDA related figures of in/out state tuition & fee
-    - `EDA_rece_loans`: code for exploratory data analysis and for EDA related figures of percentage of individuals receiving federal loans
-    - `EDA_parent_edu`: code for exploratory data analysis and for EDA related figures of parent education
-    - `EDA_program_offered`: code for exploratory data analysis and for EDA related figures of programs offered
+    - `EDA_control_of_school`: the code of the control of the school for exploratory data analysis and EDA related figures
+    - `EDA_in_out_state_tuition`: the code of in/out state tuition & fee for exploratory data analysis and for EDA related figures
+    - `EDA_rece_loans`: the code of individuals receiving federal loans for exploratory data analysis and for EDA related figures of percentage
+    - `EDA_parent_edu`: the code of parent education for exploratory data analysis and for EDA related figures
+    - `EDA_program_offered`: the code of programs offered for exploratory data analysis and for EDA related figures
     - `EDA_num_var`: feature analysis on numberical variables
-    - `Variable_Analysis_1.ipynb`: code for logistic regression model and their corresponding figures of four-Year institutions retention rates
-    - `Variable_Analysis_2.ipynb`: code for logistic regression model and their corresponding figures of less than four-Year institutions retention rates
+    - `Variable_Analysis_1.ipynb`: code for logistic regression model and their corresponding figures of four-year institutions retention rates
+    - `Variable_Analysis_2.ipynb`: code for logistic regression model and their corresponding figures of less than four-year institutions retention rates
 * Python utility package tools:
     - `/tools`: code and tests for python package
     - Setup files: `setup.py`, `setup.cfg`, `pyproj.toml`
