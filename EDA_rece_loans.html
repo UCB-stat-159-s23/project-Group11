@@ -401,6 +401,35 @@ document.write(`
 <p>Now we will focus on if the percent of all undergraduate students receiving federal student loan affect the the “First-time, full-time student retention rate at four-year institutions” and “First-time, full-time student retention rate at less-than-four-year institutions”. We can filter out the related data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span><span class="p">,</span> <span class="n">standard_units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuition_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;TUITIONFEE_IN&#39;</span><span class="p">,</span><span class="s1">&#39;TUITIONFEE_OUT&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data only with tuition fee of in state and out state, four-year institutions and less than four-year institutions</span>
 <span class="n">percent_loan_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;RET_FT4&#39;</span><span class="p">,</span> <span class="s1">&#39;RET_FTL4&#39;</span><span class="p">,</span> <span class="s1">&#39;PCTFLOAN&#39;</span><span class="p">]]</span>
 <span class="n">percent_loan_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>

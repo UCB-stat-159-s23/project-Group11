@@ -401,6 +401,28 @@ document.write(`
 <p>Notice that of the institutions with data, a large proportion offer only a few programs. Upon close inspection, these appear to be highly specialized trade schools</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span><span class="p">,</span> <span class="n">standard_units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">PRGMOFR</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -714,7 +736,7 @@ INSTNM is the primary key:  False
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c978b2254e0d81f79e19344412fb54b086575f9d0d7f0ab408433aa9e82080de.png" src="_images/c978b2254e0d81f79e19344412fb54b086575f9d0d7f0ab408433aa9e82080de.png" />
+<img alt="_images/0c71aeac142cc4470e5d3dd4d86ea0e82565f3f1ba57155b746d3875b7d89f07.png" src="_images/0c71aeac142cc4470e5d3dd4d86ea0e82565f3f1ba57155b746d3875b7d89f07.png" />
 </div>
 </div>
 <p>Reasons for further exploration:</p>

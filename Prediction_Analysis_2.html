@@ -410,6 +410,27 @@ document.write(`
                   
   <section id="less-than-four-year-retention-rates">
 <h1>Less-than-four-year Retention Rates<a class="headerlink" href="#less-than-four-year-retention-rates" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">filtered_df_two_columns</span><span class="p">,</span> <span class="n">pearson_corr_coef</span><span class="p">,</span> <span class="n">prediction_analysis</span><span class="p">,</span> <span class="n">regression_analysis_results</span><span class="p">,</span> <span class="n">calculate_MSE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="racial-and-ethnic-diversity-analysis">
 <h2>Racial and Ethnic Diversity Analysis<a class="headerlink" href="#racial-and-ethnic-diversity-analysis" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
