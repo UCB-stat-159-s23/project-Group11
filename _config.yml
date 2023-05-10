@@ -3,7 +3,7 @@
 
 title: Analysis of Retention Rates at Four-year and Less-than-four-year Institutions
 author: Janet Choe, Kanglin He, Daniel Richards,Henry Lam
-logo: rentention_rate.png
+logo: figures/rentention_rate.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
