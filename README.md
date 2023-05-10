@@ -68,3 +68,5 @@ This is a project attempting to analyze the factors that affect student retentio
 
 For more information on the additional variables, please refer to the [Data Dictionary](https://collegescorecard.ed.gov/data/). Make sure to download the `Most Recent Institution-Level Data` data dictionary and you can find all the descriptions of the variables in the `Institution_Data_Dictionary` tab.
  
+## License
+The project is released under the BSD 3-clause License.
