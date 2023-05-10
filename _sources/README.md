@@ -67,6 +67,9 @@ This is a project attempting to analyze the factors that affect student retentio
 * `PRGMOFR`: Number of programs offered
 
 For more information on the additional variables, please refer to the [Data Dictionary](https://collegescorecard.ed.gov/data/). Make sure to download the `Most Recent Institution-Level Data` data dictionary and you can find all the descriptions of the variables in the `Institution_Data_Dictionary` tab.
+
+## Running Instructions
+To run the main notebook, you have two options: you can either use the provided [binder link](https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb), or you can [clone the repository](https://github.com/UCB-stat-159-s23/project-Group11.git) and run the notebook locally. If you choose to run the notebook locally, we have also included a makefile with instructions to help streamline the process.
  
 ## License
 The project is released under the BSD 3-clause License.
