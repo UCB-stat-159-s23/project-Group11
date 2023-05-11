@@ -2,12 +2,12 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: README.md
+root: README
 parts:
 - caption: Main
-  chapters:
-  - file: main.ipynb
+  - file: main
 - caption: Prediction Analysis for Student Retention Rates
+  chapters:
   - file: Prediction_Analysis_1
   - file: Prediction_Analysis_2
 - caption: Exploratory Data Analysis
