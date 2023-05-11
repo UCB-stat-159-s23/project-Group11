@@ -222,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11.git/HEAD?labpath=main.ipynb/v2/git/https%3A//github.com/UCB-stat-159-s23/project-Group11/tree/main/main?urlpath=tree/docs/EDA_num_var.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group11/main?urlpath=lab/tree/docs/EDA_num_var.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -253,7 +253,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/UCB-stat-159-s23/project-Group11/tree/main" target="_blank"
+      <li><a href="https://github.com/UCB-stat-159-s23/project-Group11" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -270,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/UCB-stat-159-s23/project-Group11/tree/main/issues/new?title=Issue%20on%20page%20%2FEDA_num_var.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/UCB-stat-159-s23/project-Group11/issues/new?title=Issue%20on%20page%20%2FEDA_num_var.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,6 +399,28 @@ document.write(`
 <p>Within the dataset, there are many variables that include “Privacy Suppressed” values. <strong>Due to the variability of these values, we have to exclude the these variables from the analysis since our dataset will be very small if we wanted to include them.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="kn">from</span> <span class="nn">tools.utils</span> <span class="kn">import</span> <span class="n">combine_columns</span><span class="p">,</span> <span class="n">compute_feature_importance</span><span class="p">,</span> <span class="n">standard_units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Most-Recent-Cohorts-Institution-filtered.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fouryr_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HIGHDEG&#39;</span><span class="p">,</span> <span class="s1">&#39;ADM_RATE&#39;</span><span class="p">,</span> <span class="s1">&#39;ST_FIPS&#39;</span><span class="p">,</span> <span class="s1">&#39;LOCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT_AVG&#39;</span><span class="p">,</span> <span class="s1">&#39;CCUGPROF&#39;</span><span class="p">,</span> <span class="s1">&#39;CCSIZSET&#39;</span><span class="p">,</span>
             <span class="s1">&#39;UGDS_WHITE&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_BLACK&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_HISP&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_ASIAN&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_AIAN&#39;</span> <span class="p">,</span> 
             <span class="s1">&#39;UGDS_NHPI&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_2MOR&#39;</span><span class="p">,</span> <span class="s1">&#39;UGDS_NRA&#39;</span><span class="p">,</span><span class="s1">&#39;UGDS_UNKN&#39;</span><span class="p">,</span> 
@@ -446,152 +468,152 @@ document.write(`
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.265172</td>
+      <td>0.251925</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.137172</td>
+      <td>0.138262</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.074665</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.045421</td>
+      <td>0.084027</td>
     </tr>
     <tr>
       <th>24</th>
       <td>FAMINC</td>
-      <td>0.042259</td>
+      <td>0.055792</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.039094</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>MD_FAMINC</td>
-      <td>0.031908</td>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.048481</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.029531</td>
+      <td>0.036045</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.034190</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>MD_FAMINC</td>
+      <td>0.031441</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.023393</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>TUITIONFEE_OUT</td>
-      <td>0.020327</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>UGDS_UNKN</td>
-      <td>0.019637</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.019119</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.017951</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.017338</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>AGE_ENTRY</td>
-      <td>0.016702</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.016478</td>
+      <td>0.024311</td>
     </tr>
     <tr>
       <th>27</th>
       <td>UGDS_MEN</td>
-      <td>0.016221</td>
+      <td>0.019107</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.018132</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UGDS_UNKN</td>
+      <td>0.017468</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AGE_ENTRY</td>
+      <td>0.017002</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.015627</td>
     </tr>
     <tr>
       <th>12</th>
       <td>UGDS_NHPI</td>
-      <td>0.016034</td>
+      <td>0.015596</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.015369</td>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.015444</td>
     </tr>
     <tr>
       <th>11</th>
       <td>UGDS_AIAN</td>
-      <td>0.014900</td>
+      <td>0.015414</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.014427</td>
     </tr>
     <tr>
       <th>20</th>
       <td>PFTFAC</td>
-      <td>0.013936</td>
+      <td>0.013866</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.013757</td>
+      <th>17</th>
+      <td>TUITIONFEE_OUT</td>
+      <td>0.013818</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>UGDS_HISP</td>
-      <td>0.013619</td>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.013761</td>
     </tr>
     <tr>
       <th>2</th>
       <td>ST_FIPS</td>
-      <td>0.013389</td>
+      <td>0.013431</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>UGDS_HISP</td>
+      <td>0.013159</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.012983</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.012967</td>
+      <td>0.012859</td>
     </tr>
     <tr>
       <th>0</th>
       <td>HIGHDEG</td>
-      <td>0.012293</td>
+      <td>0.012233</td>
     </tr>
     <tr>
       <th>13</th>
       <td>UGDS_2MOR</td>
-      <td>0.012164</td>
+      <td>0.012126</td>
     </tr>
     <tr>
       <th>16</th>
       <td>TUITIONFEE_IN</td>
-      <td>0.011019</td>
+      <td>0.011745</td>
     </tr>
     <tr>
       <th>3</th>
       <td>LOCALE</td>
-      <td>0.009421</td>
+      <td>0.008975</td>
     </tr>
     <tr>
       <th>26</th>
       <td>ADMCON7</td>
-      <td>0.008745</td>
+      <td>0.008351</td>
     </tr>
   </tbody>
 </table>
@@ -647,142 +669,142 @@ document.write(`
     <tr>
       <th>9</th>
       <td>UGDS_HISP</td>
-      <td>0.138890</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>UGDS_AIAN</td>
-      <td>0.116873</td>
+      <td>0.127525</td>
     </tr>
     <tr>
       <th>5</th>
       <td>CCUGPROF</td>
-      <td>0.111193</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>UGDS_BLACK</td>
-      <td>0.096175</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>UGDS_NHPI</td>
-      <td>0.087133</td>
+      <td>0.104900</td>
     </tr>
     <tr>
       <th>14</th>
       <td>UGDS_NRA</td>
-      <td>0.066514</td>
+      <td>0.101073</td>
     </tr>
     <tr>
-      <th>29</th>
-      <td>ANP</td>
-      <td>0.044462</td>
+      <th>12</th>
+      <td>UGDS_NHPI</td>
+      <td>0.098338</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>LOCALE</td>
-      <td>0.039586</td>
+      <th>11</th>
+      <td>UGDS_AIAN</td>
+      <td>0.082627</td>
     </tr>
     <tr>
       <th>18</th>
       <td>INEXPFTE</td>
-      <td>0.038352</td>
+      <td>0.064682</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>PCTPELL</td>
-      <td>0.021900</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>UGDS_WOMEN</td>
-      <td>0.020149</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>PCTFLOAN</td>
-      <td>0.020011</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>UGDS_2MOR</td>
-      <td>0.019944</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>ADMCON7</td>
-      <td>0.019851</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>TUITIONFEE_IN</td>
-      <td>0.018994</td>
+      <th>8</th>
+      <td>UGDS_BLACK</td>
+      <td>0.056532</td>
     </tr>
     <tr>
       <th>19</th>
       <td>AVGFACSAL</td>
-      <td>0.018737</td>
+      <td>0.043537</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>ADM_RATE</td>
-      <td>0.017313</td>
+      <th>29</th>
+      <td>ANP</td>
+      <td>0.039380</td>
     </tr>
     <tr>
       <th>17</th>
       <td>TUITIONFEE_OUT</td>
-      <td>0.017275</td>
+      <td>0.028478</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>ADMCON7</td>
+      <td>0.024814</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LOCALE</td>
+      <td>0.023343</td>
     </tr>
     <tr>
       <th>27</th>
       <td>UGDS_MEN</td>
-      <td>0.015308</td>
+      <td>0.022833</td>
     </tr>
     <tr>
       <th>4</th>
       <td>SAT_AVG</td>
-      <td>0.014505</td>
+      <td>0.020617</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>ST_FIPS</td>
-      <td>0.013216</td>
+      <th>13</th>
+      <td>UGDS_2MOR</td>
+      <td>0.019967</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>UGDS_WOMEN</td>
+      <td>0.019036</td>
     </tr>
     <tr>
       <th>23</th>
       <td>AGE_ENTRY</td>
-      <td>0.012268</td>
+      <td>0.016918</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>TUITIONFEE_IN</td>
+      <td>0.016467</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ADM_RATE</td>
+      <td>0.016071</td>
     </tr>
     <tr>
       <th>15</th>
       <td>UGDS_UNKN</td>
-      <td>0.011303</td>
+      <td>0.013840</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>CCSIZSET</td>
-      <td>0.005705</td>
+      <th>2</th>
+      <td>ST_FIPS</td>
+      <td>0.013370</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>UGDS_WHITE</td>
-      <td>0.005161</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>PFTFAC</td>
-      <td>0.004138</td>
+      <th>22</th>
+      <td>PCTFLOAN</td>
+      <td>0.012931</td>
     </tr>
     <tr>
       <th>10</th>
       <td>UGDS_ASIAN</td>
-      <td>0.003474</td>
+      <td>0.012137</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CCSIZSET</td>
+      <td>0.007103</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>PFTFAC</td>
+      <td>0.005756</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>PCTPELL</td>
+      <td>0.004512</td>
     </tr>
     <tr>
       <th>25</th>
       <td>MD_FAMINC</td>
-      <td>0.001270</td>
+      <td>0.001694</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>UGDS_WHITE</td>
+      <td>0.001222</td>
     </tr>
     <tr>
       <th>24</th>

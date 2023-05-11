@@ -2,10 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: README
+root: main
 parts:
-- caption: Main
-  - file: main
 - caption: Prediction Analysis for Student Retention Rates
   chapters:
   - file: Prediction_Analysis_1
